@@ -83,7 +83,7 @@ const BusinessShowcaseSection = ({
             }`}
           >
             <a
-              href="#"
+              href="https://alnassaj.com/"
               className="business-showcase-button"
               aria-label={currentContent.button_text}
             >

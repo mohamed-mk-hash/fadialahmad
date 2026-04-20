@@ -87,15 +87,6 @@ const HeroStorySection = ({ lang = "en", heroContent = fallbackHeroContent }) =>
         </div>
 
         <div className={`hero-story-stats ${animateContent ? "content-switch" : ""}`}>
-          <div className="hero-story-stat">
-            <h3>400+</h3>
-            <p>{currentContent.stat_one}</p>
-          </div>
-
-          <div className="hero-story-stat">
-            <h3>400+</h3>
-            <p>{currentContent.stat_two}</p>
-          </div>
         </div>
       </div>
     </section>
