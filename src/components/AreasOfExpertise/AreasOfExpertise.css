@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;800&display=swap');
+
+.expertise-section {
+  width: 100%;
+  padding: 28px 0 42px;
+  font-family: 'Lato', sans-serif;
+}
+
+.expertise-wrapper {
+  width: calc(100% - 84px);
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #F5F8FA;
+  border-radius: 20px;
+  padding: 42px 40px 46px;
+}
+
+.expertise-title {
+  margin: 0 0 40px;
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #101828;
+  letter-spacing: -0.5px;
+}
+
+.expertise-content {
+  display: grid;
+  grid-template-columns: 1fr 1.02fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.expertise-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.expertise-shape-box {
+  flex: 0 0 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.expertise-shape {
+  width: 30px;
+  height: 470px;
+  object-fit: cover;
+  display: block;
+}
+
+.expertise-texts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.expertise-item h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: #101828;
+}
+
+.expertise-item p {
+  margin: 0;
+  max-width: 560px;
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: #475467;
+}
+
+.expertise-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.expertise-top-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.expertise-img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.top-img {
+  height: 240px;
+}
+
+.bottom-img {
+  height: 225px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .expertise-content {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise-item p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .expertise-section {
+    padding: 20px 0 30px;
+  }
+
+  .expertise-wrapper {
+    width: calc(100% - 28px);
+    padding: 28px 18px 30px;
+    border-radius: 16px;
+  }
+
+  .expertise-title {
+    font-size: 25px;
+    margin-bottom: 26px;
+  }
+
+
+  .expertise-shape {
+    width: 22px;
+    height: 420px;
+  }
+
+  .expertise-texts {
+    gap: 26px;
+    left: -20px !important;
+  }
+
+  .expertise-item h3 {
+    font-size: 17px;
+  }
+
+  .expertise-item p {
+    font-size: 13px;
+  }
+
+  .expertise-top-images {
+    grid-template-columns: 1fr;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .expertise-bottom-image {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .top-img,
+  .bottom-img {
+    height: auto;
+  }
+}

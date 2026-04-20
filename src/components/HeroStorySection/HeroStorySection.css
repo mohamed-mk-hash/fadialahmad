@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700;800;900&display=swap");
+
+.hero-story-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 26px 0 34px;
+  font-family: "Lato", sans-serif;
+}
+
+.hero-story-container {
+  position: relative;
+  max-width: 1400px;
+  min-height: 620px;
+  margin: 0 auto;
+  padding: 44px 44px 36px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.hero-story-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-story-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.68) 0%,
+    rgba(0, 0, 0, 0.54) 34%,
+    rgba(0, 0, 0, 0.3) 62%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+.hero-story-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 18px 0;
+}
+
+.hero-story-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 8px;
+  padding: 6px 14px;
+  margin-bottom: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.hero-story-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.hero-story-title {
+  margin: 0 0 26px;
+  max-width: 720px;
+  color: #ffffff;
+  font-size: 58px;
+  line-height: 1.28;
+  font-weight: 700;
+  letter-spacing: -1.2px;
+}
+
+.hero-story-text {
+  max-width: 720px;
+  margin: 0 0 40px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 22px;
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.hero-story-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-story-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  height: 50px;
+  padding: 0 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.hero-story-btn-primary {
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid #ffffff;
+}
+
+.hero-story-btn-primary:hover {
+  background-color: #f2f2f2;
+}
+
+.hero-story-btn-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.hero-story-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.hero-story-stats {
+  position: relative;
+  z-index: 3;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 28px;
+  padding: 8px 8px 8px 0;
+}
+
+.hero-story-stat {
+  text-align: right;
+}
+
+.hero-story-stat h3 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 46px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.hero-story-stat p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* ===== RTL: فقط البادج والأزرار يمين ===== */
+
+.hero-story-section[dir="rtl"] {
+  font-family: "Alexandria", sans-serif;
+}
+
+.hero-story-section[dir="rtl"] .hero-story-content {
+  align-items: stretch;
+  text-align: right;
+}
+
+.hero-story-section[dir="rtl"] .hero-story-badge {
+    width: fit-content;
+  margin-bottom: 30px;
+}
+
+.hero-story-section[dir="rtl"] .hero-story-title {
+  text-align: right;
+  line-height: 1.4;
+  letter-spacing: 0;
+  margin-bottom: 28px;
+}
+
+.hero-story-section[dir="rtl"] .hero-story-text {
+  text-align: right;
+  line-height: 1.95;
+  margin-bottom: 42px;
+}
+
+.hero-story-section[dir="rtl"] .hero-story-actions {
+  margin-top: 4px;
+}
+
+.hero-story-section[dir="rtl"] .hero-story-stats {
+  align-items: flex-end;
+}
+
+.hero-story-section[dir="rtl"] .hero-story-stat {
+  text-align: right;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1200px) {
+  .hero-story-container {
+    min-height: 560px;
+    padding: 34px 28px;
+  }
+
+  .hero-story-title {
+    font-size: 48px;
+    max-width: 660px;
+  }
+
+  .hero-story-text {
+    max-width: 580px;
+    font-size: 18px;
+  }
+
+  .hero-story-stat h3 {
+    font-size: 38px;
+  }
+
+  .hero-story-stat p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-story-container {
+    min-height: 540px;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 24px;
+  }
+
+  .hero-story-content {
+    max-width: 100%;
+  }
+
+  .hero-story-stats {
+    width: 100%;
+    min-width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 26px;
+    padding: 0;
+  }
+
+  .hero-story-stat {
+    text-align: left;
+  }
+
+  .hero-story-section[dir="rtl"] .hero-story-stat {
+    text-align: right;
+  }
+
+  .hero-story-section[dir="rtl"] .hero-story-actions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-story-section {
+    padding: 18px 0 26px;
+  }
+
+  .hero-story-container {
+    min-height: 520px;
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .hero-story-title {
+    font-size: 32px;
+    line-height: 1.35;
+    margin-bottom: 18px;
+  }
+
+  .hero-story-text {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 26px;
+  }
+
+  .hero-story-actions {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-story-btn {
+    min-width: 120px;
+    height: 44px;
+    font-size: 13px;
+    padding: 0 18px;
+  }
+
+  .hero-story-stats {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .hero-story-stat h3 {
+    font-size: 30px;
+  }
+
+  .hero-story-stat p {
+    font-size: 13px;
+  }
+
+  .hero-story-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-story-container {
+    min-height: 470px;
+    padding: 22px 14px;
+  }
+
+  .hero-story-title {
+    font-size: 26px;
+  }
+
+  .hero-story-text {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .hero-story-btn {
+    width: auto;
+  }
+
+  .hero-story-stats {
+    gap: 14px;
+  }
+
+  .hero-story-stat h3 {
+    font-size: 26px;
+  }
+}
+
+.expertise-section[dir="rtl"] {
+  font-family: "Alexandria", sans-serif;
+}

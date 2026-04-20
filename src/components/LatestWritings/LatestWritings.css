@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Lato:wght@300;400;500;700;800&display=swap");
+
+.latest-writings-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 90px 0 70px;
+  font-family: "Lato", sans-serif;
+}
+
+.latest-writings-section[dir="rtl"] {
+  font-family: "Alexandria", sans-serif;
+}
+
+.latest-writings-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.latest-writings-title {
+  margin: 0;
+  font-size: 35px !important;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #101828;
+}
+
+.latest-writings-subtitle {
+  margin: 26px 0 56px;
+  font-size: 15px !important;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #475467;
+  max-width: 900px;
+}
+
+.latest-writings-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  direction: ltr;
+}
+
+.latest-writings-swiper {
+  width: 100%;
+  overflow: visible;
+  direction: ltr;
+}
+
+.writing-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.writing-card-image-box {
+  width: 100%;
+  overflow: hidden;
+  background: #f2f4f7;
+}
+
+.writing-card-image {
+  width: 350px;
+  height: 250px !important;
+  object-fit: cover;
+  display: block;
+}
+
+.writing-card-content {
+  padding-top: 24px;
+}
+
+.writing-card-meta {
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px !important;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #6941c6;
+}
+
+.writing-dot {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.writing-card-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.writing-card-title {
+  margin: 0;
+  font-size: 20px !important;
+  line-height: 1.28;
+  font-weight: 800;
+  color: #101828;
+  flex: 1;
+}
+
+.writing-card-arrow-link {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.writing-card-arrow {
+  font-size: 24px;
+  line-height: 1;
+  color: #101828;
+  font-weight: 400;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.writing-card-arrow-link:hover .writing-card-arrow {
+  opacity: 0.8;
+}
+
+.writing-card-description {
+  margin: 0;
+  font-size: 13px !important;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #475467;
+  max-width: 95%;
+}
+
+.latest-writings-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-top: 56px;
+  direction: ltr;
+}
+
+.latest-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.latest-arrow-btn img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+}
+
+.latest-arrow-btn:hover {
+  transform: translateY(-2px);
+  border-color: #98a2b3;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+}
+
+.latest-arrow-btn:active {
+  transform: translateY(0);
+}
+
+/* Large screens */
+@media (max-width: 1600px) {
+  .latest-writings-title {
+    font-size: 56px;
+  }
+
+  .latest-writings-subtitle {
+    font-size: 23px;
+    margin-bottom: 48px;
+  }
+
+  .writing-card-image {
+    height: 300px;
+  }
+
+  .writing-card-title {
+    font-size: 22px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1200px) {
+  .latest-writings-section {
+    padding: 70px 0 60px;
+  }
+
+  .latest-writings-container {
+    padding: 0 24px;
+  }
+
+  .latest-writings-title {
+    font-size: 44px;
+  }
+
+  .latest-writings-subtitle {
+    font-size: 19px;
+    margin: 20px 0 40px;
+  }
+
+  .writing-card-image {
+    height: 260px;
+  }
+
+  .writing-card-content {
+    padding-top: 20px;
+  }
+
+  .writing-card-title {
+    font-size: 21px;
+  }
+
+  .writing-card-description {
+    font-size: 17px;
+  }
+
+  .latest-writings-arrows {
+    margin-top: 42px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .latest-writings-section {
+    padding: 55px 0 45px;
+  }
+
+  .latest-writings-container {
+    padding: 0 18px;
+  }
+
+  .latest-writings-title {
+    font-size: 34px;
+  }
+
+  .latest-writings-subtitle {
+    font-size: 17px;
+    margin: 16px 0 32px;
+  }
+
+  .writing-card-image {
+    height: 220px;
+  }
+
+  .writing-card-meta {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .writing-card-title {
+    font-size: 20px;
+  }
+
+  .writing-card-arrow {
+    font-size: 20px;
+  }
+
+  .writing-card-description {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .latest-writings-arrows {
+    gap: 18px;
+    margin-top: 34px;
+  }
+
+  .latest-arrow-btn {
+    width: 50px;
+    height: 50px;
+  }
+}

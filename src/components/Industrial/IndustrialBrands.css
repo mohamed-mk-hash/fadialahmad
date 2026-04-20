@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+.industrial-brands {
+  width: 100%;
+  background-color: #5c90b1;
+  padding: 36px 0 30px;
+  overflow: hidden;
+}
+
+.industrial-brands__container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.industrial-brands__title {
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.industrial-brands__slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  direction: ltr;
+}
+
+.industrial-brands__track {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  width: max-content;
+  direction: ltr;
+  animation: logoMarquee 22s linear infinite;
+  will-change: transform;
+}
+
+.industrial-brands__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.industrial-brands__logo {
+  height: 78px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+@keyframes logoMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 35px));
+  }
+}
+
+@media (max-width: 991px) {
+  .industrial-brands__track {
+    gap: 50px;
+    animation-duration: 18s;
+  }
+
+  .industrial-brands__logo {
+    height: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .industrial-brands {
+    padding: 28px 0 22px;
+  }
+
+  .industrial-brands__title {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .industrial-brands__track {
+    gap: 35px;
+    animation-duration: 16s;
+  }
+
+  .industrial-brands__logo {
+    height: 46px;
+  }
+}

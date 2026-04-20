@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700;800;900&display=swap");
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  transition: all 0.35s ease;
+}
+
+body.arabic-mode {
+  font-family: "Alexandria", sans-serif;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.rtl-mode {
+  direction: rtl;
+}
+
+.ltr-mode {
+  direction: ltr;
+}

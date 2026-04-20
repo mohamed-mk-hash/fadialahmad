@@ -1,0 +1,24 @@
+{
+  "ar": {
+    "badge": "قصص نجاح حقيقية",
+    "title": "نبني حضوراً رقمياً يعبّر عنك ويصنع فرقاً",
+    "description": "نساعدك على تقديم خبرتك وأعمالك بصورة احترافية من خلال محتوى قوي وهوية رقمية واضحة ومؤثرة.",
+    "primaryButtonText": "تواصل الآن",
+    "secondaryButtonText": "اعرف المزيد",
+    "primaryButtonLink": "#contact",
+    "secondaryButtonLink": "#biography",
+    "stat_one": "مشروع مكتمل",
+    "stat_two": "شراكة ناجحة"
+  },
+  "en": {
+    "badge": "Real Success Stories",
+    "title": "We build a digital presence that reflects your value",
+    "description": "We help you present your expertise and work professionally through strong content and a clear, impactful digital identity.",
+    "primaryButtonText": "Contact Now",
+    "secondaryButtonText": "Learn More",
+    "primaryButtonLink": "#contact",
+    "secondaryButtonLink": "#biography",
+    "stat_one": "Projects completed",
+    "stat_two": "Successful partnerships"
+  }
+}

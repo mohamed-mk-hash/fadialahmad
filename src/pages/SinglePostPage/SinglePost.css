@@ -1,0 +1,567 @@
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&display=swap");
+
+.single-post-page {
+  min-height: 100vh;
+  padding: 24px 0 40px;
+  font-family: "Lato", sans-serif;
+}
+
+.single-post-page[dir="rtl"] {
+  font-family: "Alexandria", sans-serif;
+  direction: rtl;
+}
+
+.post-hero {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.single-post-page[dir="rtl"] .post-hero {
+  direction: rtl;
+  text-align: center;
+}
+
+.post-date {
+  margin: 0 0 12px;
+  font-size: 14px;
+  margin-top: 50px !important;
+  font-weight: 600;
+  color: #5f88a8;
+  line-height: 1.4;
+}
+
+.single-post-page[dir="rtl"] .post-date {
+  font-family: "Alexandria", sans-serif;
+}
+
+.post-title {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #1f1f1f;
+}
+
+.single-post-page[dir="rtl"] .post-title {
+  font-family: "Alexandria", sans-serif;
+}
+
+.post-subtitle {
+  max-width: 650px;
+  margin: 12px auto 34px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #4b4b4b;
+}
+
+.single-post-page[dir="rtl"] .post-subtitle {
+  font-family: "Alexandria", sans-serif;
+}
+
+.post-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.post-image {
+  width: 100%;
+  max-width: 1030px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .post-title {
+    font-size: 24px;
+  }
+
+  .post-subtitle {
+    max-width: 580px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .single-post-page {
+    padding: 20px 0 30px;
+  }
+
+  .post-hero {
+    padding: 0 16px;
+  }
+
+  .post-title {
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
+  .post-subtitle {
+    margin: 10px auto 24px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .post-date {
+    font-size: 11px;
+  }
+}
+
+.post-content {
+  max-width: 760px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.single-post-page[dir="rtl"] .post-content {
+  direction: rtl;
+  text-align: right;
+}
+
+.post-section-title {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  margin-top: 100px !important;
+  color: #1f1f1f;
+}
+
+.single-post-page[dir="rtl"] .post-section-title {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.post-section-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  color: #1f1f1f;
+}
+
+.single-post-page[dir="rtl"] .post-section-subtitle {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.post-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b4b4b;
+  margin-bottom: 16px;
+}
+
+.single-post-page[dir="rtl"] .post-text {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.post-inner-image {
+  margin: 24px 0;
+}
+
+.post-inner-image img {
+  width: 80%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-caption {
+  font-size: 13px;
+  color: #777;
+  margin-top: 15px;
+  margin-bottom: 50px !important;
+}
+
+.single-post-page[dir="rtl"] .image-caption {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.post-quote {
+  border-left: 3px solid #5f88a8;
+  padding-left: 16px;
+  margin-top: 60px !important;
+  margin-bottom: 60px !important;
+  margin: 24px 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.7;
+  color: #1f1f1f;
+}
+
+.single-post-page[dir="rtl"] .post-quote {
+  font-family: "Alexandria", sans-serif;
+  border-left: none;
+  border-right: 3px solid #5f88a8;
+  padding-left: 0;
+  padding-right: 16px;
+  text-align: right;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-style: normal;
+  color: #666;
+}
+
+.single-post-page[dir="rtl"] .quote-author {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.post-list {
+  margin: 16px 0 0;
+  padding-left: 18px;
+}
+
+.single-post-page[dir="rtl"] .post-list {
+  padding-left: 0;
+  padding-right: 18px;
+  text-align: right;
+}
+
+.post-list li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #4b4b4b;
+}
+
+.single-post-page[dir="rtl"] .post-list li {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.post-extra {
+  max-width: 760px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.single-post-page[dir="rtl"] .post-extra {
+  direction: rtl;
+  text-align: right;
+}
+
+.post-inner-image.large img {
+  width: 80%;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.post-conclusion {
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 24px 0;
+}
+
+.single-post-page[dir="rtl"] .post-conclusion {
+  text-align: right;
+}
+
+.post-conclusion h3 {
+  margin-bottom: 12px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.single-post-page[dir="rtl"] .post-conclusion h3 {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.post-conclusion p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #3A2B1F;
+  font-weight: 400;
+}
+
+.single-post-page[dir="rtl"] .post-conclusion p {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.post-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.single-post-page[dir="rtl"] .post-author {
+  direction: rtl;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.single-post-page[dir="rtl"] .author-info {
+  direction: rtl;
+}
+
+.author-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.author-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.single-post-page[dir="rtl"] .author-name {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.author-role {
+  margin: 0;
+  font-size: 12px;
+  color: #777;
+}
+
+.single-post-page[dir="rtl"] .author-role {
+  font-family: "Alexandria", sans-serif;
+  text-align: right;
+}
+
+.author-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.single-post-page[dir="rtl"] .author-actions {
+  direction: rtl;
+}
+
+.copy-btn {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.single-post-page[dir="rtl"] .copy-btn {
+  font-family: "Alexandria", sans-serif;
+}
+
+.socials span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.single-post-page[dir="rtl"] .socials span {
+  margin-left: 0;
+  margin-right: 6px;
+}
+
+.copy-btn,
+.socials span {
+  transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border-color: #1f1f1f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.socials span:hover {
+  background-color: #5f88a8;
+  color: #ffffff;
+  border-color: #5f88a8;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 18px rgba(95, 136, 168, 0.2);
+}
+
+/* ===== Dynamic HTML content from Firebase ===== */
+
+.post-rich-content {
+  text-align: left;
+}
+
+.single-post-page[dir="rtl"] .post-rich-content {
+  direction: rtl;
+  text-align: right;
+  font-family: "Alexandria", sans-serif;
+}
+
+.post-rich-content h1,
+.post-rich-content h2,
+.post-rich-content h3,
+.post-rich-content h4,
+.post-rich-content h5,
+.post-rich-content h6 {
+  color: #1f1f1f;
+}
+
+.post-rich-content h2 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  margin-top: 100px !important;
+  color: #1f1f1f;
+}
+
+.post-rich-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  color: #1f1f1f;
+}
+
+.post-rich-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b4b4b;
+  margin-bottom: 16px;
+}
+
+.post-rich-content blockquote {
+  border-left: 3px solid #5f88a8;
+  padding-left: 16px;
+  margin-top: 60px !important;
+  margin-bottom: 60px !important;
+  margin: 24px 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.7;
+  color: #1f1f1f;
+}
+
+.single-post-page[dir="rtl"] .post-rich-content blockquote {
+  border-left: none;
+  border-right: 3px solid #5f88a8;
+  padding-left: 0;
+  padding-right: 16px;
+  text-align: right;
+}
+
+.post-rich-content blockquote .quote-author,
+.post-rich-content blockquote span {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-style: normal;
+  color: #666;
+}
+
+.single-post-page[dir="rtl"] .post-rich-content blockquote .quote-author,
+.single-post-page[dir="rtl"] .post-rich-content blockquote span {
+  text-align: right;
+}
+
+.post-rich-content ol,
+.post-rich-content ul {
+  margin: 16px 0 0;
+  padding-left: 18px;
+}
+
+.single-post-page[dir="rtl"] .post-rich-content ol,
+.single-post-page[dir="rtl"] .post-rich-content ul {
+  padding-left: 0;
+  padding-right: 18px;
+}
+
+.post-rich-content li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #4b4b4b;
+}
+
+.single-post-page[dir="rtl"] .post-rich-content li,
+.single-post-page[dir="rtl"] .post-rich-content h1,
+.single-post-page[dir="rtl"] .post-rich-content h2,
+.single-post-page[dir="rtl"] .post-rich-content h3,
+.single-post-page[dir="rtl"] .post-rich-content h4,
+.single-post-page[dir="rtl"] .post-rich-content h5,
+.single-post-page[dir="rtl"] .post-rich-content h6,
+.single-post-page[dir="rtl"] .post-rich-content p {
+  text-align: right;
+  font-family: "Alexandria", sans-serif;
+}
+
+.post-rich-content .post-conclusion {
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 24px 0;
+}
+
+.post-rich-content .post-conclusion h3 {
+  margin-bottom: 12px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.post-rich-content .post-conclusion p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #3A2B1F;
+  font-weight: 400;
+}
+
+.single-post-page[dir="rtl"] .post-rich-content .post-conclusion,
+.single-post-page[dir="rtl"] .post-rich-content .post-conclusion h3,
+.single-post-page[dir="rtl"] .post-rich-content .post-conclusion p {
+  text-align: right;
+  font-family: "Alexandria", sans-serif;
+}
+
+@media (max-width: 576px) {
+  .post-rich-content h2 {
+    font-size: 22px;
+    margin-top: 60px !important;
+  }
+
+  .post-rich-content h3 {
+    font-size: 17px;
+  }
+
+  .post-rich-content p {
+    font-size: 14px;
+  }
+
+  .post-rich-content blockquote {
+    font-size: 16px;
+  }
+
+  .post-rich-content .post-conclusion h3 {
+    font-size: 22px;
+  }
+}

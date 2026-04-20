@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Lato:wght@300;400;500;700;800&display=swap");
+
+.success-stories-section {
+  width: 100%;
+  background: #F9FAFB;
+  padding: 90px 0 70px;
+  font-family: "Lato", sans-serif;
+  overflow: hidden;
+}
+
+.success-stories-section[dir="rtl"] {
+  font-family: "Alexandria", sans-serif;
+}
+
+.success-stories-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+.success-top-logo {
+  position: absolute;
+  top: -40px;
+  right: 75px;
+  width: 122px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.success-right-shape {
+  position: absolute;
+  top: -98px;
+  right: 45px;
+  width: 35px;
+  height: auto;
+  object-fit: contain;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 70%;
+}
+
+.success-stories-title,
+.success-stories-subtitle,
+.success-stories-slider-wrapper,
+.success-stories-arrows {
+  position: relative;
+  z-index: 2;
+}
+
+.success-stories-title {
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #101828;
+}
+
+.success-stories-subtitle {
+  margin: 22px 0 46px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #475467;
+  max-width: 880px;
+}
+
+.success-stories-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  direction: ltr;
+}
+
+.success-stories-swiper {
+  width: 100%;
+  overflow: visible;
+  direction: ltr;
+}
+
+.success-stories-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.success-slide-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.success-story-card {
+  width: 100%;
+  min-height: 350px;
+  height: 100%;
+  border-radius: 22px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+}
+
+.success-story-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 150%;
+  height: 150%;
+  transform: none;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.success-story-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 16, 30, 0.05) 0%,
+    rgba(10, 16, 30, 0.10) 100%
+  );
+  z-index: 1;
+}
+
+.success-story-header,
+.success-story-content {
+  position: relative;
+  z-index: 2;
+}
+
+.success-story-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.success-story-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.success-story-header h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.success-story-content {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 16px;
+  padding: 18px 16px;
+  box-sizing: border-box;
+}
+
+.success-story-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.success-story-quote {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #ffffff;
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+.success-stories-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-top: 34px;
+  direction: ltr;
+}
+
+.success-arrow-btn {
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.success-arrow-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.success-arrow-btn:hover {
+  transform: translateY(-2px);
+  border-color: #98a2b3;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+}
+
+.success-arrow-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 1600px) {
+  .success-stories-title {
+    font-size: 50px;
+  }
+
+  .success-stories-subtitle {
+    font-size: 20px;
+  }
+
+  .success-top-logo {
+    right: 80px;
+    width: 84px;
+  }
+
+  .success-right-shape {
+    right: 26px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .success-stories-section {
+    padding: 70px 0 60px;
+  }
+
+  .success-stories-container {
+    padding: 0 24px;
+  }
+
+  .success-top-logo {
+    width: 72px;
+    right: 55px;
+    top: 10px;
+  }
+
+  .success-right-shape {
+    width: 18px;
+    right: 14px;
+    top: 72px;
+  }
+
+  .success-stories-title {
+    font-size: 42px;
+  }
+
+  .success-stories-subtitle {
+    font-size: 18px;
+    margin: 18px 0 36px;
+  }
+
+  .success-story-card {
+    min-height: 285px;
+    padding: 20px 18px;
+  }
+
+  .success-story-header h3 {
+    font-size: 17px;
+  }
+
+  .success-story-badge {
+    font-size: 15px;
+  }
+
+  .success-story-quote {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .success-stories-section {
+    padding: 55px 0 45px;
+  }
+
+  .success-stories-container {
+    padding: 0 18px;
+  }
+
+  .success-story-bg-image {
+  width: 100%;
+  }
+
+  .success-top-logo {
+    width: 56px;
+    right: 34px;
+    top: 6px;
+    opacity: 0.14;
+  }
+
+  .success-right-shape {
+    width: 14px;
+    right: 6px;
+    top: 56px;
+  }
+
+  .success-stories-title {
+    font-size: 34px;
+  }
+
+  .success-stories-subtitle {
+    font-size: 16px;
+    margin: 14px 0 28px;
+    max-width: 100%;
+  }
+
+  .success-story-card {
+    min-height: 270px;
+    border-radius: 18px;
+    padding: 18px 16px;
+  }
+
+  .success-story-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .success-story-header h3 {
+    font-size: 16px;
+  }
+
+  .success-story-content {
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
+
+  .success-story-badge {
+    font-size: 13px;
+    padding: 8px 12px;
+    margin-bottom: 14px;
+  }
+
+  .success-story-quote {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .success-stories-arrows {
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .success-arrow-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .success-arrow-btn img {
+    width: 20px;
+    height: 20px;
+  }
+}
