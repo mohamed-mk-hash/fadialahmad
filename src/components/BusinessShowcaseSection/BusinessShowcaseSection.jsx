@@ -83,34 +83,36 @@ const BusinessShowcaseSection = ({
             }`}
           >
             <a
-              href="https://alnassaj.com/"
-              className="business-showcase-button"
-              aria-label={currentContent.button_text}
-            >
-              <span>{currentContent.button_text}</span>
+  href="https://alnassaj.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="business-showcase-button"
+  aria-label={currentContent.button_text}
+>
+  <span>{currentContent.button_text}</span>
 
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M5 12H19"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M13 6L19 12L13 18"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    <path
+      d="M5 12H19"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M13 6L19 12L13 18"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</a>
           </div>
         </div>
 
