@@ -50,7 +50,6 @@ const LatestWritings = ({ lang = "en" }) => {
     }
   };
 
-  // ✅ FIXED DATE (string instead of Firestore timestamp)
   const formatDate = (dateString, currentLang) => {
     if (!dateString) return "";
 
@@ -70,7 +69,6 @@ const LatestWritings = ({ lang = "en" }) => {
   useEffect(() => {
     const fetchLatestWritingsData = async () => {
       try {
-        // ✅ GET FROM JSON FILES
         const [contentRes, postsRes] = await Promise.all([
           fetch("/data/siteContent.json"),
           fetch("/data/posts.json"),
@@ -79,15 +77,16 @@ const LatestWritings = ({ lang = "en" }) => {
         const contentData = await contentRes.json();
         const postsData = await postsRes.json();
 
-        // content
         setLatestWritingsContent({
           ar: contentData.articles?.ar || { title: "", description: "" },
           en: contentData.articles?.en || { title: "", description: "" },
         });
 
-        // posts (same structure you already use)
         const filteredPosts = postsData
-          .filter((item) => item.status === "published")
+          .filter(
+            (item) =>
+              item.status === "published" && item.category === "article"
+          )
           .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
           .slice(0, 8);
 
@@ -174,9 +173,7 @@ const LatestWritings = ({ lang = "en" }) => {
                       <p className="writing-card-meta">
                         <span>{lang === "ar" ? "مقال" : "Article"}</span>
                         <span className="writing-dot">•</span>
-                        <span>
-                          {formatDate(item.publishedAt, lang)}
-                        </span>
+                        <span>{formatDate(item.publishedAt, lang)}</span>
                       </p>
 
                       <div className="writing-card-title-row">

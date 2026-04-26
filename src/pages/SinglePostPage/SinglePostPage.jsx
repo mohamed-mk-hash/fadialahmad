@@ -1,8 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./SinglePost.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LatestWritings from "../../components/LatestWritings/LatestWritings";
-import profileimage from '../../assets/About_me_center.png'
+import profileimage from "../../assets/About_me_center.png";
+
+const pageText = {
+  en: {
+    loading: "Loading...",
+    notFound: "Post not found",
+    published: "Published",
+    category: "Category",
+    readTime: "min read",
+    tags: "Tags",
+    eventStart: "Event start",
+    eventEnd: "Event end",
+    source: "Source",
+    sourceDate: "Source date",
+    videoChannel: "Channel",
+    videoDate: "Video date",
+    watchVideo: "Watch video",
+    copyLink: "Copy link",
+    authorRole: "Post author",
+    latestTitle: "Latest articles",
+    categoryLabels: {
+      article: "Article",
+      news: "News",
+      event: "Event",
+      media: "Media",
+      interview: "Interview",
+    },
+  },
+  ar: {
+    loading: "جارٍ التحميل...",
+    notFound: "المنشور غير موجود",
+    published: "نُشر في",
+    category: "التصنيف",
+    readTime: "دقائق قراءة",
+    tags: "الوسوم",
+    eventStart: "بداية الفعالية",
+    eventEnd: "نهاية الفعالية",
+    source: "المصدر",
+    sourceDate: "تاريخ المصدر",
+    videoChannel: "القناة",
+    videoDate: "تاريخ الفيديو",
+    watchVideo: "مشاهدة الفيديو",
+    copyLink: "نسخ الرابط",
+    authorRole: "كاتب المنشور",
+    latestTitle: "أحدث المقالات",
+    categoryLabels: {
+      article: "مقال",
+      news: "خبر",
+      event: "فعالية",
+      media: "مرئي",
+      interview: "مقابلة",
+    },
+  },
+};
 
 const transformBottomHtml = (html = "") => {
   if (!html || typeof window === "undefined") return html;
@@ -26,9 +79,7 @@ const transformBottomHtml = (html = "") => {
 
   const conclusionIndex = nodes.findIndex(isConclusionHeading);
 
-  if (conclusionIndex === -1) {
-    return wrapper.innerHTML;
-  }
+  if (conclusionIndex === -1) return wrapper.innerHTML;
 
   const conclusionBox = doc.createElement("div");
   conclusionBox.className = "post-conclusion";
@@ -48,21 +99,44 @@ const transformBottomHtml = (html = "") => {
   return newWrapper.innerHTML;
 };
 
+const getYouTubeEmbedUrl = (url = "") => {
+  if (!url) return "";
+
+  try {
+    const parsedUrl = new URL(url);
+
+    if (parsedUrl.hostname.includes("youtu.be")) {
+      const id = parsedUrl.pathname.replace("/", "");
+      return id ? `https://www.youtube.com/embed/${id}` : "";
+    }
+
+    if (parsedUrl.hostname.includes("youtube.com")) {
+      const id = parsedUrl.searchParams.get("v");
+      return id ? `https://www.youtube.com/embed/${id}` : "";
+    }
+
+    return "";
+  } catch {
+    return "";
+  }
+};
+
 function SinglePostPage({ lang = "en" }) {
   const { slug } = useParams();
 
   const [post, setPost] = useState(null);
-  const [posts, setPosts] = useState([]); // needed for LatestWritings
+  const [posts, setPosts] = useState([]);
   const [siteContent, setSiteContent] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const t = pageText[lang] || pageText.en;
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        // ✅ FETCH FROM JSON FILES
         const [postsRes, contentRes] = await Promise.all([
-          fetch("/data/posts.json"),
-          fetch("/data/siteContent.json"),
+          fetch("/data/posts.json", { cache: "no-cache" }),
+          fetch("/data/siteContent.json", { cache: "no-cache" }),
         ]);
 
         const postsData = await postsRes.json();
@@ -72,7 +146,6 @@ function SinglePostPage({ lang = "en" }) {
         setSiteContent(contentData || null);
 
         const foundPost = postsData.find((item) => item.slug === slug);
-
         setPost(foundPost || null);
       } catch (error) {
         console.error("Error loading post:", error);
@@ -85,27 +158,37 @@ function SinglePostPage({ lang = "en" }) {
     fetchPost();
   }, [slug]);
 
-  // ✅ FIXED DATE (string instead of Firestore timestamp)
   const formatDate = (dateString) => {
     if (!dateString) return "";
 
     const date = new Date(dateString);
-    if (isNaN(date)) return "";
+    if (Number.isNaN(date.getTime())) return "";
 
     return new Intl.DateTimeFormat(lang === "ar" ? "ar-DZ" : "en-GB", {
       day: "2-digit",
-      month: "short",
+      month: "long",
       year: "numeric",
     }).format(date);
   };
 
+  const localized = post?.[lang] || post?.en || post?.ar || {};
+  const category = post?.category || "article";
+  const categoryLabel = t.categoryLabels[category] || category;
+  const processedBottomHtml = useMemo(
+    () => transformBottomHtml(localized.contentBottomHtml || ""),
+    [localized.contentBottomHtml]
+  );
+
+  const youtubeEmbedUrl = getYouTubeEmbedUrl(post?.videoUrl || "");
+  const hasTags = Array.isArray(post?.tags) && post.tags.length > 0;
+
   if (loading) {
     return (
-      <div className="single-post-page">
+      <div className="single-post-page" dir={lang === "ar" ? "rtl" : "ltr"}>
         <section className="post-hero">
-          <p className="post-date">Loading...</p>
-          <h1 className="post-title">Loading...</h1>
-          <p className="post-subtitle">Loading...</p>
+          <p className="post-date">{t.loading}</p>
+          <h1 className="post-title">{t.loading}</h1>
+          <p className="post-subtitle">{t.loading}</p>
         </section>
       </div>
     );
@@ -113,47 +196,142 @@ function SinglePostPage({ lang = "en" }) {
 
   if (!post) {
     return (
-      <div className="single-post-page">
+      <div className="single-post-page" dir={lang === "ar" ? "rtl" : "ltr"}>
         <section className="post-hero">
-          <p className="post-date">
-            {lang === "ar" ? "المقال غير موجود" : "Post not found"}
-          </p>
+          <p className="post-date">{t.notFound}</p>
         </section>
       </div>
     );
   }
 
-  const localized = post[lang] || post.en || post.ar || {};
-  const processedBottomHtml = transformBottomHtml(localized.contentBottomHtml || "");
-
   return (
     <>
       <div className="single-post-page" dir={lang === "ar" ? "rtl" : "ltr"}>
         <section className="post-hero">
+          <div className={`post-category-badge post-category-${category}`}>
+            ✦ {categoryLabel}
+          </div>
+
           <p className="post-date">
-            {post.publishedAt
-              ? `${lang === "ar" ? "نشر" : "Published"} ${formatDate(post.publishedAt)}`
-              : ""}
+            {post.publishedAt ? `${t.published} ${formatDate(post.publishedAt)}` : ""}
           </p>
 
           <h1 className="post-title">{localized.title || ""}</h1>
-          <p className="post-subtitle">{localized.subtitle || ""}</p>
+
+          <p className="post-subtitle">
+            {localized.subtitle || localized.excerpt || ""}
+          </p>
+
+          <div className="post-meta-row">
+            {Number(post.readTime || 0) > 0 && (
+              <span>
+                {post.readTime} {t.readTime}
+              </span>
+            )}
+
+            {localized.locationText && <span>{localized.locationText}</span>}
+          </div>
+
+          {hasTags && (
+            <div className="post-tags">
+              {post.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          )}
 
           <div className="post-image-wrapper">
-            <img
-              src={post.featuredImageUrl || ""}
-              alt={localized.title || "Post image"}
-              className="post-image"
-            />
+            {post.featuredImageUrl ? (
+              <img
+                src={post.featuredImageUrl}
+                alt={localized.title || "Post image"}
+                className="post-image"
+              />
+            ) : null}
           </div>
         </section>
+
+        {(category === "event" || category === "interview" || category === "media") && (
+          <section className="post-type-info">
+            {category === "event" && (
+              <>
+                {post.eventDate && (
+                  <div className="post-info-card">
+                    <strong>{t.eventStart}</strong>
+                    <span>{formatDate(post.eventDate)}</span>
+                  </div>
+                )}
+
+                {post.eventEndDate && (
+                  <div className="post-info-card">
+                    <strong>{t.eventEnd}</strong>
+                    <span>{formatDate(post.eventEndDate)}</span>
+                  </div>
+                )}
+              </>
+            )}
+
+            {category === "interview" && (
+              <>
+                {post.sourceName && (
+                  <div className="post-info-card">
+                    <strong>{t.source}</strong>
+                    {post.sourceUrl ? (
+                      <a href={post.sourceUrl} target="_blank" rel="noreferrer">
+                        {post.sourceName}
+                      </a>
+                    ) : (
+                      <span>{post.sourceName}</span>
+                    )}
+                  </div>
+                )}
+
+                {post.sourcePublishedAt && (
+                  <div className="post-info-card">
+                    <strong>{t.sourceDate}</strong>
+                    <span>{formatDate(post.sourcePublishedAt)}</span>
+                  </div>
+                )}
+              </>
+            )}
+
+            {category === "media" && (
+              <>
+                {post.videoChannel && (
+                  <div className="post-info-card">
+                    <strong>{t.videoChannel}</strong>
+                    <span>{post.videoChannel}</span>
+                  </div>
+                )}
+
+                {post.videoPublishedAt && (
+                  <div className="post-info-card">
+                    <strong>{t.videoDate}</strong>
+                    <span>{formatDate(post.videoPublishedAt)}</span>
+                  </div>
+                )}
+              </>
+            )}
+          </section>
+        )}
+
+        {category === "media" && youtubeEmbedUrl && (
+          <section className="post-video-section">
+            <div className="post-video-wrapper">
+              <iframe
+                src={youtubeEmbedUrl}
+                title={localized.title || "YouTube video"}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </section>
+        )}
 
         <section className="post-content">
           <div
             className="post-rich-content"
-            dangerouslySetInnerHTML={{
-              __html: localized.contentTopHtml || "",
-            }}
+            dangerouslySetInnerHTML={{ __html: localized.contentTopHtml || "" }}
           />
         </section>
 
@@ -164,6 +342,7 @@ function SinglePostPage({ lang = "en" }) {
                 src={post.middleImageUrl}
                 alt={localized.middleImageCaption || localized.title || "Post"}
               />
+
               {localized.middleImageCaption ? (
                 <p className="image-caption">{localized.middleImageCaption}</p>
               ) : null}
@@ -172,37 +351,30 @@ function SinglePostPage({ lang = "en" }) {
 
           <div
             className="post-rich-content"
-            dangerouslySetInnerHTML={{
-              __html: processedBottomHtml,
-            }}
+            dangerouslySetInnerHTML={{ __html: processedBottomHtml }}
           />
 
           <div className="post-author">
             <div className="author-info">
               <img src={profileimage} alt="Author" />
               <div>
-                <p className="author-name">
-                  {post.createdBy || "Fadi Al Ahmad"}
-                </p>
-                <p className="author-role">
-                  {lang === "ar" ? "كاتب المقال" : "Post author"}
-                </p>
+                <p className="author-name">{post.createdBy || "Fadi Al Ahmad"}</p>
+                <p className="author-role">{t.authorRole}</p>
               </div>
             </div>
 
             <div className="author-actions">
               <button
                 className="copy-btn"
-                onClick={() =>
-                  navigator.clipboard.writeText(window.location.href)
-                }
+                type="button"
+                onClick={() => navigator.clipboard.writeText(window.location.href)}
               >
-                {lang === "ar" ? "نسخ الرابط" : "Copy link"}
+                {t.copyLink}
               </button>
 
               <div className="socials">
                 <span>f</span>
-                <span>t</span>
+                <span>x</span>
                 <span>in</span>
               </div>
             </div>
@@ -212,7 +384,6 @@ function SinglePostPage({ lang = "en" }) {
 
       <div className="divider"></div>
 
-      {/* ✅ PASS DATA TO LatestWritings */}
       <div className="latestwriting">
         <LatestWritings
           lang={lang}

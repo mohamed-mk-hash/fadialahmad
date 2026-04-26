@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SinglePostPage from "./pages/SinglePostPage/SinglePostPage";
+import StrategicMomentsSection from "./pages/StrategicMomentsSection/StrategicMomentsSection";
 
 const fallbackSiteContent = {
   header: {},
@@ -104,23 +105,26 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={
-              <HomePage
-                lang={lang}
-                siteContent={siteContent}
-              />
-            }
+            element={<HomePage lang={lang} siteContent={siteContent} />}
           />
+
           <Route
             path="/posts/:slug"
             element={<SinglePostPage lang={lang} />}
           />
+
+          <Route
+            path="/strategicmoments"
+            element={
+              <StrategicMomentsSection
+                lang={lang}
+                contactContent={siteContent.contact}
+              />
+            }
+          />
         </Routes>
 
-        <Footer
-          lang={lang}
-          content={siteContent.footer}
-        />
+        <Footer lang={lang} content={siteContent.footer} />
       </div>
     </BrowserRouter>
   );

@@ -1,187 +1,265 @@
 {
   "header": {
     "ar": {
-      "menu_seven": "ألبوم الصور",
-      "menu_five": "قصص النجاح",
-      "menu_eight": "تواصل معنا",
-      "language_button": "العربية",
-      "menu_four": "قصتي",
-      "menu_two": "سيرة",
-      "menu_one": "الرئيسية",
-      "menu_six": "المقالات",
       "menu_three": "مجالات الخبرة",
-      "menu_nine": "القصص الشائعة"
+      "menu_seven": "ألبوم الصور",
+      "menu_nine": "الأسئلة الشائعة",
+      "menu_one": "الرئيسية",
+      "menu_eight": "تواصل معنا",
+      "menu_five": "قصص النجاح",
+      "menu_six": "المقالات",
+      "menu_four": "قصتي",
+      "language_button": "العربية",
+      "menu_two": "سيرة"
     },
     "en": {
-      "menu_two": "Biography",
-      "menu_one": "Home",
-      "menu_six": "Articles",
-      "menu_nine": "FAQ",
-      "menu_three": "Areas of experts",
       "language_button": "English",
-      "menu_four": "My Story",
-      "menu_seven": "Gallery",
+      "menu_two": "Biography",
+      "menu_nine": "FAQ",
+      "menu_one": "Home",
       "menu_eight": "Contact us",
+      "menu_three": "Areas of experts",
+      "menu_seven": "Gallery",
+      "menu_six": "Articles",
+      "menu_four": "My Story",
       "menu_five": "Succes stories"
     }
   },
   "footer": {
     "ar": {
-      "menu_seven": "ألبوم الصور",
       "menu_five": "قصص النجاح",
       "menu_four": "استثمار",
-      "menu_bottom_two": "خصوصية",
-      "menu_bottom_one": "شروط",
+      "menu_six": "مقالات",
+      "menu_seven": "ألبوم الصور",
+      "menu_three": "مجالات الخبرة",
+      "menu_bottom_three": "ملفات تعريف الارتباط",
       "menu_one": "الرئيسية",
       "menu_two": "سيرة",
-      "menu_description": "© 2077 فادي الأحمد جميع الحقوق محفوظة.",
-      "menu_six": "مقالات",
-      "menu_three": "مجالات الخبرة",
-      "menu_bottom_three": "ملفات تعريف الارتباط"
+      "menu_bottom_two": "خصوصية",
+      "menu_bottom_one": "شروط",
+      "menu_description": "© 2077 فادي الأحمد جميع الحقوق محفوظة."
     },
     "en": {
-      "menu_bottom_two": "Privacy",
-      "menu_four": "Investement",
       "menu_five": "Succes stories",
-      "menu_seven": "Gallery",
-      "menu_bottom_three": "Cookies",
-      "menu_three": "Areas of experts",
-      "menu_description": "© 2077 Fadialahmad All rights reserved.",
+      "menu_four": "Investement",
       "menu_six": "Articles",
-      "menu_two": "Biography",
+      "menu_seven": "Gallery",
+      "menu_three": "Areas of experts",
       "menu_one": "Home",
-      "menu_bottom_one": "Terms"
+      "menu_bottom_three": "Cookies",
+      "menu_two": "Biography",
+      "menu_bottom_two": "Privacy",
+      "menu_bottom_one": "Terms",
+      "menu_description": "© 2077 Fadialahmad All rights reserved."
     }
   },
   "hero": {
     "ar": {
-      "secondaryButtonLink": "/cv.pdf",
-      "badge": "رجل أعمال ومستثمر",
-      "primaryButtonLink": "/contact",
-      "primaryButtonText": "تواصل معي",
+      "primaryButtonLink": "#contact",
+      "secondaryButtonLink": "#biography",
+      "badge": "رجل أعمال و مستثمر",
       "title": "مرحبًا، أنا فادي أحمد، رجل أعمال ومستثمر.",
-      "secondaryButtonText": "تحميل السيرة الذاتية",
-      "description": "رائد أعمال ومستثمر يمتلك أكثر من 25 عامًا من الخبرة في بناء الأعمال في مجالات التجارة والعقارات والتكنولوجيا في الشرق الأوسط وأوروبا."
+      "primaryButtonText": "تواصل معي",
+      "description": "رائد أعمال بخبرة تزيد عن 25 عاماً في بناء مشاريع صناعية واستثمارية عالمية في قطاع النسيج والأسواق الدولية في الشرق الأوسط وأوروبا وآسيا.",
+      "secondaryButtonText": "السيرة الذاتية"
     },
     "en": {
-      "description": "Entrepreneur and investor with 25+ years of experience building businesses across trade, real estate, and technology in the Middle East and Europe.",
-      "secondaryButtonText": "Download CV",
-      "primaryButtonText": "Contact Me",
+      "primaryButtonLink": "#contact",
+      "secondaryButtonLink": "#biography",
+      "badge": "Businessman and invest",
       "title": "Hello, I'm Fadi Ahmed, a businessman and investor.",
-      "badge": "Businessman and investor",
-      "primaryButtonLink": "/#contact",
-      "secondaryButtonLink": "/cv.pdf"
+      "secondaryButtonText": "CV",
+      "description": "Entrepreneur with 25+ years of experience building global businesses in textiles, industry, and investment across the Middle East, Europe, and Asia.",
+      "primaryButtonText": "Contact Me"
     },
     "updatedBy": "admin@fadi.com",
     "updatedAt": {
       "type": "firestore/timestamp/1.0",
-      "seconds": 1775570711,
-      "nanoseconds": 884000000
+      "seconds": 1776698785,
+      "nanoseconds": 142000000
     }
   },
   "about": {
     "ar": {
-      "image_description": "لا يقتصر النجاح الحقيقي على بناء الشركات فحسب، بل يتعلق أيضاً بإحداث تأثير دائم يفيد المجتمع.",
       "foundation_number": "10+",
-      "experience_number": "25+",
-      "description": "بدأتُ رحلتي في عالم ريادة الأعمال منذ أكثر من 25 عامًا في سوريا، ثم وسّعتُ نطاق أعمالي ليشمل منطقة الخليج وأوروبا. ينصبّ تركيزي في عملي على التنمية الصناعية، والنمو الاستراتيجي، والتحوّل الرقمي في قطاعات متعددة. أؤمن بأنّ الشركات المستدامة تُبنى على الابتكار، والقيادة الرشيدة، والاستثمار في الكوادر البشرية.",
       "foundation_title": "الشركات المؤسسة",
-      "experience_title": "سنوات من الخبرة",
-      "title": "عني"
+      "description": "بدأت رحلتي في عالم الأعمال من حلب، إحدى أعرق المدن الصناعية في العالم، حيث يشكّل النسيج جزءاً من الهوية اليومية. في عام 2000 أسست مجموعة النساج، التي تطورت من مشروع عائلي إلى شبكة صناعية عالمية تمتد من الصين إلى مختلف الأسواق الدولية. اليوم يتركز عملي على تطوير الصناعة، وبناء استراتيجيات النمو، وإنشاء منظومات استثمارية مستدامة عبر عدة مناطق.",
+      "image_description": "النجاح الحقيقي لا يقتصر على بناء الشركات، بل على صناعة أثر مستدام يخدم المجتمع.",
+      "title": "من أنا",
+      "experience_number": "25+",
+      "experience_title": "سنوات من الخبرة"
     },
     "en": {
-      "foundation_number": "10+",
-      "image_description": "True success is not only about building companies, but about creating lasting impact that benefits society.",
-      "experience_number": "25+",
       "foundation_title": "Companies Founded",
-      "description": "I began my entrepreneurial journey more than 25 years ago in Syria, later expanding my business activities across the Gulf region and Europe. My work focuses on industrial development, strategic growth, and digital transformation across multiple sectors. I believe sustainable businesses are built through innovation, strong leadership, and investment in people.",
-      "experience_title": "Years Experience",
-      "title": "About me"
-    }
+      "foundation_number": "10+",
+      "description": "I began my journey in business in Aleppo, one of the world’s oldest industrial cities, where textile craftsmanship is part of daily life. In 2000, I founded Al-Nassaj Group, growing it from a family business into an international industrial network with operations in China and global markets. Today, my work focuses on industrial development, strategic growth, and building sustainable investment ecosystems across multiple regions.",
+      "image_description": "True success is not only about building companies, but about creating lasting impact that benefits society.",
+      "title": "About me",
+      "experience_number": "25+",
+      "experience_title": "Years Experience"
+    },
+    "updatedAt": {
+      "type": "firestore/timestamp/1.0",
+      "seconds": 1776699049,
+      "nanoseconds": 685000000
+    },
+    "updatedBy": "admin@fadi.com"
   },
   "industrial": {
     "ar": {
-      "description": "أسست ووسعت تسع علامات تجارية ناجحة في قطاع المنسوجات والمفروشات المنزلية، تخدم الأسواق في جميع أنحاء الشرق الأوسط والمناطق الدولية.",
-      "title": "العلامات التجارية الصناعية والتجارية",
-      "tag_one": "شركة الأحمد التجارية",
-      "tag_two": "مجموعة الشرق",
       "tag_four": "عقارات الخليج",
       "tag_five": "شركة الأحمد القابضة",
-      "tag_three": "مستقبل التكنولوجيا"
+      "description": "أسست ووسعت تسع علامات تجارية ناجحة في قطاع المنسوجات والمفروشات المنزلية، تخدم الأسواق في جميع أنحاء الشرق الأوسط والمناطق الدولية.",
+      "tag_two": "مجموعة الشرق",
+      "tag_one": "شركة الأحمد التجارية",
+      "tag_three": "مستقبل التكنولوجيا",
+      "title": "العلامات التجارية الصناعية والتجارية"
     },
     "en": {
-      "description": "Established and expanded nine successful brands in the textile and home furnishing sector, serving markets across the Middle East and international regions.",
-      "tag_one": "Al-Ahmad Trading",
-      "title": "Industrial & Commercial Brands",
-      "tag_two": "Al-Sharq Group",
       "tag_four": "Gulf Real Estate",
       "tag_three": "Tech Future",
-      "tag_five": "Al-Ahmad Holding"
+      "title": "Industrial & Commercial Brands",
+      "tag_five": "Al-Ahmad Holding",
+      "description": "Established and expanded nine successful brands in the textile and home furnishing sector, serving markets across the Middle East and international regions.",
+      "tag_two": "Al-Sharq Group",
+      "tag_one": "Al-Ahmad Trading"
     }
   },
   "businessShowcase": {
     "ar": {
-      "description": "تقدم شركة النساج حلولاً عالية الجودة في مجال المنسوجات والمفروشات المنزلية، حيث تجمع بين التميز في التصنيع والتوزيع العالمي والابتكار المستمر لخدمة الأسواق الإقليمية والدولية. وانطلاقاً من رؤية النمو الصناعي، تربط المجموعة بين التقاليد والإنتاج الحديث لخلق قيمة مستدامة في مختلف القطاعات.",
-      "badge": "اكتشف أعمالي، حيث يلتقي العمل الجاد بالابتكار",
+      "description": "مجموعة النساج هي إحدى أبرز المجموعات المتخصصة في صناعة أقمشة المفروشات، تأسست عام 2000، وتمتلك مصانع في الصين وشبكة توزيع عالمية، وتُصدّر منتجاتها إلى أكثر من 46 دولة، مع التركيز على الجودة والابتكار المستمر.",
       "button_text": "قم بزيارة الموقع الرسمي",
-      "title": "مجموعة النساج الدولية"
+      "badge": "اكتشف أعمالي حيث تلتقي الصناعة بالابتكار",
+      "title": "مجموعة النساج العالمية"
     },
     "en": {
+      "description": "Al-Nassaj Group is a leading textile and home furnishing manufacturer founded in 2000. With production based in China and a global distribution network, the group exports to over 46 countries, combining industrial expertise with continuous innovation.",
+      "badge": "Discover my business, where industry meets innovation",
       "button_text": "Visit Official Website",
-      "title": "Al-Nassaj International Group",
-      "description": "Delivering high-quality textile and home furnishing solutions, Al-Nassaj combines manufacturing excellence, global distribution, and continuous innovation to serve regional and international markets. Built on a vision of industrial growth, the group connects tradition with modern production to create sustainable value across industries.",
-      "badge": "Discover my business, where Industry Meets Innovation"
+      "title": "Al-Nassaj International Group"
     }
   },
   "areas": {
     "ar": {
-      "title_four": "الأسواق العالمية والتأثير المجتمعي",
-      "title_three": "التحول الرقمي والصناعة 4.0",
-      "title": "مجالات الخبرة",
-      "description_three": "دمج التقنيات الرقمية والأتمتة لتحسين الكفاءة الصناعية والقدرة التنافسية العالمية.",
+      "description_two": "قيادة المؤسسات عبر التخطيط الاستراتيجي والحوكمة لتحقيق نمو مستدام طويل الأمد.",
+      "description_four": "التوسع في الأسواق الدولية وبناء شراكات قوية ومنظومات استثمارية متكاملة.",
       "title_two": "القيادة الصناعية الاستراتيجية",
+      "title_three": "التحول الرقمي والصناعة 4.0",
+      "description_three": "دمج التقنيات الرقمية والأتمتة لرفع كفاءة العمليات الصناعية وتعزيز التنافسية.",
+      "title_four": "الأسواق العالمية والتأثير المجتمعي",
       "title_one": "التطوير الصناعي والتصنيع",
-      "description_one": "بناء أنظمة إنتاج نسيج فعالة من خلال التصنيع الذكي والعمليات الصناعية الحديثة",
-      "description_two": "قيادة المنظمات من خلال التخطيط الاستراتيجي والتميز التشغيلي والنمو المستدام طويل الأجل للأعمال.",
-      "description_four": "توسيع الأسواق الدولية مع دعم المبادرات المجتمعية والتنمية الاقتصادية المستدامة."
+      "title": "مجالات الخبرة",
+      "description_one": "بناء منظومات إنتاج متكاملة في قطاع النسيج اعتماداً على التصنيع المتقدم وسلاسل التوريد الفعالة."
     },
     "en": {
-      "title_one": "Industrial Development & Manufacturing",
+      "description_two": "Leading organizations through strategic planning, governance, and sustainable long-term growth.",
       "title_two": "Strategic Industrial Leadership",
-      "description_four": "Expanding international markets while supporting community initiatives and sustainable economic development.",
-      "description_one": "Building efficient textile production systems through smart manufacturing and modern industrial processes",
-      "description_two": "Leading organizations with strategic planning, operational excellence, and sustainable long-term business growth.",
-      "title": "Areas of Expertise",
+      "description_four": "Expanding across international markets while building strong partnerships and investment ecosystems.",
       "title_three": "Digital Transformation & Industry 4.0",
+      "description_three": "Integrating automation and digital technologies to enhance industrial performance and competitiveness.",
       "title_four": "Global Markets & Community Impact",
-      "description_three": "Integrating digital technologies and automation to improve industrial efficiency and global competitiveness."
+      "description_one": "Building integrated textile production systems through advanced manufacturing and efficient supply chains.",
+      "title": "Areas of Expertise",
+      "title_one": "Industrial Development & Manufacturing"
+    },
+    "updatedBy": "admin@fadi.com",
+    "updatedAt": {
+      "type": "firestore/timestamp/1.0",
+      "seconds": 1776699128,
+      "nanoseconds": 537000000
     }
   },
   "stories": {
     "ar": {
       "description": "معالم رئيسية تعكس النمو الاستراتيجي والابتكار والتأثير طويل الأمد.",
-      "description_card": "لقد وفر لنا برنامج Untitled آلاف الساعات من العمل. أصبحنا قادرين على إطلاق المشاريع بشكل أسرع.",
-      "title": "قصص نجاح",
-      "card_title": "توسع إقليمي ناجح",
-      "number": "نمو بنسبة 800%"
+      "items": [
+        {
+          "number": "+46 دولة",
+          "imagePublicId": "dwtiiysek6y1pn4oc6ob",
+          "imageLink": "https://res.cloudinary.com/dxlwd7nhi/image/upload/v1777121473/dwtiiysek6y1pn4oc6ob.jpg",
+          "description_card": "نجحت مجموعة النساج في بناء شبكة تصدير واسعة تصل إلى أكثر من 46 دولة عبر وكلاء وشركاء استراتيجيين في الخليج وأوروبا وآسيا وإفريقيا.",
+          "card_title": "توسع عالمي من حلب إلى الأسواق الدولية"
+        },
+        {
+          "imagePublicId": "z0wypipteok8q4uesmit",
+          "number": "منذ 2010",
+          "imageLink": "https://res.cloudinary.com/dxlwd7nhi/image/upload/v1777121699/z0wypipteok8q4uesmit.jpg",
+          "description_card": "شكّل افتتاح أول مصانع المجموعة في شيويتشو عام 2010 نقطة تحوّل نحو العالمية، حيث أصبحت الصين قاعدة إنتاج رئيسية تدعم الجودة والتوسع الدولي.",
+          "card_title": "تأسيس مصانع النساج في الصين"
+        },
+        {
+          "card_title": "إطلاق منظومة مشاريع متنوعة",
+          "imageLink": "https://res.cloudinary.com/dxlwd7nhi/image/upload/v1777121779/ihz0msocs357wzudtroy.jpg",
+          "number": "+28 مشروع",
+          "imagePublicId": "ihz0msocs357wzudtroy",
+          "description_card": "ساهمت الخبرة الصناعية والاستثمارية في تأسيس وإطلاق أكثر من 28 مشروعًا ربحيًا في قطاعات متعددة، من النسيج والصناعة إلى الإعلام والاستثمار."
+        },
+        {
+          "card_title": "رؤية استراتيجية لتطوير النسيج السوري",
+          "description_card": "تم تقديم رؤية استراتيجية تمتد لثماني سنوات لتطوير قطاع النسيج السوري، بهدف رفع حجم الصادرات إلى 28 مليون دولار وتعزيز التكامل الصناعي.",
+          "imageLink": "https://res.cloudinary.com/dxlwd7nhi/image/upload/v1777121905/qpanrcmz8mnlimskj1hi.jpg",
+          "imagePublicId": "qpanrcmz8mnlimskj1hi",
+          "number": "28 مليون دولار"
+        }
+      ],
+      "title": "قصص نجاح"
     },
     "en": {
       "description": "Key milestones that reflect strategic growth, innovation, and long-term impact.",
-      "description_card": "Untitled has saved us thousands of hours of work. We’re able to spin up projects faster.",
-      "title": "Success stories\n",
-      "number": "+800% growth",
-      "card_title": "Successful regional expansion"
-    }
+      "items": [
+        {
+          "description_card": "Al Nassaj Group built a strong export network reaching more than 46 countries through agents and strategic partners across the Gulf, Europe, Asia, and Africa.\n",
+          "number": "+46 countries",
+          "imagePublicId": "l4nuttpp7cirvuthodek",
+          "imageLink": "https://res.cloudinary.com/dxlwd7nhi/image/upload/v1777121525/l4nuttpp7cirvuthodek.jpg",
+          "card_title": "Global expansion from Aleppo to international markets"
+        },
+        {
+          "card_title": "Establishing Al Nassaj factories in China",
+          "number": "Since 2010",
+          "imagePublicId": "h2uggpsvgx27srvece0v",
+          "imageLink": "https://res.cloudinary.com/dxlwd7nhi/image/upload/v1777121650/h2uggpsvgx27srvece0v.jpg",
+          "description_card": "Opening the group’s first factories in Shaoxing in 2010 marked a major step toward global expansion, making China a key production base for quality and international growth.\n"
+        },
+        {
+          "card_title": "Building a diversified business ecosystem",
+          "description_card": "Industrial and investment experience contributed to launching more than 28 profitable ventures across several sectors, from textiles and manufacturing to media and investment.\n",
+          "imagePublicId": "g4evyu51h3wosy1xi2uy",
+          "number": "+28 ventures",
+          "imageLink": "https://res.cloudinary.com/dxlwd7nhi/image/upload/v1777121824/g4evyu51h3wosy1xi2uy.jpg"
+        },
+        {
+          "card_title": "Strategic vision for Syrian textile development",
+          "description_card": "An eight-year strategic vision was presented to develop Syria’s textile sector, targeting $28 million in exports and stronger industrial integration.",
+          "imageLink": "https://res.cloudinary.com/dxlwd7nhi/image/upload/v1777121940/hsujfk8w9dkuoxigzymf.jpg",
+          "imagePublicId": "hsujfk8w9dkuoxigzymf",
+          "number": "$28M exports target"
+        }
+      ],
+      "title": "Success stories\n"
+    },
+    "updatedAt": {
+      "type": "firestore/timestamp/1.0",
+      "seconds": 1777121942,
+      "nanoseconds": 135000000
+    },
+    "updatedBy": "admin@fadi.com"
   },
   "storySection": {
     "ar": {
-      "description": "رحلة عمل وتحديات وإنجازات امتدت على مدى 25 عاماً في عالم الصناعة والتجارة",
+      "description": "رحلة تمتد لأكثر من 25 عاماً في الصناعة وريادة الأعمال والتوسع العالمي.",
       "title": "شاهد قصتي كاملة"
     },
     "en": {
-      "description": "A 25-year journey of work, challenges, and achievements in the world of industry and commerce",
+      "description": "A 25-year journey of industry, entrepreneurship, and global expansion.",
       "title": "Watch my full story"
-    }
+    },
+    "updatedAt": {
+      "type": "firestore/timestamp/1.0",
+      "seconds": 1776699237,
+      "nanoseconds": 190000000
+    },
+    "updatedBy": "admin@fadi.com"
   },
   "articles": {
     "ar": {
@@ -195,65 +273,153 @@
   },
   "experience": {
     "ar": {
-      "badge": "الخبرات",
-      "description": "على مدار أكثر من 25 عامًا، عملت على بناء وقيادة مشاريع صناعية واستثمارية في أسواق عالمية، بالتعاون مع شركاء ومؤسسات لتحقيق نمو مستدام وقيمة طويلة الأمد.",
+      "description": "أكثر من 25 عاماً في بناء مشاريع صناعية واستثمارية وريادية عبر الأسواق العالمية.",
       "items": [
         {
+          "period": "2000 – حتى الآن",
           "role": "رئيس مجلس الإدارة والمؤسس",
+          "description": "بناء مجموعة نسيج عالمية تمتلك مصانع في الصين وتُصدّر إلى أكثر من 46 دولة.",
           "tags": [
             "التوسع العالمي",
             "القيادة الصناعية"
           ],
-          "period": "2000 – حتى الآن",
-          "description": "قدت تطوير مجموعة صناعية رائدة في قطاع المنسوجات والمفروشات المنزلية، مع عمليات تشغيل وتوزيع تمتد إلى أكثر من 50 دولة.",
           "company": "مجموعة النساج الدولية"
         },
         {
+          "description": "أسست منصة استثمارية تركز على دعم ريادة الأعمال والمشاريع الصناعية، بما يسهم في تحقيق نمو أعمال قابل للتوسع.",
+          "period": "2018 – حتى الآن",
           "role": "رئيس مجلس الإدارة والمؤسس",
           "tags": [
             "الاستثمار",
             "\"ريادة الأعمال"
           ],
-          "period": "2018 – حتى الآن",
-          "company": "منصة غروفاست الإستثمارية",
-          "description": "أسست منصة استثمارية تركز على دعم ريادة الأعمال والمشاريع الصناعية، بما يسهم في تحقيق نمو أعمال قابل للتوسع."
+          "company": "منصة غروفاست الإستثمارية"
+        },
+        {
+          "role": "المؤسس ورئيس مجلس الإدارة",
+          "period": "2020 حتى الآن",
+          "description": "قيادة مبادرات تطوير صناعي وتنظيم معارض دولية متخصصة في قطاع النسيج.",
+          "company": "مجموعة ناس تكس للتطوير الصناعي",
+          "tags": [
+            "تطوير صناعي",
+            "صناعة النسيج",
+            "معارض"
+          ]
+        },
+        {
+          "period": "2015 حتى الآن",
+          "role": "لمؤسس ورئيس مجلس الإدارة",
+          "description": "تأسيس مصنع متخصص في إنتاج المنتجات النسيجية التقليدية والحديثة.",
+          "tags": [
+            "تصنيع",
+            "تطوير منتجات",
+            "نسيج"
+          ],
+          "company": "مصنع أوركس للشماخ"
+        },
+        {
+          "period": "2020 حتى الآن",
+          "role": "رئيس المجلس",
+          "description": "تعزيز العلاقات الاقتصادية وبناء شراكات بين المستثمرين العرب والصينيين.",
+          "tags": [
+            "علاقات دولية",
+            "تجارة",
+            "شراكات"
+          ],
+          "company": "مجلس الأعمال السوري الصيني"
+        },
+        {
+          "tags": [
+            "إعلام",
+            "استثمار",
+            "بناء العلامات"
+          ],
+          "company": "منصة ضمّة الإعلامية ومشاريع أخرى",
+          "period": "2019 حتى الآن",
+          "role": "المؤسس ورئيس مجلس الإدارة",
+          "description": "إطلاق منصات إعلامية واستثمارية تدعم الإنتاج الإعلامي وريادة الأعمال."
         }
       ],
+      "badge": "الخبرات",
       "title": "استكشف رحلتي المهنية"
     },
     "en": {
+      "title": "Explore My Professional Journey",
+      "badge": "Experience",
+      "description": "Over 25 years of building industrial, investment, and entrepreneurial ventures across global markets.",
       "items": [
         {
+          "company": "Al-Nassaj International Group, Global",
           "tags": [
             "Industrial Leadership",
             "Global Expansion"
           ],
+          "description": "Built a leading global textile group with manufacturing in China and exports to 46+ countries.",
           "role": "Chairman & Founder",
-          "description": "Led the development of a leading industrial group in textiles and home furnishings, with operations and distribution across 50+ countries.",
-          "company": "Al-Nassaj International Group, Global",
           "period": "2000 – Present"
         },
         {
+          "period": "2018 – Present",
+          "role": "Chairman & Founder",
+          "description": "Established an investment platform focused on supporting entrepreneurship and industrial ventures, enabling scalable business growth.",
           "tags": [
             "Entrepreneurship",
             "Investment"
           ],
-          "role": "Chairman & Founder",
-          "description": "Established an investment platform focused on supporting entrepreneurship and industrial ventures, enabling scalable business growth.",
-          "company": "GrowFast Investment Platform",
-          "period": "2018 – Present"
+          "company": "GrowFast Investment Platform"
+        },
+        {
+          "tags": [
+            "Industrial Development",
+            "Events",
+            "Textile Industry"
+          ],
+          "company": "Nastex Industrial Development Group",
+          "period": "2020 – Present",
+          "role": "Founder & Chairman",
+          "description": "Leading industrial development initiatives and organizing international textile exhibitions."
+        },
+        {
+          "description": "Established a specialized manufacturing facility for traditional and modern textile products.",
+          "role": "Founder & Chairman",
+          "period": "2015 – Present",
+          "company": "Orex Shemagh Factory",
+          "tags": [
+            "Manufacturing",
+            "Product Development",
+            "Textile"
+          ]
+        },
+        {
+          "role": "Chairman",
+          "period": "2020 – Present",
+          "description": "Strengthening economic relations and facilitating partnerships between Chinese and Arab investors.",
+          "tags": [
+            "International Relations",
+            "Trade",
+            "Partnerships"
+          ],
+          "company": "Syrian-Chinese Business Council"
+        },
+        {
+          "company": "Media & Investment Platforms",
+          "tags": [
+            "Media",
+            "Investment",
+            "Branding"
+          ],
+          "description": "Launched media and investment platforms supporting content production, branding, and entrepreneurship.",
+          "role": "Founder & Chairman",
+          "period": "2019 – Present"
         }
-      ],
-      "description": "Over the past 25+ years, I have built and led industrial and investment ventures across global markets, collaborating with partners and institutions to drive sustainable growth and long-term value.",
-      "badge": "Experience",
-      "title": "Explore My Professional Journey"
+      ]
     },
+    "updatedBy": "admin@fadi.com",
     "updatedAt": {
       "type": "firestore/timestamp/1.0",
-      "seconds": 1776519600,
-      "nanoseconds": 159000000
-    },
-    "updatedBy": "admin@fadi.com"
+      "seconds": 1776699728,
+      "nanoseconds": 219000000
+    }
   },
   "gallery": {
     "ar": {
@@ -267,86 +433,92 @@
   },
   "contact": {
     "ar": {
-      "office": "100 شارع سميث، كولينجوود، فيكتوريا 3066، أستراليا",
-      "phone_title": "الهاتف",
-      "email_description": " فريقنا هنا لمساعدتك.",
-      "checkbox_text": "أنت توافق على سياسة الخصوصية الخاصة بنا",
-      "office_title": "المكتب",
-      "last_name_input": "اسم العائلة",
-      "Email_input": "البريد الإلكتروني",
-      "email_title": "البريد الإلكتروني",
-      "social_media_description": "فريقنا دائما هنا لمساعدتك",
-      "first_name_input": "الإسم الأول",
-      "message_input": "الرسالة",
-      "description": "يسعد فريقنا الودود أن يسمع منك.",
-      "button_text": "إرسال الرسالة",
-      "phone-description": "من الإثنين إلى الجمعة من 8 صباحًا إلى 5 مساءً.",
+      "Email_placeholder": "fadi@alnassaj.com",
       "office_description": "لا تتردد في زيارتنا",
-      "social_media_title": "وسائل التواصل الإجتماعي",
+      "message_input": "الرسالة",
+      "office": "Zhejiang, China",
+      "title": "تواصل معي",
+      "phone_title": "الهاتف",
+      "number_input": "+86 159 5855 0906",
+      "office_title": "المكتب",
+      "button_text": "إرسال الرسالة",
+      "social_media_description": "فريقنا دائما هنا لمساعدتك",
+      "phone-description": "من الإثنين إلى الجمعة من 8 صباحًا إلى 5 مساءً.",
+      "email_title": "البريد الإلكتروني",
+      "Email_input": "البريد الإلكتروني",
       "message-placeholder": "إترك لنا رسالة....",
-      "number_input": "+1 (555) 000-0000",
-      "Email_placeholder": " you@company.com",
-      "title": "تواصل معي"
+      "social_media_title": "وسائل التواصل الإجتماعي",
+      "email_description": " فريقنا هنا لمساعدتك.",
+      "first_name_input": "الإسم الأول",
+      "description": "يسعد فريقنا الودود أن يسمع منك.",
+      "last_name_input": "اسم العائلة",
+      "checkbox_text": "أنت توافق على سياسة الخصوصية الخاصة بنا"
     },
     "en": {
-      "checkbox_text": "You agree to our friendly privacy policy",
-      "email_description": "Our friendly team is here to help.",
-      "phone_title": "Phone",
-      "office": "100 Smith Street Collingwood VIC 3066 AU",
       "description": "Our friendly team would love to hear from you.",
-      "social_media_description": "Our friendly team is here to help.",
+      "email_description": "Our friendly team is here to help.",
       "first_name_input": "First name",
-      "message_input": "Message",
-      "email_title": "Email",
-      "office_title": "Office",
-      "last_name_input": "Last name",
-      "Email_input": "Email",
-      "office_description": "Come say hello at our office HQ.",
       "social_media_title": "Social media",
-      "button_text": "Send message",
+      "checkbox_text": "You agree to our friendly privacy policy",
+      "last_name_input": "Last name",
+      "email_title": "Email",
+      "Email_input": "Email",
       "phone-description": "Mon-Fri from 8am to 5pm.",
-      "title": "Contact me\n",
-      "number_input": "+1 (555) 000-0000",
+      "social_media_description": "Our friendly team is here to help.",
       "message-placeholder": "Leave us a message...",
-      "Email_placeholder": "you@company.com"
-    }
-  },
-  "faq": {
-    "ar": {
-      "button_text": "ابدأ الآن",
-      "answer_one": "بدأت رحلتي في سن الثانية عشرة، حين واجهت عائلتي أزمة مالية قاسية حوّلت والدي من تاجر غني إلى سائق شاحنة صاحب أنفة ومروءة. تلك اللحظة علّمتني أن الكرامة لا تُقاس بالمنصب بل بالصمود. عملت في الإنشاءات، سافرت إلى لبنان بحثاً عن فرص، وتعلمت من كل محطة درساً لا يُنسى.\nالمفتاح لم يكن رأس المال الكبير، بل ثلاثة أمور: الصبر على البناء التدريجي، الالتزام بالقيم حتى في أصعب الظروف، والإيمان بأن كل خطوة صغيرة تُقرّبك من الهدف. بدأنا من مكتب 50 متراً في حلب، واليوم نصدّر لـ 46 دولة. النجاح مسار طويل، وليس قفزة واحدة.\n",
-      "question_four": "ما أصعب قرار اتخذته في مسيرتك المهنية؟",
-      "question_two": " ما الذي يميز مجموعة النساج عن المنافسين في السوق؟",
-      "title": "هل لديك أسئلة؟\nلدينا إجابات",
-      "question_three": "كيف تجمع بين النجاح التجاري والالتزام بالقيم في عالم يرى أنهما متناقضان؟",
-      "question_one": "كيف بدأت رحلتك من الصفر إلى بناء مجموعة عالمية؟",
-      "answer_four": "أصعب قرار كان رفض صفقة ضخمة كانت ستُضاعف أرباحنا ثلاث مرات، لكنها كانت تتطلب التنازل عن معايير الجودة التي التزمنا بها.\nالعميل كان كبيراً ومؤثراً، والصفقة مغرية جداً. لكن قبولها كان يعني استخدام خامات أقل جودة، وتشغيل العمال ساعات أطول بأجور أقل، والتخلي عن سمعتنا التي بنيناها بالصبر.\nاخترت الرفض. بعد ستة أشهر، انهارت سمعة ذلك العميل بسبب فضيحة جودة وخسر كل شركائه. أما نحن، فقد كسبنا عملاء جدد سمعوا عن موقفنا وأرادوا العمل مع من يضع القيم قبل الربح السريع. الدرس: أحياناً ما ترفضه أهم مما تقبله.\n",
-      "question_five": " ما هي رسالتك للصناعيين العرب والشباب الطموح؟",
-      "answer_two": "ما يميزنا ليس حجم الإنتاج أو عدد المصانع — بل الفلسفة التي نعمل بها. نحن نؤمن بأن الصناعة مشروع حضاري، وليست مجرد أرقام وأرباح.\nنلتزم بالجودة بلا تنازل: كل منتج يحمل اسمنا يمثل سمعة بُنيت على مدى عقدين. نرفض صفقات مربحة إذا كانت تتطلب التنازل عن معاييرنا الأخلاقية. نستثمر بكثافة في الابتكار والتقنيات الحديثة. ونؤمن بأن احترام الإنسان — سواء كان موظفاً أو عميلاً أو شريكاً — هو أساس أي نجاح مستدام.\nهذا ما يجعل عملاءنا يعودون، وشركاءنا يثقون، وموظفينا يُعطون أفضل ما لديهم.\n",
-      "description": "هذا نص توضيحي بسيط يشرح فكرة المحتوى بوضوح.\nاعرض بعض العناصر المهمة بطريقة منظمة.",
-      "answer_three": "هذا أكثر سؤال يُطرح عليّ، والجواب بسيط: القيم ليست عبئاً على النجاح، بل هي ضمانة استدامته.\nفي تجربتي الممتدة لأكثر من عقدين، اكتشفت أن العميل الذي يثق بك يعود ويُحضر غيره، والموظف الذي تحترمه يُعطيك أفضل ما عنده، والشريك الذي تلتزم معه بالوعود يبقى معك في الأزمات.\nرأيت عشرات الشركات ربحت سريعاً بالحيلة والخداع، لكنها انهارت عند أول أزمة حقيقية. أما الشركات المبنية على قيم راسخة، فهي تصمد وتنمو حتى في أصعب الظروف. الشفافية والأمانة ليست رفاهية — بل هي الأساس الذي يُبقي المؤسسة واقفة حين تهتز الأرض تحت قدميها.\n",
-      "answer_five": "رسالتي بسيطة وواضحة: ابنوا بقيم، واصبروا على النتائج، ولا تخافوا من البدايات الصغيرة.\nللصناعيين العرب أقول: لدينا إرث صناعي عريق وكوادر بشرية ماهرة وأسواق واعدة. ما ينقصنا ليس الإمكانات بل الثقة بالنفس والصبر على البناء الحقيقي. توقفوا عن البحث عن الربح السريع — الصناعة الحقيقية تُبنى بالإتقان لا بالمناورة.\nللشباب الطموح أقول: لا تنتظروا الظروف المثالية فهي لن تكون كذلك أبداً. ابدأوا بما تملكون. القيم ليست عبئاً بل هي الأساس الذي يضمن بقاءكم في السوق. تعلّموا باستمرار، ولا تخافوا من الفشل — كل أزمة درس وكل خسارة استثمار في الخبرة.\n"
-    },
-    "en": {
-      "answer_one": "My journey began at the age of twelve when my family faced a severe financial crisis that transformed my father from a wealthy merchant into a proud and dignified truck driver. That moment taught me that dignity isn't measured by position, but by resilience. I worked in construction, traveled to Lebanon in search of opportunities, and learned an unforgettable lesson at every stage.\nThe key wasn't a large capital investment, but three things: patience in building gradually, commitment to values ​​even in the most difficult circumstances, and the belief that every small step brings you closer to your goal. We started with a 50-square-meter office in Aleppo, and today we export to 46 countries. Success is a long road, not a single leap.",
-      "button_text": "Get Started",
-      "question_four": "What was the most difficult decision you made in your career?",
-      "question_two": "What distinguishes Al Nassaj Group from its competitors in the market?",
-      "title": "Got Questions?\nWe’ve Got Answers",
-      "question_three": "How do you reconcile commercial success with a commitment to values ​​in a world that sees them as contradictory?",
-      "answer_four": "The hardest decision was turning down a huge deal that would have tripled our profits, but it required compromising our long-standing quality standards.\n\nThe client was large and influential, and the deal was incredibly tempting. But accepting it would have meant using lower-quality materials, putting our workers to longer hours for less pay, and sacrificing the reputation we had painstakingly built.\n\nI chose to refuse. Six months later, that client's reputation collapsed due to a quality scandal, and they lost all their partners. Meanwhile, we gained new clients who had heard about our approach and wanted to work with those who prioritize values ​​over quick profits. The lesson: Sometimes what you refuse is more important than what you accept.",
-      "question_one": "How did your journey from zero to building a global group begin?",
-      "answer_two": "What sets us apart is not the scale of our production or the number of factories—it's our philosophy. We believe that industry is a civilizational project, not just numbers and profits.\n\nWe are committed to uncompromising quality: every product bearing our name represents a reputation built over two decades. We refuse lucrative deals if they require compromising our ethical standards. We invest heavily in innovation and cutting-edge technologies. And we believe that respect for people—whether employees, customers, or partners—is the foundation of any sustainable success.\n\nThis is what keeps our customers coming back, earns our partners' trust, and motivates our employees to give their best.",
-      "question_five": "What is your message to Arab industrialists and ambitious young people?",
-      "answer_five": "My message is simple and clear: Build with values, be patient with the results, and don't be afraid of small beginnings.\n\nTo Arab industrialists, I say: We have a rich industrial heritage, skilled human resources, and promising markets. What we lack is not resources, but self-confidence and the patience to build something truly. Stop chasing quick profits—real industry is built on mastery, not manipulation.\n\nTo ambitious young people, I say: Don't wait for perfect conditions; they will never be. Start with what you have. Values ​​are not a burden; they are the foundation that guarantees your survival in the market. Learn continuously, and don't be afraid of failure—every crisis is a lesson, and every loss is an investment in experience.",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nSuspendisse varius elementum tristique.",
-      "answer_three": "This is the question I'm most frequently asked, and the answer is simple: values ​​aren't a burden on success; they're the guarantee of its sustainability.\n\nIn my experience spanning over two decades, I've discovered that a customer who trusts you returns and brings others, an employee you respect gives their best, and a partner you honor their commitments to stays with you through thick and thin.\n\nI've seen dozens of companies that profited quickly through trickery and deception, only to collapse at the first real crisis. Companies built on solid values, however, endure and grow even in the most challenging circumstances. Transparency and integrity aren't luxuries—they're the foundation that keeps an organization standing when the ground shakes beneath its feet."
+      "phone_title": "Phone",
+      "title": "Contact me\n",
+      "button_text": "Send message",
+      "office_title": "Office",
+      "number_input": "+86 159 5855 0906",
+      "Email_placeholder": "fadi@alnassaj.com\"",
+      "office": "Zhejiang, China",
+      "message_input": "Message",
+      "office_description": "Come say hello at our office HQ."
     },
     "updatedBy": "admin@fadi.com",
     "updatedAt": {
       "type": "firestore/timestamp/1.0",
+      "seconds": 1776760373,
+      "nanoseconds": 500000000
+    }
+  },
+  "faq": {
+    "ar": {
+      "question_five": " ما هي رسالتك للصناعيين العرب والشباب الطموح؟",
+      "description": "هذا نص توضيحي بسيط يشرح فكرة المحتوى بوضوح.\nاعرض بعض العناصر المهمة بطريقة منظمة.",
+      "question_two": " ما الذي يميز مجموعة النساج عن المنافسين في السوق؟",
+      "question_three": "كيف تجمع بين النجاح التجاري والالتزام بالقيم في عالم يرى أنهما متناقضان؟",
+      "answer_three": "هذا أكثر سؤال يُطرح عليّ، والجواب بسيط: القيم ليست عبئاً على النجاح، بل هي ضمانة استدامته.\nفي تجربتي الممتدة لأكثر من عقدين، اكتشفت أن العميل الذي يثق بك يعود ويُحضر غيره، والموظف الذي تحترمه يُعطيك أفضل ما عنده، والشريك الذي تلتزم معه بالوعود يبقى معك في الأزمات.\nرأيت عشرات الشركات ربحت سريعاً بالحيلة والخداع، لكنها انهارت عند أول أزمة حقيقية. أما الشركات المبنية على قيم راسخة، فهي تصمد وتنمو حتى في أصعب الظروف. الشفافية والأمانة ليست رفاهية — بل هي الأساس الذي يُبقي المؤسسة واقفة حين تهتز الأرض تحت قدميها.\n",
+      "answer_five": "رسالتي بسيطة وواضحة: ابنوا بقيم، واصبروا على النتائج، ولا تخافوا من البدايات الصغيرة.\nللصناعيين العرب أقول: لدينا إرث صناعي عريق وكوادر بشرية ماهرة وأسواق واعدة. ما ينقصنا ليس الإمكانات بل الثقة بالنفس والصبر على البناء الحقيقي. توقفوا عن البحث عن الربح السريع — الصناعة الحقيقية تُبنى بالإتقان لا بالمناورة.\nللشباب الطموح أقول: لا تنتظروا الظروف المثالية فهي لن تكون كذلك أبداً. ابدأوا بما تملكون. القيم ليست عبئاً بل هي الأساس الذي يضمن بقاءكم في السوق. تعلّموا باستمرار، ولا تخافوا من الفشل — كل أزمة درس وكل خسارة استثمار في الخبرة.\n",
+      "title": "هل لديك أسئلة؟\nلدينا إجابات",
+      "answer_four": "أصعب قرار كان رفض صفقة ضخمة كانت ستُضاعف أرباحنا ثلاث مرات، لكنها كانت تتطلب التنازل عن معايير الجودة التي التزمنا بها.\nالعميل كان كبيراً ومؤثراً، والصفقة مغرية جداً. لكن قبولها كان يعني استخدام خامات أقل جودة، وتشغيل العمال ساعات أطول بأجور أقل، والتخلي عن سمعتنا التي بنيناها بالصبر.\nاخترت الرفض. بعد ستة أشهر، انهارت سمعة ذلك العميل بسبب فضيحة جودة وخسر كل شركائه. أما نحن، فقد كسبنا عملاء جدد سمعوا عن موقفنا وأرادوا العمل مع من يضع القيم قبل الربح السريع. الدرس: أحياناً ما ترفضه أهم مما تقبله.\n",
+      "answer_two": "ما يميزنا ليس حجم الإنتاج أو عدد المصانع — بل الفلسفة التي نعمل بها. نحن نؤمن بأن الصناعة مشروع حضاري، وليست مجرد أرقام وأرباح.\nنلتزم بالجودة بلا تنازل: كل منتج يحمل اسمنا يمثل سمعة بُنيت على مدى عقدين. نرفض صفقات مربحة إذا كانت تتطلب التنازل عن معاييرنا الأخلاقية. نستثمر بكثافة في الابتكار والتقنيات الحديثة. ونؤمن بأن احترام الإنسان — سواء كان موظفاً أو عميلاً أو شريكاً — هو أساس أي نجاح مستدام.\nهذا ما يجعل عملاءنا يعودون، وشركاءنا يثقون، وموظفينا يُعطون أفضل ما لديهم.\n",
+      "question_one": "كيف بدأت رحلتك من الصفر إلى بناء مجموعة عالمية؟",
+      "question_four": "ما أصعب قرار اتخذته في مسيرتك المهنية؟",
+      "answer_one": "بدأت رحلتي في سن الثانية عشرة، حين واجهت عائلتي أزمة مالية قاسية حوّلت والدي من تاجر غني إلى سائق شاحنة صاحب أنفة ومروءة. تلك اللحظة علّمتني أن الكرامة لا تُقاس بالمنصب بل بالصمود. عملت في الإنشاءات، سافرت إلى لبنان بحثاً عن فرص، وتعلمت من كل محطة درساً لا يُنسى.\nالمفتاح لم يكن رأس المال الكبير، بل ثلاثة أمور: الصبر على البناء التدريجي، الالتزام بالقيم حتى في أصعب الظروف، والإيمان بأن كل خطوة صغيرة تُقرّبك من الهدف. بدأنا من مكتب 50 متراً في حلب، واليوم نصدّر لـ 46 دولة. النجاح مسار طويل، وليس قفزة واحدة.\n",
+      "button_text": "ابدأ الآن"
+    },
+    "en": {
+      "answer_four": "The hardest decision was turning down a huge deal that would have tripled our profits, but it required compromising our long-standing quality standards.\n\nThe client was large and influential, and the deal was incredibly tempting. But accepting it would have meant using lower-quality materials, putting our workers to longer hours for less pay, and sacrificing the reputation we had painstakingly built.\n\nI chose to refuse. Six months later, that client's reputation collapsed due to a quality scandal, and they lost all their partners. Meanwhile, we gained new clients who had heard about our approach and wanted to work with those who prioritize values ​​over quick profits. The lesson: Sometimes what you refuse is more important than what you accept.",
+      "title": "Got Questions?\nWe’ve Got Answers",
+      "answer_one": "My journey began at the age of twelve when my family faced a severe financial crisis that transformed my father from a wealthy merchant into a proud and dignified truck driver. That moment taught me that dignity isn't measured by position, but by resilience. I worked in construction, traveled to Lebanon in search of opportunities, and learned an unforgettable lesson at every stage.\nThe key wasn't a large capital investment, but three things: patience in building gradually, commitment to values ​​even in the most difficult circumstances, and the belief that every small step brings you closer to your goal. We started with a 50-square-meter office in Aleppo, and today we export to 46 countries. Success is a long road, not a single leap.",
+      "button_text": "Get Started",
+      "answer_two": "What sets us apart is not the scale of our production or the number of factories—it's our philosophy. We believe that industry is a civilizational project, not just numbers and profits.\n\nWe are committed to uncompromising quality: every product bearing our name represents a reputation built over two decades. We refuse lucrative deals if they require compromising our ethical standards. We invest heavily in innovation and cutting-edge technologies. And we believe that respect for people—whether employees, customers, or partners—is the foundation of any sustainable success.\n\nThis is what keeps our customers coming back, earns our partners' trust, and motivates our employees to give their best.",
+      "question_four": "What was the most difficult decision you made in your career?",
+      "question_one": "How did your journey from zero to building a global group begin?",
+      "question_three": "How do you reconcile commercial success with a commitment to values ​​in a world that sees them as contradictory?",
+      "question_two": "What distinguishes Al Nassaj Group from its competitors in the market?",
+      "answer_five": "My message is simple and clear: Build with values, be patient with the results, and don't be afraid of small beginnings.\n\nTo Arab industrialists, I say: We have a rich industrial heritage, skilled human resources, and promising markets. What we lack is not resources, but self-confidence and the patience to build something truly. Stop chasing quick profits—real industry is built on mastery, not manipulation.\n\nTo ambitious young people, I say: Don't wait for perfect conditions; they will never be. Start with what you have. Values ​​are not a burden; they are the foundation that guarantees your survival in the market. Learn continuously, and don't be afraid of failure—every crisis is a lesson, and every loss is an investment in experience.",
+      "answer_three": "This is the question I'm most frequently asked, and the answer is simple: values ​​aren't a burden on success; they're the guarantee of its sustainability.\n\nIn my experience spanning over two decades, I've discovered that a customer who trusts you returns and brings others, an employee you respect gives their best, and a partner you honor their commitments to stays with you through thick and thin.\n\nI've seen dozens of companies that profited quickly through trickery and deception, only to collapse at the first real crisis. Companies built on solid values, however, endure and grow even in the most challenging circumstances. Transparency and integrity aren't luxuries—they're the foundation that keeps an organization standing when the ground shakes beneath its feet.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nSuspendisse varius elementum tristique.",
+      "question_five": "What is your message to Arab industrialists and ambitious young people?"
+    },
+    "updatedAt": {
+      "type": "firestore/timestamp/1.0",
       "seconds": 1776520575,
       "nanoseconds": 651000000
-    }
+    },
+    "updatedBy": "admin@fadi.com"
   }
 }

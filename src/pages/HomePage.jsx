@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AboutMe from "../components/About_me/AboutMe";
 import AreasOfExpertise from "../components/AreasOfExpertise/AreasOfExpertise";
 
@@ -13,8 +13,30 @@ import StorySection from "../components/StorySection/StorySection";
 import HeroStorySection from "../components/HeroStorySection/HeroStorySection";
 import BusinessShowcaseSection from "../components/BusinessShowcaseSection/BusinessShowcaseSection";
 import ExperienceSection from "../components/ExperienceSection/ExperienceSection";
+import NewsEventsSection from "../components/NewsEventsSection/NewsEventsSection";
 
 function HomePage({ lang = "en", siteContent = {} }) {
+  useEffect(() => {
+    const sectionId = sessionStorage.getItem("scrollToSection");
+
+    if (!sectionId) return;
+
+    const timer = setTimeout(() => {
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      sessionStorage.removeItem("scrollToSection");
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <section id="home">
@@ -81,6 +103,10 @@ function HomePage({ lang = "en", siteContent = {} }) {
           lang={lang}
           content={siteContent.gallery}
         />
+      </section>
+
+      <section id="news-events">
+        <NewsEventsSection lang={lang} />
       </section>
 
       <section id="contact">

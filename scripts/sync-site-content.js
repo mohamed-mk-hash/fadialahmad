@@ -221,6 +221,8 @@ const docsToFetch = [
 const defaultPostLanguageContent = {
   title: "",
   subtitle: "",
+  excerpt: "",
+  locationText: "",
   seoTitle: "",
   seoDescription: "",
   contentTopHtml: "",
@@ -241,23 +243,53 @@ function serializeSiteDoc(data, fallback = {}) {
   };
 }
 
+function serializeTimestamp(value) {
+  return value?.toDate ? value.toDate().toISOString() : null;
+}
+
 function serializePost(docItem) {
   const data = docItem.data();
 
   return {
     id: docItem.id,
+
+    category: data.category || "article",
     slug: data.slug || "",
     status: data.status || "",
+
+    tags: Array.isArray(data.tags) ? data.tags : [],
+    readTime: Number(data.readTime || 0),
+
     featuredImageUrl: data.featuredImageUrl || "",
+    featuredImagePublicId: data.featuredImagePublicId || "",
+
     middleImageUrl: data.middleImageUrl || "",
+    middleImagePublicId: data.middleImagePublicId || "",
+
+    gallery: Array.isArray(data.gallery) ? data.gallery : [],
+
+    eventDate: serializeTimestamp(data.eventDate),
+    eventEndDate: serializeTimestamp(data.eventEndDate),
+
+    sourceName: data.sourceName || "",
+    sourceUrl: data.sourceUrl || "",
+    sourcePublishedAt: serializeTimestamp(data.sourcePublishedAt),
+
+    videoUrl: data.videoUrl || "",
+    videoPlatform: data.videoPlatform || "",
+    videoChannel: data.videoChannel || "",
+    videoPublishedAt: serializeTimestamp(data.videoPublishedAt),
+
     createdBy: data.createdBy || "",
-    publishedAt: data.publishedAt?.toDate
-      ? data.publishedAt.toDate().toISOString()
-      : null,
+    createdAt: serializeTimestamp(data.createdAt),
+    updatedAt: serializeTimestamp(data.updatedAt),
+    publishedAt: serializeTimestamp(data.publishedAt),
+
     ar: {
       ...defaultPostLanguageContent,
       ...(data.ar || {}),
     },
+
     en: {
       ...defaultPostLanguageContent,
       ...(data.en || {}),
@@ -286,7 +318,11 @@ async function syncSiteContent() {
         );
       }
     } catch (error) {
-      console.error("[ERROR] Failed syncing siteContent:", item.key, error.message);
+      console.error(
+        "[ERROR] Failed syncing siteContent:",
+        item.key,
+        error.message
+      );
     }
   }
 
