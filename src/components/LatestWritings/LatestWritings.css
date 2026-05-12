@@ -5,6 +5,7 @@
   background: #ffffff;
   padding: 90px 0 70px;
   font-family: "Lato", sans-serif;
+  transition: background-color 0.35s ease;
 }
 
 .latest-writings-section[dir="rtl"] {
@@ -23,6 +24,7 @@
   line-height: 1.1;
   font-weight: 800;
   color: #101828;
+  transition: color 0.35s ease;
 }
 
 .latest-writings-subtitle {
@@ -32,6 +34,7 @@
   font-weight: 400;
   color: #475467;
   max-width: 900px;
+  transition: color 0.35s ease;
 }
 
 .latest-writings-slider-wrapper {
@@ -56,6 +59,7 @@
   width: 100%;
   overflow: hidden;
   background: #f2f4f7;
+  transition: background-color 0.35s ease;
 }
 
 .writing-card-image {
@@ -79,6 +83,7 @@
   line-height: 1.4;
   font-weight: 700;
   color: #6941c6;
+  transition: color 0.35s ease;
 }
 
 .writing-dot {
@@ -101,6 +106,7 @@
   font-weight: 800;
   color: #101828;
   flex: 1;
+  transition: color 0.35s ease;
 }
 
 .writing-card-arrow-link {
@@ -118,6 +124,7 @@
   flex-shrink: 0;
   margin-top: 2px;
   cursor: pointer;
+  transition: color 0.35s ease, opacity 0.25s ease;
 }
 
 .writing-card-arrow-link:hover .writing-card-arrow {
@@ -131,6 +138,7 @@
   font-weight: 400;
   color: #475467;
   max-width: 95%;
+  transition: color 0.35s ease;
 }
 
 .latest-writings-arrows {
@@ -171,6 +179,56 @@
 
 .latest-arrow-btn:active {
   transform: translateY(0);
+}
+
+/* =========================
+   Dark mode - Latest Writings
+========================= */
+
+.dark-mode .latest-writings-section {
+  background: #0f1923;
+}
+
+.dark-mode .latest-writings-title {
+  color: #f5f8fb;
+}
+
+.dark-mode .latest-writings-subtitle {
+  color: #c8d4df;
+}
+
+.dark-mode .writing-card-image-box {
+  background: #172735;
+}
+
+.dark-mode .writing-card-meta {
+  color: #7db4d6;
+}
+
+.dark-mode .writing-card-title {
+  color: #ffffff;
+}
+
+.dark-mode .writing-card-arrow {
+  color: #ffffff;
+}
+
+.dark-mode .writing-card-description {
+  color: #c8d4df;
+}
+
+.dark-mode .latest-arrow-btn {
+  background: #172735;
+  border-color: #2d4050;
+}
+
+.dark-mode .latest-arrow-btn:hover {
+  border-color: #5f9abc;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.dark-mode .latest-arrow-btn img {
+  filter: brightness(0) invert(1);
 }
 
 /* Large screens */

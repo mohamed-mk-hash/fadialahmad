@@ -5,6 +5,7 @@
   background: #ffffff;
   padding: 80px 0;
   font-family: "Lato", sans-serif;
+  transition: background-color 0.35s ease;
 }
 
 .faq-section[dir="rtl"] {
@@ -33,6 +34,7 @@
   line-height: 1.15;
   font-weight: 600;
   color: #101828;
+  transition: color 0.35s ease;
 }
 
 .faq-section[dir="rtl"] .faq-title {
@@ -46,6 +48,7 @@
   font-weight: 400;
   color: #667085;
   max-width: 520px;
+  transition: color 0.35s ease;
 }
 
 .faq-section[dir="rtl"] .faq-description {
@@ -93,6 +96,7 @@
   margin-left: -6px;
   opacity: 0.8;
   object-fit: contain;
+  transition: filter 0.35s ease, opacity 0.35s ease;
 }
 
 .faq-right {
@@ -106,7 +110,7 @@
   border-radius: 22px;
   background: #ffffff;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .faq-item.active {
@@ -137,6 +141,7 @@
   line-height: 1.4;
   font-weight: 700;
   color: #1d1d1f;
+  transition: color 0.35s ease;
 }
 
 .faq-section[dir="rtl"] .faq-question span:first-child {
@@ -152,6 +157,7 @@
   font-weight: 400;
   width: 26px;
   text-align: center;
+  transition: color 0.35s ease;
 }
 
 .faq-answer-wrapper {
@@ -176,12 +182,67 @@
   font-weight: 400;
   color: #667085;
   max-width: 92%;
+  transition: color 0.35s ease;
 }
 
 .faq-section[dir="rtl"] .faq-answer p {
   font-family: "Alexandria", sans-serif;
   font-size: 13px;
   line-height: 1.85;
+}
+
+/* =========================
+   Dark mode - FAQ Section
+========================= */
+
+.dark-mode .faq-section {
+  background: #0f1923;
+}
+
+.dark-mode .faq-title {
+  color: #f5f8fb;
+}
+
+.dark-mode .faq-description {
+  color: #c8d4df;
+}
+
+.dark-mode .faq-button {
+  background: #5f9abc;
+  color: #ffffff;
+}
+
+.dark-mode .faq-button:hover {
+  background: #7db4d6;
+  opacity: 1;
+}
+
+.dark-mode .faq-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.18;
+}
+
+.dark-mode .faq-item {
+  background: #172735;
+  border-color: #2d4050;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+}
+
+.dark-mode .faq-item.active {
+  background: #1b2f3f;
+  border-color: #5f9abc;
+}
+
+.dark-mode .faq-question span:first-child {
+  color: #f5f8fb;
+}
+
+.dark-mode .faq-icon {
+  color: #9dcced;
+}
+
+.dark-mode .faq-answer p {
+  color: #c8d4df;
 }
 
 /* Tablet */

@@ -3,9 +3,10 @@
 .experience-section {
   width: 100%;
   padding: 70px 0 30px;
-  background: #F9FAFB;
+  background: #f9fafb;
   font-family: "Lato", sans-serif;
   margin-bottom: 50px !important;
+  transition: background-color 0.35s ease;
 }
 
 .experience-container {
@@ -31,6 +32,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
+  transition: color 0.35s ease;
 }
 
 .experience-title {
@@ -41,6 +43,7 @@
   line-height: 1.08;
   letter-spacing: -1.6px;
   max-width: 760px;
+  transition: color 0.35s ease;
 }
 
 .experience-intro {
@@ -51,11 +54,13 @@
   font-weight: 500;
   max-width: 560px;
   white-space: pre-line;
+  transition: color 0.35s ease;
 }
 
 .experience-list {
   width: 100%;
   border-top: 1px solid #dfe4ea;
+  transition: border-color 0.35s ease;
 }
 
 .experience-row {
@@ -65,6 +70,7 @@
   padding: 34px 0 32px;
   border-bottom: 1px solid #dfe4ea;
   align-items: start;
+  transition: border-color 0.35s ease;
 }
 
 .experience-company {
@@ -73,6 +79,7 @@
   font-size: 24px;
   font-weight: 700;
   line-height: 1.25;
+  transition: color 0.35s ease;
 }
 
 .experience-role {
@@ -81,6 +88,7 @@
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  transition: color 0.35s ease;
 }
 
 .experience-period {
@@ -89,6 +97,7 @@
   font-size: 16px;
   line-height: 1.5;
   font-weight: 700;
+  transition: color 0.35s ease;
 }
 
 .experience-description {
@@ -99,6 +108,7 @@
   font-weight: 400;
   max-width: 560px;
   white-space: pre-line;
+  transition: color 0.35s ease;
 }
 
 .experience-tags {
@@ -121,6 +131,57 @@
   font-weight: 400;
   line-height: 1;
   white-space: nowrap;
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+/* =========================
+   Dark mode - Experience Section
+========================= */
+
+.dark-mode .experience-section {
+  background: #0f1923;
+}
+
+.dark-mode .experience-badge {
+  color: #7db4d6;
+}
+
+.dark-mode .experience-title {
+  color: #f5f8fb;
+}
+
+.dark-mode .experience-intro {
+  color: #c8d4df;
+}
+
+.dark-mode .experience-list {
+  border-top-color: #2d4050;
+}
+
+.dark-mode .experience-row {
+  border-bottom-color: #2d4050;
+}
+
+.dark-mode .experience-company {
+  color: #ffffff;
+}
+
+.dark-mode .experience-role {
+  color: #a9b8c7;
+}
+
+.dark-mode .experience-period {
+  color: #f5f8fb;
+}
+
+.dark-mode .experience-description {
+  color: #c8d4df;
+}
+
+.dark-mode .experience-tag {
+  background: #223747;
+  color: #9dcced;
+  border: 1px solid #2d4050;
 }
 
 /* Arabic */

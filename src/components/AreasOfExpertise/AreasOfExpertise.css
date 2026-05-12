@@ -1,18 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;800&display=swap");
 
 .expertise-section {
   width: 100%;
   padding: 28px 0 42px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
+  background-color: #ffffff;
+  transition: background-color 0.35s ease;
 }
 
 .expertise-wrapper {
   width: calc(100% - 84px);
   max-width: 1400px;
   margin: 0 auto;
-  background: #F5F8FA;
+  background: #f5f8fa;
   border-radius: 20px;
   padding: 42px 40px 46px;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .expertise-title {
@@ -22,6 +25,7 @@
   font-weight: 600;
   color: #101828;
   letter-spacing: -0.5px;
+  transition: color 0.35s ease;
 }
 
 .expertise-content {
@@ -63,6 +67,7 @@
   line-height: 1.25;
   font-weight: 600;
   color: #101828;
+  transition: color 0.35s ease;
 }
 
 .expertise-item p {
@@ -72,6 +77,7 @@
   line-height: 1.55;
   font-weight: 400;
   color: #475467;
+  transition: color 0.35s ease;
 }
 
 .expertise-right {
@@ -101,6 +107,35 @@
   height: 225px;
 }
 
+/* =========================
+   Dark mode - Areas of Expertise
+========================= */
+
+.dark-mode .expertise-section {
+  background-color: #0f1923;
+}
+
+.dark-mode .expertise-wrapper {
+  background: #172735;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.dark-mode .expertise-title {
+  color: #f5f8fb;
+}
+
+.dark-mode .expertise-item h3 {
+  color: #ffffff;
+}
+
+.dark-mode .expertise-item p {
+  color: #c8d4df;
+}
+
+.dark-mode .expertise-img {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
   .expertise-content {
@@ -127,7 +162,6 @@
     font-size: 25px;
     margin-bottom: 26px;
   }
-
 
   .expertise-shape {
     width: 22px;
@@ -157,6 +191,7 @@
     width: 80%;
     margin: 0 auto;
   }
+
   .top-img,
   .bottom-img {
     height: auto;

@@ -6,6 +6,7 @@
   padding: 70px 0 90px;
   font-family: "Lato", sans-serif;
   overflow: hidden;
+  transition: background-color 0.35s ease;
 }
 
 .moments-section[dir="rtl"] {
@@ -32,6 +33,7 @@
   line-height: 1.05;
   font-weight: 800;
   color: #101828;
+  transition: color 0.35s ease;
 }
 
 .moments-description {
@@ -42,6 +44,7 @@
   color: #667085;
   max-width: 620px;
   justify-self: end;
+  transition: color 0.35s ease;
 }
 
 .moments-gallery {
@@ -68,6 +71,7 @@
   border-radius: 16px;
   overflow: hidden;
   background: #f2f4f7;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .top-card {
@@ -83,6 +87,27 @@
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+/* =========================
+   Dark mode - Moments Milestones
+========================= */
+
+.dark-mode .moments-section {
+  background: #0f1923;
+}
+
+.dark-mode .moments-title {
+  color: #f5f8fb;
+}
+
+.dark-mode .moments-description {
+  color: #c8d4df;
+}
+
+.dark-mode .moments-card {
+  background: #172735;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
 }
 
 /* Large screens */
@@ -153,7 +178,6 @@
 }
 
 /* Mobile */
-/* Mobile */
 @media (max-width: 768px) {
   .moments-section {
     padding: 50px 0 55px;
@@ -203,6 +227,10 @@
     overflow: hidden;
     background: #f2f4f7;
     margin: 0 auto;
+  }
+
+  .dark-mode .moments-card {
+    background: #172735;
   }
 
   .top-card,

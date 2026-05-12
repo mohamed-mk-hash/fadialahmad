@@ -4,14 +4,15 @@
   width: 100%;
   background: linear-gradient(
     to bottom,
-    #F9FAFB 0%,
-    #F9FAFB 58%,
+    #f9fafb 0%,
+    #f9fafb 58%,
     #ffffff 58%,
     #ffffff 100%
   );
   padding: 10px 0 80px;
   font-family: "Lato", sans-serif;
   overflow: hidden;
+  transition: background 0.35s ease;
 }
 
 .story-section[dir="rtl"] {
@@ -30,6 +31,7 @@
   line-height: 1.1;
   font-weight: 600;
   color: #162033;
+  transition: color 0.35s ease;
 }
 
 .story-subtitle {
@@ -38,6 +40,7 @@
   line-height: 1.6;
   font-weight: 400;
   color: #4a5a73;
+  transition: color 0.35s ease;
 }
 
 .story-wrapper {
@@ -78,6 +81,7 @@
   overflow: visible;
   box-shadow: 0 16px 45px rgba(15, 28, 45, 0.14);
   background-color: transparent;
+  transition: box-shadow 0.35s ease;
 }
 
 .story-video-inner {
@@ -87,6 +91,7 @@
   overflow: hidden;
   border-radius: 12px;
   background-color: #d9d9d9;
+  transition: background-color 0.35s ease;
 }
 
 .story-video-iframe {
@@ -95,6 +100,36 @@
   display: block;
   border: 0;
   border-radius: 12px;
+}
+
+/* =========================
+   Dark mode - Story Section
+========================= */
+
+.dark-mode .story-section {
+  background: linear-gradient(
+    to bottom,
+    #0f1923 0%,
+    #0f1923 58%,
+    #0f1923 58%,
+    #0f1923 100%
+  );
+}
+
+.dark-mode .story-title {
+  color: #f5f8fb;
+}
+
+.dark-mode .story-subtitle {
+  color: #c8d4df;
+}
+
+.dark-mode .story-video-card {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+.dark-mode .story-video-inner {
+  background-color: #172735;
 }
 
 /* Large screens */
@@ -146,6 +181,10 @@
   .story-section {
     padding: 30px 0 55px;
     background: #f3f4f6;
+  }
+
+  .dark-mode .story-section {
+    background: #0f1923;
   }
 
   .story-header {

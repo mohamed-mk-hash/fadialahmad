@@ -53,10 +53,26 @@ function App() {
     return localStorage.getItem("siteLang") || "en";
   });
 
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("siteTheme") || "light";
+  });
+
   const [siteContent, setSiteContent] = useState(fallbackSiteContent);
 
   const toggleLanguage = () => {
     setLang((prevLang) => (prevLang === "en" ? "ar" : "en"));
+  };
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  const setLightTheme = () => {
+    setTheme("light");
+  };
+
+  const setDarkTheme = () => {
+    setTheme("dark");
   };
 
   useEffect(() => {
@@ -71,6 +87,20 @@ function App() {
       document.body.classList.remove("arabic-mode");
     }
   }, [lang]);
+
+  useEffect(() => {
+    localStorage.setItem("siteTheme", theme);
+
+    document.documentElement.setAttribute("data-theme", theme);
+
+    if (theme === "dark") {
+      document.body.classList.add("dark-mode");
+      document.body.classList.remove("light-mode");
+    } else {
+      document.body.classList.add("light-mode");
+      document.body.classList.remove("dark-mode");
+    }
+  }, [theme]);
 
   useEffect(() => {
     const loadSiteContent = async () => {
@@ -95,9 +125,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className={`app ${lang === "ar" ? "rtl-mode" : "ltr-mode"}`}>
+      <div
+        className={`app ${lang === "ar" ? "rtl-mode" : "ltr-mode"} ${
+          theme === "dark" ? "dark-mode" : "light-mode"
+        }`}
+      >
         <Header
           lang={lang}
+          theme={theme}
+          onThemeToggle={toggleTheme}
+          onLightTheme={setLightTheme}
+          onDarkTheme={setDarkTheme}
           onLanguageToggle={toggleLanguage}
           content={siteContent.header}
         />

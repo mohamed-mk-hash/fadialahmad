@@ -5,6 +5,7 @@
   background-color: #5c90b1;
   padding: 36px 0 30px;
   overflow: hidden;
+  transition: background-color 0.35s ease;
 }
 
 .industrial-brands__container {
@@ -53,12 +54,33 @@
   display: block;
   filter: brightness(0) invert(1);
   opacity: 0.95;
+  transition: opacity 0.35s ease, filter 0.35s ease;
+}
+
+/* =========================
+   Dark mode - Industrial Brands
+========================= */
+
+.dark-mode .industrial-brands {
+  background-color: #0f1923;
+  border-top: 1px solid #233746;
+  border-bottom: 1px solid #233746;
+}
+
+.dark-mode .industrial-brands__logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.dark-mode .industrial-brands__title {
+  color: #ffffff;
 }
 
 @keyframes logoMarquee {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(calc(-50% - 35px));
   }

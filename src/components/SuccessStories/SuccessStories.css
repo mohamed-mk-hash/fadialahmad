@@ -6,6 +6,7 @@
   padding: 90px 0 70px;
   font-family: "Lato", sans-serif;
   overflow: hidden;
+  transition: background-color 0.35s ease;
 }
 
 .success-stories-section[dir="rtl"] {
@@ -33,8 +34,7 @@
 
 .success-stories-title,
 .success-stories-subtitle,
-.success-stories-slider-wrapper,
-.success-stories-arrows {
+.success-stories-slider-wrapper {
   position: relative;
   z-index: 2;
 }
@@ -45,6 +45,7 @@
   line-height: 1.1;
   font-weight: 700;
   color: #101828;
+  transition: color 0.35s ease;
 }
 
 .success-stories-section[dir="rtl"] .success-stories-title {
@@ -59,6 +60,7 @@
   font-weight: 400;
   color: #475467;
   max-width: 880px;
+  transition: color 0.35s ease;
 }
 
 .success-stories-section[dir="rtl"] .success-stories-subtitle {
@@ -72,20 +74,22 @@
   direction: ltr;
 }
 
-.success-stories-swiper {
-  width: 100%;
-  overflow: visible;
-  direction: ltr;
-}
-
-.success-stories-swiper .swiper-slide {
-  height: auto;
+.success-stories-track {
   display: flex;
+  align-items: stretch;
+  gap: 24px;
+  width: max-content;
+  direction: ltr;
+  animation: successStoriesMarquee 35s linear infinite;
+  will-change: transform;
 }
 
-.success-slide-inner {
-  width: 100%;
-  height: 100%;
+.success-stories-track:hover {
+  animation-play-state: paused;
+}
+
+.success-story-marquee-item {
+  flex: 0 0 390px;
   display: flex;
 }
 
@@ -104,6 +108,8 @@
   flex: 1;
   background: #174c63;
   isolation: isolate;
+  box-shadow: none;
+  transition: box-shadow 0.35s ease, background-color 0.35s ease;
 }
 
 .success-story-bg-image {
@@ -239,44 +245,66 @@
   line-height: 2;
 }
 
-.success-stories-arrows {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 18px;
-  margin-top: 34px;
-  direction: ltr;
+/* =========================
+   Dark mode - Success Stories only
+========================= */
+
+.dark-mode .success-stories-section {
+  background: #0f1923;
 }
 
-.success-arrow-btn {
-  width: 56px;
-  height: 56px;
-  border: 1.5px solid #d0d5dd;
-  border-radius: 50%;
-  background: #ffffff;
-  padding: 0;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
+.dark-mode .success-stories-title {
+  color: #f5f8fb;
 }
 
-.success-arrow-btn img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  display: block;
+.dark-mode .success-stories-subtitle {
+  color: #c8d4df;
 }
 
-.success-arrow-btn:hover {
-  transform: translateY(-2px);
-  border-color: #98a2b3;
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+.dark-mode .success-story-card {
+  background: #174c63;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
 }
 
-.success-arrow-btn:active {
-  transform: translateY(0);
+.dark-mode .success-story-dark-layer {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 17, 31, 0.34) 0%,
+      rgba(7, 17, 31, 0.14) 45%,
+      rgba(7, 17, 31, 0.42) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(14, 70, 96, 0.22) 0%,
+      rgba(14, 70, 96, 0.08) 55%,
+      rgba(14, 70, 96, 0.2) 100%
+    );
+}
+
+.dark-mode .success-story-header {
+  background: rgba(8, 18, 30, 0.52);
+}
+
+.dark-mode .success-story-content {
+  background: rgba(8, 18, 30, 0.68);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.dark-mode .success-story-header h3,
+.dark-mode .success-story-badge,
+.dark-mode .success-story-quote {
+  color: #ffffff;
+}
+
+@keyframes successStoriesMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 12px));
+  }
 }
 
 @media (max-width: 1600px) {
@@ -316,6 +344,14 @@
   .success-stories-subtitle {
     font-size: 18px;
     margin: 18px 0 36px;
+  }
+
+  .success-stories-track {
+    animation-duration: 30s;
+  }
+
+  .success-story-marquee-item {
+    flex-basis: 340px;
   }
 
   .success-story-card {
@@ -371,6 +407,15 @@
     font-size: 14px;
   }
 
+  .success-stories-track {
+    gap: 16px;
+    animation-duration: 24s;
+  }
+
+  .success-story-marquee-item {
+    flex-basis: 82vw;
+  }
+
   .success-story-card {
     min-height: 290px;
     border-radius: 18px;
@@ -413,18 +458,13 @@
     -webkit-line-clamp: 4;
   }
 
-  .success-stories-arrows {
-    gap: 14px;
-    margin-top: 28px;
-  }
+  @keyframes successStoriesMarquee {
+    from {
+      transform: translateX(0);
+    }
 
-  .success-arrow-btn {
-    width: 52px;
-    height: 52px;
-  }
-
-  .success-arrow-btn img {
-    width: 20px;
-    height: 20px;
+    to {
+      transform: translateX(calc(-50% - 8px));
+    }
   }
 }

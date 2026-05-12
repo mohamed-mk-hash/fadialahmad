@@ -20,8 +20,13 @@ const pageText = {
     videoDate: "Video date",
     watchVideo: "Watch video",
     copyLink: "Copy link",
+    copied: "Copied!",
+    copyError: "Could not copy",
     authorRole: "Post author",
     latestTitle: "Latest articles",
+    shareOnFacebook: "Share on Facebook",
+    shareOnX: "Share on X",
+    shareOnLinkedIn: "Share on LinkedIn",
     categoryLabels: {
       article: "Article",
       news: "News",
@@ -45,8 +50,13 @@ const pageText = {
     videoDate: "تاريخ الفيديو",
     watchVideo: "مشاهدة الفيديو",
     copyLink: "نسخ الرابط",
+    copied: "تم النسخ!",
+    copyError: "تعذر النسخ",
     authorRole: "كاتب المنشور",
     latestTitle: "أحدث المقالات",
+    shareOnFacebook: "مشاركة على فيسبوك",
+    shareOnX: "مشاركة على إكس",
+    shareOnLinkedIn: "مشاركة على لينكدإن",
     categoryLabels: {
       article: "مقال",
       news: "خبر",
@@ -128,6 +138,7 @@ function SinglePostPage({ lang = "en" }) {
   const [posts, setPosts] = useState([]);
   const [siteContent, setSiteContent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [copyStatus, setCopyStatus] = useState("");
 
   const t = pageText[lang] || pageText.en;
 
@@ -174,6 +185,7 @@ function SinglePostPage({ lang = "en" }) {
   const localized = post?.[lang] || post?.en || post?.ar || {};
   const category = post?.category || "article";
   const categoryLabel = t.categoryLabels[category] || category;
+
   const processedBottomHtml = useMemo(
     () => transformBottomHtml(localized.contentBottomHtml || ""),
     [localized.contentBottomHtml]
@@ -181,6 +193,64 @@ function SinglePostPage({ lang = "en" }) {
 
   const youtubeEmbedUrl = getYouTubeEmbedUrl(post?.videoUrl || "");
   const hasTags = Array.isArray(post?.tags) && post.tags.length > 0;
+
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareTitle = localized.title || "";
+
+  const encodedUrl = encodeURIComponent(currentUrl);
+  const encodedTitle = encodeURIComponent(shareTitle);
+
+  const shareLinks = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    x: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  };
+
+  const openShareWindow = (url) => {
+    if (!url || typeof window === "undefined") return;
+
+    window.open(
+      url,
+      "_blank",
+      "noopener,noreferrer,width=650,height=500"
+    );
+  };
+
+  const copyPostLink = async () => {
+    if (!currentUrl) return;
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(currentUrl);
+      } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = currentUrl;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        textArea.style.top = "-9999px";
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+      }
+
+      setCopyStatus(t.copied);
+
+      setTimeout(() => {
+        setCopyStatus("");
+      }, 2000);
+    } catch (error) {
+      console.error("Error copying link:", error);
+      setCopyStatus(t.copyError);
+
+      setTimeout(() => {
+        setCopyStatus("");
+      }, 2000);
+    }
+  };
 
   if (loading) {
     return (
@@ -367,15 +437,41 @@ function SinglePostPage({ lang = "en" }) {
               <button
                 className="copy-btn"
                 type="button"
-                onClick={() => navigator.clipboard.writeText(window.location.href)}
+                onClick={copyPostLink}
               >
-                {t.copyLink}
+                {copyStatus || t.copyLink}
               </button>
 
-              <div className="socials">
-                <span>f</span>
-                <span>x</span>
-                <span>in</span>
+              <div className="socials" aria-label="Share post">
+                <button
+                  className="social-share-btn"
+                  type="button"
+                  onClick={() => openShareWindow(shareLinks.facebook)}
+                  aria-label={t.shareOnFacebook}
+                  title={t.shareOnFacebook}
+                >
+                  <span>f</span>
+                </button>
+
+                <button
+                  className="social-share-btn"
+                  type="button"
+                  onClick={() => openShareWindow(shareLinks.x)}
+                  aria-label={t.shareOnX}
+                  title={t.shareOnX}
+                >
+                  <span>x</span>
+                </button>
+
+                <button
+                  className="social-share-btn"
+                  type="button"
+                  onClick={() => openShareWindow(shareLinks.linkedin)}
+                  aria-label={t.shareOnLinkedIn}
+                  title={t.shareOnLinkedIn}
+                >
+                  <span>in</span>
+                </button>
               </div>
             </div>
           </div>

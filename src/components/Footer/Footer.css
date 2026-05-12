@@ -5,6 +5,7 @@
   background: #123243;
   padding: 28px 0 40px;
   font-family: "Lato", sans-serif;
+  transition: background-color 0.35s ease;
 }
 
 .footer-section[dir="rtl"] {
@@ -32,6 +33,7 @@
   display: block;
   margin-top: 20px;
   margin-bottom: 20px;
+  transition: filter 0.35s ease, opacity 0.35s ease;
 }
 
 .footer-nav {
@@ -49,7 +51,7 @@
   line-height: 1.4;
   color: #ffffff;
   text-decoration: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, color 0.35s ease;
 }
 
 .footer-section[dir="rtl"] .footer-nav a {
@@ -65,6 +67,7 @@
   height: 1px;
   background: rgba(255, 255, 255, 0.18);
   margin-bottom: 28px;
+  transition: background-color 0.35s ease;
 }
 
 .footer-bottom {
@@ -80,6 +83,7 @@
   font-weight: 400;
   line-height: 1.5;
   color: #c7d0d9;
+  transition: color 0.35s ease;
 }
 
 .footer-section[dir="rtl"] .footer-copy {
@@ -98,7 +102,7 @@
   line-height: 1.4;
   color: #c7d0d9;
   text-decoration: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, color 0.35s ease;
 }
 
 .footer-section[dir="rtl"] .footer-links a {
@@ -107,6 +111,27 @@
 
 .footer-links a:hover {
   opacity: 0.8;
+}
+
+/* =========================
+   Dark mode - Footer
+========================= */
+
+.dark-mode .footer-section {
+  background: #09131c;
+}
+
+.dark-mode .footer-nav a {
+  color: #f5f8fb;
+}
+
+.dark-mode .footer-copy,
+.dark-mode .footer-links a {
+  color: #c8d4df;
+}
+
+.dark-mode .footer-divider {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 /* tablet */

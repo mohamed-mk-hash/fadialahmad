@@ -5,6 +5,7 @@
   background-color: #ffffff;
   padding: 26px 0 34px;
   font-family: "Lato", sans-serif;
+  transition: background-color 0.35s ease;
 }
 
 .hero-story-container {
@@ -85,7 +86,7 @@
   max-width: 720px;
   color: #ffffff;
   font-size: 58px;
-  line-height: 1.28;
+  line-height: 1.7 !important;
   font-weight: 700;
   letter-spacing: -1.2px;
 }
@@ -173,7 +174,64 @@
   font-weight: 400;
 }
 
-/* ===== RTL: فقط البادج والأزرار يمين ===== */
+/* =========================
+   Dark mode - Hero only
+========================= */
+
+.dark-mode .hero-story-section {
+  background-color: #0f1923;
+}
+
+.dark-mode .hero-story-container {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .hero-story-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.62) 36%,
+    rgba(0, 0, 0, 0.42) 66%,
+    rgba(0, 0, 0, 0.52) 100%
+  );
+}
+
+.dark-mode .hero-story-badge {
+  background: rgba(15, 25, 35, 0.55);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+}
+
+.dark-mode .hero-story-title {
+  color: #ffffff;
+}
+
+.dark-mode .hero-story-text {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dark-mode .hero-story-btn-primary {
+  background-color: #ffffff;
+  color: #111111;
+  border-color: #ffffff;
+}
+
+.dark-mode .hero-story-btn-primary:hover {
+  background-color: #e9eef2;
+  color: #111111;
+}
+
+.dark-mode .hero-story-btn-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.dark-mode .hero-story-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ===== RTL ===== */
 
 .hero-story-section[dir="rtl"] {
   font-family: "Alexandria", sans-serif;
@@ -185,7 +243,7 @@
 }
 
 .hero-story-section[dir="rtl"] .hero-story-badge {
-    width: fit-content;
+  width: fit-content;
   margin-bottom: 30px;
 }
 

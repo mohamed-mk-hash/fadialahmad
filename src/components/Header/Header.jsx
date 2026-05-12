@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 
 import logo from "../../assets/logo.png";
@@ -19,6 +20,7 @@ const fallbackHeaderContent = {
     menu_seven: "",
     menu_eight: "",
     menu_nine: "",
+    menu_ten: "",
   },
   en: {
     language_button: "English",
@@ -31,22 +33,61 @@ const fallbackHeaderContent = {
     menu_seven: "",
     menu_eight: "",
     menu_nine: "",
+    menu_ten: "",
   },
 };
 
 const Header = ({
   lang = "en",
+  theme = "light",
+  onThemeToggle,
+  onLightTheme,
+  onDarkTheme,
   onLanguageToggle,
   content = fallbackHeaderContent,
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLight, setIsLight] = useState(true);
   const [animateLang, setAnimateLang] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isLight = theme === "light";
 
   const currentContent =
     content?.[lang] || content?.en || fallbackHeaderContent.en;
 
   const closeMenu = () => setMenuOpen(false);
+
+  const scrollToSection = (event, sectionId) => {
+    event.preventDefault();
+
+    closeMenu();
+
+    const isHomePage = location.pathname === "/";
+
+    if (!isHomePage) {
+      sessionStorage.setItem("scrollToSection", sectionId);
+      navigate("/");
+      return;
+    }
+
+    const section = document.getElementById(sectionId);
+    const header = document.querySelector(".header");
+
+    if (!section) return;
+
+    const headerHeight = header ? header.offsetHeight : 0;
+    const sectionTop =
+      section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+    window.scrollTo({
+      top: sectionTop,
+      behavior: "smooth",
+    });
+
+    window.history.pushState(null, "", `#${sectionId}`);
+  };
 
   const handleLanguageClick = () => {
     setAnimateLang(true);
@@ -60,6 +101,18 @@ const Header = ({
     }, 500);
   };
 
+  const menuItems = [
+    { label: currentContent.menu_one, id: "home" },
+    { label: currentContent.menu_two, id: "biography" },
+    { label: currentContent.menu_three, id: "areas" },
+    { label: currentContent.menu_four, id: "story-section" },
+    { label: currentContent.menu_five, id: "stories" },
+    { label: currentContent.menu_six, id: "articles" },
+    { label: currentContent.menu_seven, id: "gallery" },
+    { label: currentContent.menu_ten, id: "news-events" },
+    { label: currentContent.menu_nine, id: "faq" },
+  ];
+
   return (
     <header className="header" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="header__container">
@@ -72,24 +125,29 @@ const Header = ({
         </button>
 
         <div className="header__left">
-          <a href="/#home">
+          <a href="/#home" onClick={(e) => scrollToSection(e, "home")}>
             <img src={logo} alt="Logo" className="header__logo" />
           </a>
         </div>
 
         <nav className="header__nav">
-          <a href="/#home">{currentContent.menu_one}</a>
-          <a href="/#biography">{currentContent.menu_two}</a>
-          <a href="/#areas">{currentContent.menu_three}</a>
-          <a href="/#story-section">{currentContent.menu_four}</a>
-          <a href="/#stories">{currentContent.menu_five}</a>
-          <a href="/#articles">{currentContent.menu_six}</a>
-          <a href="/#gallery">{currentContent.menu_seven}</a>
-          <a href="/#faq">{currentContent.menu_nine}</a>
+          {menuItems.map((item) => (
+            <a
+              key={item.id}
+              href={`/#${item.id}`}
+              onClick={(e) => scrollToSection(e, item.id)}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <div className="header__right">
-          <a href="/#contact" className="contact-btn">
+          <a
+            href="/#contact"
+            className="contact-btn"
+            onClick={(e) => scrollToSection(e, "contact")}
+          >
             {currentContent.menu_eight}
           </a>
 
@@ -107,17 +165,19 @@ const Header = ({
 
           <div className="theme-box">
             <button
+              type="button"
               className={`theme-btn ${isLight ? "active" : ""}`}
               aria-label="Light mode"
-              onClick={() => setIsLight(true)}
+              onClick={onLightTheme}
             >
               <img src={sun} alt="Sun" className="icon-img" />
             </button>
 
             <button
+              type="button"
               className={`theme-btn ${!isLight ? "active" : ""}`}
               aria-label="Dark mode"
-              onClick={() => setIsLight(false)}
+              onClick={onDarkTheme}
             >
               <img src={moon} alt="Moon" className="icon-img" />
             </button>
@@ -127,7 +187,9 @@ const Header = ({
         <div className="header__mobile-center">
           <button
             type="button"
-            className={`language-box mobile-header-language ${animateLang ? "switching" : ""}`}
+            className={`language-box mobile-header-language ${
+              animateLang ? "switching" : ""
+            }`}
             onClick={handleLanguageClick}
             aria-label={lang === "ar" ? "تغيير اللغة" : "Change language"}
           >
@@ -139,17 +201,19 @@ const Header = ({
 
           <div className="theme-box mobile-header-theme">
             <button
+              type="button"
               className={`theme-btn ${isLight ? "active" : ""}`}
               aria-label="Light mode"
-              onClick={() => setIsLight(true)}
+              onClick={onLightTheme}
             >
               <img src={sun} alt="Sun" className="icon-img" />
             </button>
 
             <button
+              type="button"
               className={`theme-btn ${!isLight ? "active" : ""}`}
               aria-label="Dark mode"
-              onClick={() => setIsLight(false)}
+              onClick={onDarkTheme}
             >
               <img src={moon} alt="Moon" className="icon-img" />
             </button>
@@ -174,36 +238,21 @@ const Header = ({
         </div>
 
         <nav className="mobile-drawer__nav">
-          <a href="/#home" onClick={closeMenu}>
-            {currentContent.menu_one}
-          </a>
-          <a href="/#biography" onClick={closeMenu}>
-            {currentContent.menu_two}
-          </a>
-          <a href="/#areas" onClick={closeMenu}>
-            {currentContent.menu_three}
-          </a>
-          <a href="/#investment" onClick={closeMenu}>
-            {currentContent.menu_four}
-          </a>
-          <a href="/#stories" onClick={closeMenu}>
-            {currentContent.menu_five}
-          </a>
-          <a href="/#articles" onClick={closeMenu}>
-            {currentContent.menu_six}
-          </a>
-          <a href="/#gallery" onClick={closeMenu}>
-            {currentContent.menu_seven}
-          </a>
-          <a href="/#faq" onClick={closeMenu}>
-            {currentContent.menu_nine}
-          </a>
+          {menuItems.map((item) => (
+            <a
+              key={item.id}
+              href={`/#${item.id}`}
+              onClick={(e) => scrollToSection(e, item.id)}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <a
           href="/#contact"
           className="contact-btn mobile-contact-btn"
-          onClick={closeMenu}
+          onClick={(e) => scrollToSection(e, "contact")}
         >
           {currentContent.menu_eight}
         </a>

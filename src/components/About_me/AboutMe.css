@@ -5,6 +5,7 @@
   background-color: #ffffff;
   padding: 80px 0 60px;
   font-family: "Lato", sans-serif;
+  transition: background-color 0.35s ease;
 }
 
 .about-me-container {
@@ -27,6 +28,7 @@
   font-weight: 700;
   color: #1e1f26;
   margin: 0 0 28px;
+  transition: color 0.35s ease;
 }
 
 .about-me-text {
@@ -36,6 +38,7 @@
   color: #565866;
   margin: 0;
   max-width: 520px;
+  transition: color 0.35s ease;
 }
 
 .about-me-bottom-logo {
@@ -72,6 +75,7 @@
   box-sizing: border-box;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .about-me-overlay-text {
@@ -103,6 +107,7 @@
   line-height: 1;
   font-weight: 700;
   color: #427d9c;
+  transition: color 0.35s ease;
 }
 
 .about-stat p {
@@ -111,6 +116,40 @@
   line-height: 1.5;
   color: #101828;
   font-weight: 500;
+  transition: color 0.35s ease;
+}
+
+/* =========================
+   Dark mode - About Me only
+========================= */
+
+.dark-mode .about-me-section {
+  background-color: #0f1923;
+}
+
+.dark-mode .about-me-title {
+  color: #f5f8fb;
+}
+
+.dark-mode .about-me-text {
+  color: #c8d4df;
+}
+
+.dark-mode .about-stat h3 {
+  color: #5f9abc;
+}
+
+.dark-mode .about-stat p {
+  color: #d7e1ec;
+}
+
+.dark-mode .about-me-image-overlay {
+  background: rgba(15, 25, 35, 0.68);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.dark-mode .about-me-overlay-text {
+  color: #ffffff;
 }
 
 /* =========================
@@ -193,7 +232,7 @@
     line-height: 1.6;
   }
 
-    .about-me-right {
+  .about-me-right {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px 20px;
     padding-left: 0;

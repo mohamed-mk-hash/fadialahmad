@@ -11,7 +11,8 @@ body,
 
 body {
   font-family: "Lato", sans-serif;
-  transition: all 0.35s ease;
+  background-color: #ffffff;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 body.arabic-mode {
@@ -21,6 +22,29 @@ body.arabic-mode {
 .app {
   width: 100%;
   min-height: 100vh;
+  background-color: #ffffff;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.app.light-mode {
+  background-color: #ffffff;
+}
+
+.app.dark-mode {
+  background-color: #0f1923;
+}
+
+body.dark-mode {
+  background-color: #0f1923;
+}
+
+html[data-theme="dark"] {
+  background-color: #0f1923;
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] #root {
+  background-color: #0f1923;
 }
 
 .rtl-mode {

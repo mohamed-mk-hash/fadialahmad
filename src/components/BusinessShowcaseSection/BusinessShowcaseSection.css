@@ -6,6 +6,8 @@
   padding: 54px 0 70px;
   font-family: "Lato", sans-serif;
   overflow: hidden;
+  background-color: #ffffff;
+  transition: background-color 0.35s ease;
 }
 
 .business-showcase-container {
@@ -35,6 +37,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
+  transition: color 0.35s ease;
 }
 
 .business-showcase-title {
@@ -44,6 +47,7 @@
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -1.2px;
+  transition: color 0.35s ease;
 }
 
 .business-showcase-description {
@@ -53,6 +57,7 @@
   font-size: 18px;
   line-height: 1.65;
   font-weight: 500;
+  transition: color 0.35s ease;
 }
 
 .business-showcase-action {
@@ -113,6 +118,7 @@
   border-radius: 22px;
   overflow: hidden;
   background: #dddddd;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .business-showcase-card img {
@@ -134,10 +140,48 @@
   animation-play-state: paused;
 }
 
+/* =========================
+   Dark mode - Business Showcase only
+========================= */
+
+.dark-mode .business-showcase-section {
+  background-color: #0f1923;
+}
+
+.dark-mode .business-showcase-badge {
+  color: #7db4d6;
+}
+
+.dark-mode .business-showcase-title {
+  color: #f5f8fb;
+}
+
+.dark-mode .business-showcase-description {
+  color: #c8d4df;
+}
+
+.dark-mode .business-showcase-button {
+  color: #9dcced;
+  border-color: #5f93bb;
+  background: transparent;
+}
+
+.dark-mode .business-showcase-button:hover {
+  background: rgba(95, 147, 187, 0.16);
+  color: #ffffff;
+  border-color: #7db4d6;
+}
+
+.dark-mode .business-showcase-card {
+  background: #1b2b38;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
 @keyframes businessShowcaseScroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-50% - 14px));
   }
@@ -278,6 +322,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(calc(-50% - 8px));
     }
@@ -322,6 +367,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(calc(-50% - 7px));
     }
