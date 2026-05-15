@@ -8,25 +8,88 @@ import "swiper/css";
 import arrowLeft from "../../assets/arrow_left.png";
 import arrowRight from "../../assets/arrow_right.png";
 
-const LatestWritings = ({ lang = "en" }) => {
-  const swiperRef = useRef(null);
+const fallbackLatestWritingsContent = {
+  ar: {
+    title: "",
+    description: "",
+  },
+  en: {
+    title: "",
+    description: "",
+  },
+  zh: {
+    title: "",
+    description: "",
+  },
+};
 
-  const [latestWritingsContent, setLatestWritingsContent] = useState({
-    ar: {
-      title: "",
-      description: "",
-    },
-    en: {
-      title: "",
-      description: "",
-    },
-  });
+const uiText = {
+  ar: {
+    loading: "جاري التحميل...",
+    article: "مقال",
+    previous: "السابق",
+    next: "التالي",
+  },
+  en: {
+    loading: "Loading...",
+    article: "Article",
+    previous: "Previous",
+    next: "Next",
+  },
+  zh: {
+    loading: "加载中...",
+    article: "文章",
+    previous: "上一项",
+    next: "下一项",
+  },
+};
+
+const getDirection = (currentLang) => {
+  return currentLang === "ar" ? "rtl" : "ltr";
+};
+
+const getLocale = (currentLang) => {
+  if (currentLang === "ar") return "ar-DZ";
+  if (currentLang === "zh") return "zh-CN";
+  return "en-GB";
+};
+
+const getLocalizedText = (content, currentLang, key) => {
+  return (
+    content?.[currentLang]?.[key] ||
+    content?.en?.[key] ||
+    fallbackLatestWritingsContent?.[currentLang]?.[key] ||
+    fallbackLatestWritingsContent.en[key] ||
+    ""
+  );
+};
+
+const getLocalizedPost = (item, currentLang) => {
+  const currentLanguageContent = item?.[currentLang] || {};
+  const englishContent = item?.en || {};
+
+  return {
+    title: currentLanguageContent.title || englishContent.title || "",
+    subtitle: currentLanguageContent.subtitle || englishContent.subtitle || "",
+    excerpt: currentLanguageContent.excerpt || englishContent.excerpt || "",
+  };
+};
+
+const LatestWritings = ({
+  lang = "en",
+  content = fallbackLatestWritingsContent,
+}) => {
+  const swiperRef = useRef(null);
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const currentContent =
-    latestWritingsContent[lang] || latestWritingsContent.en;
+  const currentUiText = uiText[lang] || uiText.en;
+
+  const currentContent = {
+    title: getLocalizedText(content, lang, "title"),
+    description: getLocalizedText(content, lang, "description"),
+  };
 
   const handleNext = () => {
     const swiper = swiperRef.current;
@@ -56,31 +119,25 @@ const LatestWritings = ({ lang = "en" }) => {
     const date = new Date(dateString);
     if (isNaN(date)) return "";
 
-    return new Intl.DateTimeFormat(
-      currentLang === "ar" ? "ar-DZ" : "en-GB",
-      {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      }
-    ).format(date);
+    return new Intl.DateTimeFormat(getLocale(currentLang), {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }).format(date);
   };
 
   useEffect(() => {
-    const fetchLatestWritingsData = async () => {
+    const fetchLatestWritingsPosts = async () => {
       try {
-        const [contentRes, postsRes] = await Promise.all([
-          fetch("/data/siteContent.json"),
-          fetch("/data/posts.json"),
-        ]);
-
-        const contentData = await contentRes.json();
-        const postsData = await postsRes.json();
-
-        setLatestWritingsContent({
-          ar: contentData.articles?.ar || { title: "", description: "" },
-          en: contentData.articles?.en || { title: "", description: "" },
+        const postsRes = await fetch("/data/posts.json", {
+          cache: "no-cache",
         });
+
+        if (!postsRes.ok) {
+          throw new Error("Failed to load posts.json");
+        }
+
+        const postsData = await postsRes.json();
 
         const filteredPosts = postsData
           .filter(
@@ -92,27 +149,28 @@ const LatestWritings = ({ lang = "en" }) => {
 
         setPosts(filteredPosts);
       } catch (error) {
-        console.error("Error loading JSON data:", error);
+        console.error("Error loading latest writings posts:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchLatestWritingsData();
+    fetchLatestWritingsPosts();
   }, []);
 
   return (
     <section
       className="latest-writings-section"
-      dir={lang === "ar" ? "rtl" : "ltr"}
+      dir={getDirection(lang)}
     >
       <div className="latest-writings-container">
         <h2 className="latest-writings-title">
-          {loading ? "Loading..." : currentContent.title}
+          {currentContent.title || (loading ? currentUiText.loading : "")}
         </h2>
 
         <p className="latest-writings-subtitle">
-          {loading ? "Loading..." : currentContent.description}
+          {currentContent.description ||
+            (loading ? currentUiText.loading : "")}
         </p>
 
         <div className="latest-writings-slider-wrapper">
@@ -153,13 +211,13 @@ const LatestWritings = ({ lang = "en" }) => {
             className="latest-writings-swiper"
           >
             {posts.map((item) => {
-              const localizedPost = item[lang] || item.en;
+              const localizedPost = getLocalizedPost(item, lang);
 
               return (
                 <SwiperSlide key={item.id}>
                   <article
                     className="writing-card"
-                    dir={lang === "ar" ? "rtl" : "ltr"}
+                    dir={getDirection(lang)}
                   >
                     <div className="writing-card-image-box">
                       <img
@@ -171,7 +229,7 @@ const LatestWritings = ({ lang = "en" }) => {
 
                     <div className="writing-card-content">
                       <p className="writing-card-meta">
-                        <span>{lang === "ar" ? "مقال" : "Article"}</span>
+                        <span>{currentUiText.article}</span>
                         <span className="writing-dot">•</span>
                         <span>{formatDate(item.publishedAt, lang)}</span>
                       </p>
@@ -185,6 +243,7 @@ const LatestWritings = ({ lang = "en" }) => {
                           to={`/posts/${item.slug}`}
                           className="writing-card-arrow-link"
                           onClick={() => window.scrollTo(0, 0)}
+                          aria-label={localizedPost.title}
                         >
                           <span className="writing-card-arrow">↗</span>
                         </Link>
@@ -204,7 +263,7 @@ const LatestWritings = ({ lang = "en" }) => {
         <div className="latest-writings-arrows">
           <button
             className="latest-arrow-btn"
-            aria-label={lang === "ar" ? "السابق" : "Previous"}
+            aria-label={currentUiText.previous}
             type="button"
             onClick={handlePrev}
           >
@@ -213,7 +272,7 @@ const LatestWritings = ({ lang = "en" }) => {
 
           <button
             className="latest-arrow-btn"
-            aria-label={lang === "ar" ? "التالي" : "Next"}
+            aria-label={currentUiText.next}
             type="button"
             onClick={handleNext}
           >

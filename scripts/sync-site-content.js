@@ -26,178 +26,212 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const languages = ["ar", "en", "zh"];
+
+const emptyHeader = {
+  language_button: "",
+  menu_one: "",
+  menu_two: "",
+  menu_three: "",
+  menu_four: "",
+  menu_five: "",
+  menu_six: "",
+  menu_seven: "",
+  menu_eight: "",
+  menu_nine: "",
+  menu_ten: "",
+};
+
+const emptyHero = {
+  badge: "",
+  title: "",
+  description: "",
+  primaryButtonText: "",
+  secondaryButtonText: "",
+  primaryButtonLink: "",
+  secondaryButtonLink: "",
+  stat_one: "",
+  stat_two: "",
+};
+
+const emptyBusinessShowcase = {
+  badge: "",
+  title: "",
+  description: "",
+  button_text: "",
+};
+
+const emptySimpleSection = {
+  title: "",
+  description: "",
+};
+
+const emptyNewsEventsMeetings = {
+  eyebrow: "",
+  title: "",
+  description: "",
+  button: "",
+  category: "",
+  fallbackTag: "",
+  readSuffix: "",
+  loading: "",
+};
+
+const emptyFaq = {
+  title: "",
+  description: "",
+  button_text: "",
+  question_one: "",
+  answer_one: "",
+  question_two: "",
+  answer_two: "",
+  question_three: "",
+  answer_three: "",
+  question_four: "",
+  answer_four: "",
+  question_five: "",
+  answer_five: "",
+};
+
 const defaultSiteContent = {
   header: {
     ar: {
+      ...emptyHeader,
       language_button: "العربية",
-      menu_one: "",
-      menu_two: "",
-      menu_three: "",
-      menu_four: "",
-      menu_five: "",
-      menu_six: "",
-      menu_seven: "",
-      menu_eight: "",
-      menu_nine: "",
     },
     en: {
+      ...emptyHeader,
       language_button: "English",
-      menu_one: "",
-      menu_two: "",
-      menu_three: "",
-      menu_four: "",
-      menu_five: "",
-      menu_six: "",
-      menu_seven: "",
-      menu_eight: "",
-      menu_nine: "",
+    },
+    zh: {
+      ...emptyHeader,
+      language_button: "中文",
     },
   },
+
   footer: {
-    ar: {
-      menu_one: "",
-      menu_two: "",
-      menu_three: "",
-      menu_four: "",
-      menu_five: "",
-      menu_six: "",
-      menu_seven: "",
-      menu_description: "",
-      menu_bottom_one: "",
-      menu_bottom_two: "",
-      menu_bottom_three: "",
-    },
-    en: {
-      menu_one: "",
-      menu_two: "",
-      menu_three: "",
-      menu_four: "",
-      menu_five: "",
-      menu_six: "",
-      menu_seven: "",
-      menu_description: "",
-      menu_bottom_one: "",
-      menu_bottom_two: "",
-      menu_bottom_three: "",
-    },
+    ar: {},
+    en: {},
+    zh: {},
   },
+
   hero: {
     ar: {
-      badge: "",
-      title: "",
-      description: "",
-      primaryButtonText: "",
-      secondaryButtonText: "",
-      primaryButtonLink: "",
-      secondaryButtonLink: "",
+      ...emptyHero,
       stat_one: "مشروع مكتمل",
       stat_two: "مشروع مكتمل",
     },
     en: {
-      badge: "",
-      title: "",
-      description: "",
-      primaryButtonText: "",
-      secondaryButtonText: "",
-      primaryButtonLink: "",
-      secondaryButtonLink: "",
+      ...emptyHero,
       stat_one: "Projects completed",
       stat_two: "Projects completed",
     },
+    zh: {
+      ...emptyHero,
+      stat_one: "已完成项目",
+      stat_two: "已完成项目",
+    },
   },
+
   about: {
     ar: {},
     en: {},
+    zh: {},
   },
+
   industrial: {
     ar: {},
     en: {},
+    zh: {},
   },
+
   businessShowcase: {
-    ar: {
-      badge: "",
-      title: "",
-      description: "",
-      button_text: "",
-    },
-    en: {
-      badge: "",
-      title: "",
-      description: "",
-      button_text: "",
-    },
+    ar: { ...emptyBusinessShowcase },
+    en: { ...emptyBusinessShowcase },
+    zh: { ...emptyBusinessShowcase },
   },
+
   areas: {
     ar: {},
     en: {},
+    zh: {},
   },
+
   stories: {
     ar: {},
     en: {},
+    zh: {},
   },
+
   storySection: {
-    ar: {
-      title: "",
-      description: "",
-    },
-    en: {
-      title: "",
-      description: "",
-    },
+    ar: { ...emptySimpleSection },
+    en: { ...emptySimpleSection },
+    zh: { ...emptySimpleSection },
   },
+
   articles: {
+    ar: { ...emptySimpleSection },
+    en: { ...emptySimpleSection },
+    zh: { ...emptySimpleSection },
+  },
+
+  newsEventsMeetings: {
     ar: {
-      title: "",
-      description: "",
+      eyebrow: "الأحدث",
+      title: "الأخبار، الفعاليات والاجتماعات",
+      description:
+        "أحدث الأخبار واللقاءات والفعاليات المهنية، مع تغطية موجزة لأبرز المشاركات والتحديثات.",
+      button: "عرض كل المنشورات",
+      category: "خبر",
+      fallbackTag: "قيادة",
+      readSuffix: "دقائق قراءة",
+      loading: "جارٍ التحميل...",
     },
     en: {
-      title: "",
-      description: "",
+      eyebrow: "Latest",
+      title: "News, Events & Meetings",
+      description:
+        "The latest industry news, interviews, events, technologies, and professional updates.",
+      button: "View all posts",
+      category: "News",
+      fallbackTag: "Leadership",
+      readSuffix: "min read",
+      loading: "Loading...",
+    },
+    zh: {
+      eyebrow: "最新",
+      title: "新闻、活动与会议",
+      description: "最新的行业新闻、采访、活动、技术与专业动态。",
+      button: "查看所有文章",
+      category: "新闻",
+      fallbackTag: "领导力",
+      readSuffix: "分钟阅读",
+      loading: "加载中...",
     },
   },
+
   experience: {
     ar: {},
     en: {},
+    zh: {},
   },
+
   gallery: {
     ar: {},
     en: {},
+    zh: {},
   },
+
   contact: {
     ar: {},
     en: {},
+    zh: {},
   },
+
   faq: {
-    ar: {
-      title: "",
-      description: "",
-      button_text: "",
-      question_one: "",
-      answer_one: "",
-      question_two: "",
-      answer_two: "",
-      question_three: "",
-      answer_three: "",
-      question_four: "",
-      answer_four: "",
-      question_five: "",
-      answer_five: "",
-    },
-    en: {
-      title: "",
-      description: "",
-      button_text: "",
-      question_one: "",
-      answer_one: "",
-      question_two: "",
-      answer_two: "",
-      question_three: "",
-      answer_three: "",
-      question_four: "",
-      answer_four: "",
-      question_five: "",
-      answer_five: "",
-    },
+    ar: { ...emptyFaq },
+    en: { ...emptyFaq },
+    zh: { ...emptyFaq },
   },
 };
 
@@ -212,7 +246,16 @@ const docsToFetch = [
   { key: "stories", collection: "siteContent", docId: "succes_stories" },
   { key: "storySection", collection: "siteContent", docId: "story_video" },
   { key: "articles", collection: "siteContent", docId: "Latest_writings" },
-  { key: "experience", collection: "siteContent", docId: "0EwrKivcpkYHFidugM5j" },
+  {
+    key: "newsEventsMeetings",
+    collection: "siteContent",
+    docId: "News_events_meetings",
+  },
+  {
+    key: "experience",
+    collection: "siteContent",
+    docId: "0EwrKivcpkYHFidugM5j",
+  },
   { key: "gallery", collection: "siteContent", docId: "Moments" },
   { key: "contact", collection: "siteContent", docId: "form" },
   { key: "faq", collection: "siteContent", docId: "questions" },
@@ -236,11 +279,40 @@ function ensureDir(dirPath) {
   }
 }
 
-function serializeSiteDoc(data, fallback = {}) {
+function isObject(value) {
+  return value && typeof value === "object" && !Array.isArray(value);
+}
+
+function mergeDeep(fallback = {}, data = {}) {
+  const output = { ...fallback };
+
+  for (const key of Object.keys(data || {})) {
+    if (isObject(data[key]) && isObject(output[key])) {
+      output[key] = mergeDeep(output[key], data[key]);
+    } else {
+      output[key] = data[key];
+    }
+  }
+
+  return output;
+}
+
+function normalizeLanguageObject(data = {}, fallback = {}) {
+  const normalized = {};
+
+  for (const lang of languages) {
+    normalized[lang] = mergeDeep(fallback[lang] || {}, data[lang] || {});
+  }
+
   return {
     ...fallback,
     ...data,
+    ...normalized,
   };
+}
+
+function serializeSiteDoc(data, fallback = {}) {
+  return normalizeLanguageObject(data, fallback);
 }
 
 function serializeTimestamp(value) {
@@ -250,7 +322,7 @@ function serializeTimestamp(value) {
 function serializePost(docItem) {
   const data = docItem.data();
 
-  return {
+  const post = {
     id: docItem.id,
 
     category: data.category || "article",
@@ -284,17 +356,16 @@ function serializePost(docItem) {
     createdAt: serializeTimestamp(data.createdAt),
     updatedAt: serializeTimestamp(data.updatedAt),
     publishedAt: serializeTimestamp(data.publishedAt),
-
-    ar: {
-      ...defaultPostLanguageContent,
-      ...(data.ar || {}),
-    },
-
-    en: {
-      ...defaultPostLanguageContent,
-      ...(data.en || {}),
-    },
   };
+
+  for (const lang of languages) {
+    post[lang] = {
+      ...defaultPostLanguageContent,
+      ...(data[lang] || {}),
+    };
+  }
+
+  return post;
 }
 
 async function syncSiteContent() {
@@ -310,6 +381,7 @@ async function syncSiteContent() {
           docSnap.data(),
           defaultSiteContent[item.key]
         );
+
         console.log("[OK] Synced siteContent:", item.key);
       } else {
         console.log(

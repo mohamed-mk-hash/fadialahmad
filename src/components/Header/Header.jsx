@@ -35,7 +35,26 @@ const fallbackHeaderContent = {
     menu_nine: "",
     menu_ten: "",
   },
+  zh: {
+    language_button: "中文",
+    menu_one: "",
+    menu_two: "",
+    menu_three: "",
+    menu_four: "",
+    menu_five: "",
+    menu_six: "",
+    menu_seven: "",
+    menu_eight: "",
+    menu_nine: "",
+    menu_ten: "",
+  },
 };
+
+const languages = [
+  { code: "en", label: "English" },
+  { code: "ar", label: "العربية" },
+  { code: "zh", label: "中文" },
+];
 
 const Header = ({
   lang = "en",
@@ -44,10 +63,11 @@ const Header = ({
   onLightTheme,
   onDarkTheme,
   onLanguageToggle,
+  onLanguageChange,
   content = fallbackHeaderContent,
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [animateLang, setAnimateLang] = useState(false);
+  const [languageOpen, setLanguageOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -58,6 +78,19 @@ const Header = ({
     content?.[lang] || content?.en || fallbackHeaderContent.en;
 
   const closeMenu = () => setMenuOpen(false);
+
+  const handleLanguageSelect = (newLang) => {
+    setLanguageOpen(false);
+
+    if (onLanguageChange) {
+      onLanguageChange(newLang);
+      return;
+    }
+
+    if (onLanguageToggle) {
+      onLanguageToggle(newLang);
+    }
+  };
 
   const scrollToSection = (event, sectionId) => {
     event.preventDefault();
@@ -89,18 +122,6 @@ const Header = ({
     window.history.pushState(null, "", `#${sectionId}`);
   };
 
-  const handleLanguageClick = () => {
-    setAnimateLang(true);
-
-    setTimeout(() => {
-      if (onLanguageToggle) onLanguageToggle();
-    }, 160);
-
-    setTimeout(() => {
-      setAnimateLang(false);
-    }, 500);
-  };
-
   const menuItems = [
     { label: currentContent.menu_one, id: "home" },
     { label: currentContent.menu_two, id: "biography" },
@@ -112,6 +133,38 @@ const Header = ({
     { label: currentContent.menu_ten, id: "news-events" },
     { label: currentContent.menu_nine, id: "faq" },
   ];
+
+  const languageDropdown = (
+    <div className="language-dropdown">
+      <button
+        type="button"
+        className="language-box"
+        onClick={() => setLanguageOpen((prev) => !prev)}
+        aria-label={lang === "ar" ? "تغيير اللغة" : "Change language"}
+      >
+        <img src={earth} alt="Language" className="icon-img" />
+        <span className="language-text">{currentContent.language_button}</span>
+        <span className="language-arrow">▾</span>
+      </button>
+
+      {languageOpen && (
+        <div className="language-menu">
+          {languages.map((language) => (
+            <button
+              key={language.code}
+              type="button"
+              className={`language-option ${
+                lang === language.code ? "active" : ""
+              }`}
+              onClick={() => handleLanguageSelect(language.code)}
+            >
+              {language.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <header className="header" dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -151,17 +204,7 @@ const Header = ({
             {currentContent.menu_eight}
           </a>
 
-          <button
-            type="button"
-            className={`language-box ${animateLang ? "switching" : ""}`}
-            onClick={handleLanguageClick}
-            aria-label={lang === "ar" ? "تغيير اللغة" : "Change language"}
-          >
-            <img src={earth} alt="Language" className="icon-img" />
-            <span className="language-text">
-              {currentContent.language_button}
-            </span>
-          </button>
+          {languageDropdown}
 
           <div className="theme-box">
             <button
@@ -185,19 +228,7 @@ const Header = ({
         </div>
 
         <div className="header__mobile-center">
-          <button
-            type="button"
-            className={`language-box mobile-header-language ${
-              animateLang ? "switching" : ""
-            }`}
-            onClick={handleLanguageClick}
-            aria-label={lang === "ar" ? "تغيير اللغة" : "Change language"}
-          >
-            <img src={earth} alt="Language" className="icon-img" />
-            <span className="language-text">
-              {currentContent.language_button}
-            </span>
-          </button>
+          {languageDropdown}
 
           <div className="theme-box mobile-header-theme">
             <button

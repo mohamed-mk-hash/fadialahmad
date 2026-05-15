@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./FaqSection.css";
 
-import faqLogo from "../../assets/questions_logo.png";
 
+import { Link } from "react-router-dom";
 const fallbackFaqContent = {
   ar: {
     title: "",
@@ -34,6 +34,19 @@ const fallbackFaqContent = {
     question_five: "",
     answer_five: "",
   },
+};
+
+const scrollToSection = (e, sectionId) => {
+  e.preventDefault();
+
+  const section = document.getElementById(sectionId);
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
 };
 
 const FaqSection = ({ lang = "en", content = fallbackFaqContent }) => {
@@ -84,9 +97,14 @@ const FaqSection = ({ lang = "en", content = fallbackFaqContent }) => {
 
           <p className="faq-description">{currentContent.description}</p>
 
-          <button className="faq-button" type="button">
-            {currentContent.button_text} <span>→</span>
-          </button>
+     <Link
+  to="/#contact"
+  className="faq-button"
+  onClick={(e) => scrollToSection(e, "contact")}
+>
+  {currentContent.button_text} <span>→</span>
+</Link>
+        
         </div>
 
         <div className="faq-right">

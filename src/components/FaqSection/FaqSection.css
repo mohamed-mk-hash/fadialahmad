@@ -67,27 +67,63 @@
   font-weight: 600;
   padding: 0 24px;
   cursor: pointer;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.25s ease;
-  font-family: "Lato", sans-serif;
-}
 
-.faq-section[dir="rtl"] .faq-button {
-  font-family: "Alexandria", sans-serif;
-  font-size: 15px;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+
+  box-shadow: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+
+  transform: translateY(0);
+  will-change: transform;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    opacity 0.25s ease;
+
+  font-family: "Lato", sans-serif;
 }
 
 .faq-button:hover {
   transform: translateY(-2px);
   opacity: 0.95;
+  color: #ffffff;
+  text-decoration: none;
+  background: #4d83a8;
+  box-shadow: none;
+  outline: none;
+}
+
+.faq-button:visited,
+.faq-button:active,
+.faq-button:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background: #4d83a8;
+  box-shadow: none;
+  outline: none;
+}
+
+.faq-section[dir="rtl"] .faq-button {
+  font-family: "Alexandria", sans-serif;
+  font-size: 15px;
+  flex-direction: row-reverse;
 }
 
 .faq-button span {
   font-size: 20px;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .faq-logo {
@@ -214,7 +250,16 @@
 
 .dark-mode .faq-button:hover {
   background: #7db4d6;
+  color: #ffffff;
   opacity: 1;
+  transform: translateY(-2px);
+}
+
+.dark-mode .faq-button:focus,
+.dark-mode .faq-button:active,
+.dark-mode .faq-button:visited {
+  background: #5f9abc;
+  color: #ffffff;
 }
 
 .dark-mode .faq-logo {

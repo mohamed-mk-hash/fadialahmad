@@ -44,6 +44,7 @@ const pageText = {
     loading: "Loading...",
     noPosts: "No posts found.",
   },
+
   ar: {
     heroTitle: "الأخبار، الفعاليات\nوالاجتماعات الاستراتيجية",
     heroText:
@@ -75,6 +76,38 @@ const pageText = {
     loading: "جارٍ التحميل...",
     noPosts: "لا توجد منشورات.",
   },
+
+  zh: {
+    heroTitle: "新闻、活动与\n战略会议",
+    heroText:
+      "通过战略会议、行业活动和投资论坛，持续参与全球市场，推动合作伙伴关系并促进业务增长。",
+    exploreAll: "查看全部",
+    downloadCv: "简历",
+
+    recentTitle: "最新动态",
+    recentSubtitle:
+      "精选展示最新参与活动、行业事件和职业里程碑，体现对战略倡议、合作伙伴关系和行业活动的持续参与。",
+    publishedOn: "发布于",
+
+    tabs: {
+      all: "查看全部",
+      event: "活动",
+      media: "会议",
+      news: "新闻",
+      article: "文章",
+      interview: "采访",
+    },
+
+    sortMostRecent: "最新",
+    sortOldest: "最早",
+    sortAZ: "A 到 Z",
+
+    previous: "上一页",
+    next: "下一页",
+    minRead: "分钟阅读",
+    loading: "加载中...",
+    noPosts: "暂无文章。",
+  },
 };
 
 const categoryClass = {
@@ -85,13 +118,23 @@ const categoryClass = {
   interview: "meeting",
 };
 
+function getDirection(currentLang) {
+  return currentLang === "ar" ? "rtl" : "ltr";
+}
+
+function getLocale(currentLang) {
+  if (currentLang === "ar") return "ar-DZ";
+  if (currentLang === "zh") return "zh-CN";
+  return "en-GB";
+}
+
 function formatDate(dateString, lang) {
   if (!dateString) return "";
 
   const date = new Date(dateString);
   if (Number.isNaN(date.getTime())) return "";
 
-  return new Intl.DateTimeFormat(lang === "ar" ? "ar-DZ" : "en-GB", {
+  return new Intl.DateTimeFormat(getLocale(lang), {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -102,28 +145,66 @@ function getSortDate(post) {
   return new Date(post.createdAt || post.publishedAt || 0).getTime();
 }
 
-function getCategoryLabel(category, t) {
-  if (category === "news") return t.tabs.news.replace("الأخبار", "خبر");
-  if (category === "event") return t.tabs.event.replace("الفعاليات", "فعالية");
-  if (category === "article") return t.tabs.article.replace("المقالات", "مقال");
-  if (category === "interview")
-    return t.tabs.interview.replace("المقابلات", "مقابلة");
-  if (category === "media") return t.tabs.media.replace("المرئيات", "مرئي");
+function getLocalizedPost(post, lang) {
+  return post?.[lang] || post?.en || post?.ar || post?.zh || {};
+}
+
+function getFirstTag(post, lang, fallbackTag = "Leadership") {
+  const localizedTags = post?.[lang]?.tags;
+  const globalTags = post?.tags;
+
+  if (Array.isArray(localizedTags) && localizedTags.length > 0) {
+    return localizedTags[0];
+  }
+
+  if (Array.isArray(globalTags) && globalTags.length > 0) {
+    return globalTags[0];
+  }
+
+  return fallbackTag;
+}
+
+function getCategoryLabel(category, t, lang) {
+  if (lang === "ar") {
+    if (category === "news") return "خبر";
+    if (category === "event") return "فعالية";
+    if (category === "article") return "مقال";
+    if (category === "interview") return "مقابلة";
+    if (category === "media") return "مرئي";
+    return category;
+  }
+
+  if (lang === "zh") {
+    if (category === "news") return "新闻";
+    if (category === "event") return "活动";
+    if (category === "article") return "文章";
+    if (category === "interview") return "采访";
+    if (category === "media") return "会议";
+    return category;
+  }
+
+  if (category === "news") return "News";
+  if (category === "event") return "Event";
+  if (category === "article") return "Article";
+  if (category === "interview") return "Interview";
+  if (category === "media") return "Meeting";
+
   return category;
 }
 
 function ListingCard({ post, lang, t }) {
-  const localizedPost = post[lang] || post.en || post.ar || {};
-  const firstTag =
-    Array.isArray(post.tags) && post.tags.length > 0
-      ? post.tags[0]
-      : "Leadership";
+  const localizedPost = getLocalizedPost(post, lang);
+  const firstTag = getFirstTag(
+    post,
+    lang,
+    lang === "zh" ? "领导力" : lang === "ar" ? "قيادة" : "Leadership"
+  );
 
   const category = post.category || "article";
   const cardTypeClass = categoryClass[category] || "article";
 
   return (
-    <article className="listing-card" dir={lang === "ar" ? "rtl" : "ltr"}>
+    <article className="listing-card" dir={getDirection(lang)}>
       <Link
         to={`/posts/${post.slug}`}
         className="listing-card-image-wrap"
@@ -142,7 +223,7 @@ function ListingCard({ post, lang, t }) {
 
       <div className={`listing-card-type ${cardTypeClass}`}>
         <span className="listing-card-type-icon">✦</span>
-        <span>{getCategoryLabel(category, t)}</span>
+        <span>{getCategoryLabel(category, t, lang)}</span>
       </div>
 
       <div className="listing-card-pills">
@@ -185,6 +266,7 @@ export default function StrategicMomentsSection({
   const [currentPage, setCurrentPage] = useState(1);
 
   const t = pageText[lang] || pageText.en;
+  const direction = getDirection(lang);
   const postsPerPage = 6;
 
   const scrollToPosts = () => {
@@ -248,8 +330,22 @@ export default function StrategicMomentsSection({
 
     if (sortMode === "az") {
       result.sort((a, b) => {
-        const aTitle = (a[lang]?.title || a.en?.title || "").toLowerCase();
-        const bTitle = (b[lang]?.title || b.en?.title || "").toLowerCase();
+        const aTitle = (
+          a[lang]?.title ||
+          a.en?.title ||
+          a.ar?.title ||
+          a.zh?.title ||
+          ""
+        ).toLowerCase();
+
+        const bTitle = (
+          b[lang]?.title ||
+          b.en?.title ||
+          b.ar?.title ||
+          b.zh?.title ||
+          ""
+        ).toLowerCase();
+
         return aTitle.localeCompare(bTitle);
       });
     }
@@ -265,8 +361,7 @@ export default function StrategicMomentsSection({
   }, [filteredPosts, currentPage]);
 
   const recentPost = filteredPosts[0];
-  const recentLocalized =
-    recentPost?.[lang] || recentPost?.en || recentPost?.ar || {};
+  const recentLocalized = getLocalizedPost(recentPost, lang);
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
@@ -279,10 +374,7 @@ export default function StrategicMomentsSection({
   };
 
   return (
-    <section
-      className="strategic-moments-section"
-      dir={lang === "ar" ? "rtl" : "ltr"}
-    >
+    <section className="strategic-moments-section" dir={direction}>
       <div className="strategic-moments-wrapper">
         <div className="strategic-hero">
           <div className="strategic-hero-left">
@@ -344,11 +436,15 @@ export default function StrategicMomentsSection({
                 className="recent-activity-image-wrap"
                 onClick={() => window.scrollTo(0, 0)}
               >
-                <img
-                  src={recentPost.featuredImageUrl}
-                  alt={recentLocalized.title || ""}
-                  className="recent-activity-image"
-                />
+                {recentPost.featuredImageUrl ? (
+                  <img
+                    src={recentPost.featuredImageUrl}
+                    alt={recentLocalized.title || ""}
+                    className="recent-activity-image"
+                  />
+                ) : (
+                  <div className="recent-activity-image-placeholder" />
+                )}
               </Link>
 
               <div className="recent-activity-card">
@@ -358,12 +454,20 @@ export default function StrategicMomentsSection({
                   }`}
                 >
                   <span className="recent-activity-category-icon">✦</span>
-                  <span>{getCategoryLabel(recentPost.category, t)}</span>
+                  <span>{getCategoryLabel(recentPost.category, t, lang)}</span>
                 </div>
 
                 <div className="recent-activity-pills">
                   <span className="recent-pill-tag">
-                    {recentPost.tags?.[0] || "Leadership"}
+                    {getFirstTag(
+                      recentPost,
+                      lang,
+                      lang === "zh"
+                        ? "领导力"
+                        : lang === "ar"
+                        ? "قيادة"
+                        : "Leadership"
+                    )}
                   </span>
                   <span className="recent-pill-text">
                     {Number(recentPost.readTime || 0) || 8} {t.minRead}

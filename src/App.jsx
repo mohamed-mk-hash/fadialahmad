@@ -34,6 +34,17 @@ const fallbackSiteContent = {
       stat_one: "Projects completed",
       stat_two: "Projects completed",
     },
+    zh: {
+      badge: "",
+      title: "",
+      description: "",
+      primaryButtonText: "",
+      secondaryButtonText: "",
+      primaryButtonLink: "",
+      secondaryButtonLink: "",
+      stat_one: "已完成项目",
+      stat_two: "已完成项目",
+    },
   },
   about: {},
   industrial: {},
@@ -59,8 +70,8 @@ function App() {
 
   const [siteContent, setSiteContent] = useState(fallbackSiteContent);
 
-  const toggleLanguage = () => {
-    setLang((prevLang) => (prevLang === "en" ? "ar" : "en"));
+  const changeLanguage = (newLang) => {
+    setLang(newLang);
   };
 
   const toggleTheme = () => {
@@ -136,7 +147,7 @@ function App() {
           onThemeToggle={toggleTheme}
           onLightTheme={setLightTheme}
           onDarkTheme={setDarkTheme}
-          onLanguageToggle={toggleLanguage}
+          onLanguageChange={changeLanguage}
           content={siteContent.header}
         />
 
