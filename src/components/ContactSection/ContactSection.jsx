@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ContactSection.css";
 
 import contactImage from "../../assets/contact_image.jpg";
@@ -61,7 +61,104 @@ const fallbackContactContent = {
 };
 
 const ContactSection = ({ lang = "en", content = fallbackContactContent }) => {
-  const currentContent = content?.[lang] || content?.en || fallbackContactContent.en;
+  const currentContent =
+    content?.[lang] || content?.en || fallbackContactContent.en;
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+    accepted: false,
+  });
+
+  const [status, setStatus] = useState("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setStatusMessage("");
+
+    if (!formData.firstName || !formData.email || !formData.message) {
+      setStatus("error");
+      setStatusMessage(
+        lang === "ar"
+          ? "يرجى ملء الاسم، البريد الإلكتروني والرسالة."
+          : "Please fill first name, email, and message."
+      );
+      return;
+    }
+
+    if (!formData.accepted) {
+      setStatus("error");
+      setStatusMessage(
+        lang === "ar"
+          ? "يرجى الموافقة قبل الإرسال."
+          : "Please accept before sending."
+      );
+      return;
+    }
+
+    try {
+      setStatus("sending");
+
+      const response = await fetch("https://fadialahmad.com/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Failed to send message.");
+      }
+
+      setStatus("success");
+      setStatusMessage(
+        lang === "ar"
+          ? "تم إرسال رسالتك بنجاح ✅"
+          : "Your message has been sent successfully ✅"
+      );
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+        accepted: false,
+      });
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      setStatus("error");
+      setStatusMessage(
+        lang === "ar"
+          ? "حدث خطأ أثناء إرسال الرسالة. حاول مرة أخرى."
+          : "Something went wrong while sending your message."
+      );
+    }
+  };
 
   return (
     <section className="contact-section" dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -71,22 +168,33 @@ const ContactSection = ({ lang = "en", content = fallbackContactContent }) => {
 
           <p className="contact-subtitle">{currentContent.description}</p>
 
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="contact-row">
               <div className="contact-field">
-                <label htmlFor="firstName">{currentContent.first_name_input}</label>
+                <label htmlFor="firstName">
+                  {currentContent.first_name_input}
+                </label>
                 <input
                   type="text"
                   id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   placeholder={currentContent.first_name_input}
+                  required
                 />
               </div>
 
               <div className="contact-field">
-                <label htmlFor="lastName">{currentContent.last_name_input}</label>
+                <label htmlFor="lastName">
+                  {currentContent.last_name_input}
+                </label>
                 <input
                   type="text"
                   id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   placeholder={currentContent.last_name_input}
                 />
               </div>
@@ -97,17 +205,24 @@ const ContactSection = ({ lang = "en", content = fallbackContactContent }) => {
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder={currentContent.Email_placeholder}
+                required
               />
             </div>
 
             <div className="contact-field">
               <label htmlFor="phone">{currentContent.phone_title}</label>
               <div className="contact-phone-input">
-                <span className="contact-country-code">US ▾</span>
+                <span className="contact-country-code">DZ ▾</span>
                 <input
                   type="text"
                   id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder={currentContent.number_input}
                 />
               </div>
@@ -117,19 +232,49 @@ const ContactSection = ({ lang = "en", content = fallbackContactContent }) => {
               <label htmlFor="message">{currentContent.message_input}</label>
               <textarea
                 id="message"
+                name="message"
                 rows="6"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder={currentContent["message-placeholder"]}
+                required
               ></textarea>
             </div>
 
             <label className="contact-checkbox">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                name="accepted"
+                checked={formData.accepted}
+                onChange={handleChange}
+                required
+              />
               <span>{currentContent.checkbox_text}</span>
             </label>
 
-            <button type="submit" className="contact-submit-btn">
-              {currentContent.button_text}
+            <button
+              type="submit"
+              className="contact-submit-btn"
+              disabled={status === "sending"}
+            >
+              {status === "sending"
+                ? lang === "ar"
+                  ? "جارٍ الإرسال..."
+                  : "Sending..."
+                : currentContent.button_text}
             </button>
+
+            {statusMessage && (
+              <p
+                className={
+                  status === "success"
+                    ? "contact-status success"
+                    : "contact-status error"
+                }
+              >
+                {statusMessage}
+              </p>
+            )}
           </form>
         </div>
 

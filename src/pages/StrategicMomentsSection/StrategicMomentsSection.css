@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Lato:wght@300;400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Lato:wght@300;400;500;600;700;800&display=swap");
 
 .strategic-moments-section {
   width: 100%;
   background: #f5f8fa;
   font-family: "Lato", sans-serif;
+  transition: background-color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] {
@@ -31,6 +32,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: background-color 0.35s ease;
 }
 
 .strategic-hero-title {
@@ -40,6 +42,7 @@
   line-height: 1.35;
   font-weight: 500;
   letter-spacing: -0.02em;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .strategic-hero-title {
@@ -56,6 +59,7 @@
   font-size: 20px;
   line-height: 1.55;
   font-weight: 500;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .strategic-hero-text {
@@ -84,7 +88,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
-    display: inline-flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
@@ -112,6 +116,7 @@
 .strategic-hero-right {
   background: #dfe5e8;
   padding: 0;
+  transition: background-color 0.35s ease;
 }
 
 .strategic-image-grid {
@@ -140,6 +145,7 @@
 .recent-activity {
   background: #f7f7f8;
   padding: 52px 58px 44px;
+  transition: background-color 0.35s ease;
 }
 
 .recent-activity-header {
@@ -154,6 +160,7 @@
   line-height: 1.2;
   font-weight: 700;
   letter-spacing: -0.02em;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .recent-activity-title {
@@ -168,6 +175,7 @@
   font-size: 20px;
   line-height: 1.55;
   font-weight: 400;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .recent-activity-subtitle {
@@ -243,6 +251,7 @@
   background: #e7edf1;
   border: 1px solid #d7e1e7;
   white-space: nowrap;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .recent-activity-pills {
@@ -262,6 +271,7 @@
   font-size: 12px;
   line-height: 1;
   font-weight: 400;
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
 }
 
 .recent-pill-text {
@@ -269,6 +279,7 @@
   font-size: 12px;
   line-height: 1;
   font-weight: 400;
+  transition: color 0.35s ease;
 }
 
 .recent-activity-date {
@@ -277,6 +288,7 @@
   font-size: 16px;
   line-height: 1.4;
   font-weight: 700;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .recent-activity-date {
@@ -293,6 +305,7 @@
   line-height: 1.3;
   font-weight: 700;
   letter-spacing: -0.01em;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .recent-activity-link {
@@ -313,6 +326,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .recent-activity-description {
@@ -325,6 +339,7 @@
   font-size: 16px;
   line-height: 1.4;
   font-weight: 400;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .recent-activity-meta {
@@ -338,6 +353,7 @@
 .news-listing-block {
   background: #f5f8fa;
   padding: 46px 58px 48px;
+  transition: background-color 0.35s ease;
 }
 
 .news-listing-toolbar {
@@ -348,6 +364,7 @@
   padding-bottom: 24px;
   border-bottom: 1px solid #d9e1e7;
   margin-bottom: 26px;
+  transition: border-color 0.35s ease;
 }
 
 .news-listing-tabs {
@@ -399,6 +416,7 @@
   font-family: inherit;
   font-size: 15px;
   outline: none;
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .listing-select {
@@ -415,6 +433,7 @@
   margin: 0;
   color: #5d6c82;
   font-size: 16px;
+  transition: color 0.35s ease;
 }
 
 .listing-card {
@@ -431,6 +450,7 @@
   display: block;
   background: #e7edf1;
   text-decoration: none;
+  transition: background-color 0.35s ease;
 }
 
 .listing-card-image,
@@ -488,6 +508,7 @@
   background: #e8edf1;
   border: 1px solid #d9e2e8;
   white-space: nowrap;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .listing-card-pills {
@@ -507,6 +528,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
 }
 
 .listing-pill-text {
@@ -514,6 +536,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
+  transition: color 0.35s ease;
 }
 
 .listing-card-title-row {
@@ -534,6 +557,7 @@
   font-weight: 700;
   letter-spacing: -0.01em;
   flex: 1;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .listing-card-title {
@@ -548,6 +572,7 @@
   font-size: 20px;
   line-height: 1;
   margin-top: 2px;
+  transition: color 0.35s ease;
 }
 
 .listing-card-description {
@@ -562,6 +587,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .listing-card-description {
@@ -574,6 +600,7 @@
   font-size: 16px;
   line-height: 1.4;
   font-weight: 400;
+  transition: color 0.35s ease;
 }
 
 .strategic-moments-section[dir="rtl"] .listing-card-meta {
@@ -589,6 +616,7 @@
   margin-top: 34px;
   padding-top: 20px;
   border-top: 1px solid #d9e1e7;
+  transition: border-color 0.35s ease;
 }
 
 .listing-page-nav {
@@ -599,6 +627,7 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  transition: color 0.35s ease;
 }
 
 .listing-page-nav:disabled {
@@ -621,6 +650,7 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .page-number.active {
@@ -630,6 +660,150 @@
   background: #e8edf1;
   color: #1a2434;
   font-weight: 700;
+}
+
+/* =========================
+   DARK MODE - STRATEGIC MOMENTS PAGE
+========================= */
+
+.dark-mode .strategic-moments-section {
+  background: #0f1923;
+}
+
+.dark-mode .strategic-hero-left,
+.dark-mode .strategic-hero-right {
+  background: #132230;
+}
+
+.dark-mode .strategic-hero-title {
+  color: #9dcced;
+}
+
+.dark-mode .strategic-hero-text {
+  color: #c8d4df;
+}
+
+.dark-mode .strategic-btn-primary {
+  background: #5f9abc;
+  color: #ffffff;
+}
+
+.dark-mode .strategic-btn-primary:hover {
+  background: #7db4d6;
+}
+
+.dark-mode .strategic-btn-outline {
+  border-color: #5f9abc;
+  color: #9dcced;
+}
+
+.dark-mode .strategic-btn-outline:hover {
+  background: rgba(95, 154, 188, 0.15);
+}
+
+.dark-mode .recent-activity,
+.dark-mode .news-listing-block {
+  background: #0f1923;
+}
+
+.dark-mode .recent-activity-title,
+.dark-mode .recent-activity-link,
+.dark-mode .listing-card-title,
+.dark-mode .listing-card-arrow {
+  color: #f5f8fb;
+}
+
+.dark-mode .recent-activity-subtitle,
+.dark-mode .recent-activity-description,
+.dark-mode .news-listing-message,
+.dark-mode .listing-card-description {
+  color: #c8d4df;
+}
+
+.dark-mode .recent-activity-date,
+.dark-mode .recent-activity-meta,
+.dark-mode .recent-pill-text,
+.dark-mode .listing-pill-text,
+.dark-mode .listing-card-meta {
+  color: #9dcced;
+}
+
+.dark-mode .recent-activity-pills,
+.dark-mode .listing-card-pills {
+  background: #172735;
+  border-color: #2d4050;
+}
+
+.dark-mode .recent-pill-tag,
+.dark-mode .listing-pill {
+  background: #223747;
+  border-color: #2d4050;
+  color: #9dcced;
+}
+
+.dark-mode .recent-activity-category.news,
+.dark-mode .listing-card-type.news {
+  color: #f2a93b;
+}
+
+.dark-mode .recent-activity-category.event,
+.dark-mode .listing-card-type.event {
+  color: #ff7db9;
+}
+
+.dark-mode .recent-activity-category.article,
+.dark-mode .listing-card-type.article {
+  color: #9dcced;
+}
+
+.dark-mode .recent-activity-category.meeting,
+.dark-mode .listing-card-type.meeting {
+  color: #b49cff;
+}
+
+.dark-mode .news-listing-toolbar,
+.dark-mode .news-listing-pagination {
+  border-color: #2d4050;
+}
+
+.dark-mode .listing-tab {
+  color: #a9b8c7;
+}
+
+.dark-mode .listing-tab.active,
+.dark-mode .listing-tab:hover {
+  color: #9dcced;
+  border-bottom-color: #9dcced;
+}
+
+.dark-mode .listing-select {
+  background: #172735;
+  border-color: #2d4050;
+  color: #f5f8fb;
+}
+
+.dark-mode .listing-select option {
+  background: #172735;
+  color: #f5f8fb;
+}
+
+.dark-mode .listing-card-image-wrap {
+  background: #172735;
+}
+
+.dark-mode .listing-page-nav,
+.dark-mode .page-number {
+  color: #c8d4df;
+}
+
+.dark-mode .page-number.active {
+  background: #223747;
+  color: #f5f8fb;
+}
+
+.dark-mode .listing-page-nav:hover,
+.dark-mode .page-number:hover {
+  color: #9dcced;
 }
 
 /* =========================
