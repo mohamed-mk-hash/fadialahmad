@@ -11,7 +11,7 @@ import phoneIcon from "../../assets/phone_Icon.png";
 import twitterIcon from "../../assets/twitter.png";
 import linkedinIcon from "../../assets/linkedin.png";
 import facebookIcon from "../../assets/facebook.png";
-import youtubeIcon from "../../assets/YOUTUBE.png";
+import youtubeIcon from "../../assets/instagram.png";
 
 const fallbackContactContent = {
   ar: {
@@ -300,20 +300,43 @@ const ContactSection = ({ lang = "en", content = fallbackContactContent }) => {
               <h3>{currentContent.social_media_title}</h3>
               <p>{currentContent.social_media_description}</p>
 
-              <div className="contact-social-links">
-                <a href="/" aria-label="Twitter">
-                  <img src={twitterIcon} alt="Twitter" />
-                </a>
-                <a href="/" aria-label="LinkedIn">
-                  <img src={linkedinIcon} alt="LinkedIn" />
-                </a>
-                <a href="/" aria-label="Facebook">
-                  <img src={facebookIcon} alt="Facebook" />
-                </a>
-                <a href="/" aria-label="YouTube">
-                  <img src={youtubeIcon} alt="YouTube" />
-                </a>
-              </div>
+             <div className="contact-social-links">
+  <a
+    href="https://x.com/fadi_alahmad5"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Twitter"
+  >
+    <img src={twitterIcon} alt="Twitter" />
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/fadialahmad"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+  >
+    <img src={linkedinIcon} alt="LinkedIn" />
+  </a>
+
+  <a
+    href="https://www.facebook.com/fadialahmd/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+  >
+    <img src={facebookIcon} alt="Facebook" />
+  </a>
+
+  <a
+    href="https://www.instagram.com/fadialahmad5"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+  >
+    <img src={youtubeIcon} alt="Instagram" />
+  </a>
+</div>
             </div>
 
             <div className="contact-info-card">

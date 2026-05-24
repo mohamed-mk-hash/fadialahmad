@@ -46,6 +46,7 @@ function HomePage({ lang = "en", siteContent = {} }) {
         />
       </section>
 
+
       <section id="industrial">
         <IndustrialBrands
           lang={lang}

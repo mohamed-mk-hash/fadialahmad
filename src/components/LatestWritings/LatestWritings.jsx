@@ -126,6 +126,10 @@ const LatestWritings = ({
     }).format(date);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     const fetchLatestWritingsPosts = async () => {
       try {
@@ -215,45 +219,50 @@ const LatestWritings = ({
 
               return (
                 <SwiperSlide key={item.id}>
-                  <article
-                    className="writing-card"
-                    dir={getDirection(lang)}
+                  <Link
+                    to={`/posts/${item.slug}`}
+                    className="writing-card-link"
+                    onClick={scrollToTop}
+                    aria-label={localizedPost.title}
                   >
-                    <div className="writing-card-image-box">
-                      <img
-                        src={item.featuredImageUrl}
-                        alt={localizedPost.title}
-                        className="writing-card-image"
-                      />
-                    </div>
-
-                    <div className="writing-card-content">
-                      <p className="writing-card-meta">
-                        <span>{currentUiText.article}</span>
-                        <span className="writing-dot">•</span>
-                        <span>{formatDate(item.publishedAt, lang)}</span>
-                      </p>
-
-                      <div className="writing-card-title-row">
-                        <h3 className="writing-card-title">
-                          {localizedPost.title}
-                        </h3>
-
-                        <Link
-                          to={`/posts/${item.slug}`}
-                          className="writing-card-arrow-link"
-                          onClick={() => window.scrollTo(0, 0)}
-                          aria-label={localizedPost.title}
-                        >
-                          <span className="writing-card-arrow">↗</span>
-                        </Link>
+                    <article
+                      className="writing-card"
+                      dir={getDirection(lang)}
+                    >
+                      <div className="writing-card-image-box">
+                        <img
+                          src={item.featuredImageUrl}
+                          alt={localizedPost.title}
+                          className="writing-card-image"
+                        />
                       </div>
 
-                      <p className="writing-card-description">
-                        {localizedPost.subtitle}
-                      </p>
-                    </div>
-                  </article>
+                      <div className="writing-card-content">
+                        <p className="writing-card-meta">
+                          <span>{currentUiText.article}</span>
+                          <span className="writing-dot">•</span>
+                          <span>{formatDate(item.publishedAt, lang)}</span>
+                        </p>
+
+                        <div className="writing-card-title-row">
+                          <h3 className="writing-card-title">
+                            {localizedPost.title}
+                          </h3>
+
+                          <span
+                            className="writing-card-arrow-link"
+                            aria-hidden="true"
+                          >
+                            <span className="writing-card-arrow">↗</span>
+                          </span>
+                        </div>
+
+                        <p className="writing-card-description">
+                          {localizedPost.subtitle}
+                        </p>
+                      </div>
+                    </article>
+                  </Link>
                 </SwiperSlide>
               );
             })}

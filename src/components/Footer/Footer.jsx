@@ -3,6 +3,11 @@ import "./Footer.css";
 
 import footerLogo from "../../assets/footer_logo.png";
 
+import twitterIcon from "../../assets/twitter.png";
+import linkedinIcon from "../../assets/linkedin.png";
+import facebookIcon from "../../assets/facebook.png";
+import instagramIcon from "../../assets/instagram.png";
+
 const fallbackFooterContent = {
   ar: {
     menu_one: "",
@@ -59,6 +64,48 @@ const Footer = ({ lang = "en", content = fallbackFooterContent }) => {
           <a href="#articles">{currentContent.menu_six}</a>
           <a href="#gallery">{currentContent.menu_seven}</a>
         </nav>
+
+        <div className="footer-social-links">
+  <a
+    href="https://x.com/fadi_alahmad5"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Twitter"
+    className="footer-social-link"
+  >
+    <img src={twitterIcon} alt="Twitter" />
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/fadialahmad"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    className="footer-social-link"
+  >
+    <img src={linkedinIcon} alt="LinkedIn" />
+  </a>
+
+  <a
+    href="https://www.facebook.com/fadialahmd/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    className="footer-social-link"
+  >
+    <img src={facebookIcon} alt="Facebook" />
+  </a>
+
+  <a
+    href="https://www.instagram.com/fadialahmad5"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="footer-social-link footer-social-link-instagram"
+  >
+    <img src={instagramIcon} alt="Instagram" />
+  </a>
+</div>
 
         <div className="footer-divider"></div>
 

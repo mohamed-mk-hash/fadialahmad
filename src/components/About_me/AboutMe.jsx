@@ -24,7 +24,8 @@ const fallbackAboutContent = {
 };
 
 const AboutMe = ({ lang = "en", content = fallbackAboutContent }) => {
-  const currentContent = content?.[lang] || content?.en || fallbackAboutContent.en;
+  const currentContent =
+    content?.[lang] || content?.en || fallbackAboutContent.en;
 
   return (
     <section className="about-me-section" dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -50,16 +51,6 @@ const AboutMe = ({ lang = "en", content = fallbackAboutContent }) => {
         </div>
 
         <div className="about-me-right">
-          <div className="about-stat">
-            <h3>{currentContent.experience_number}</h3>
-            <p>{currentContent.experience_title}</p>
-          </div>
-
-          <div className="about-stat">
-            <h3>{currentContent.foundation_number}</h3>
-            <p>{currentContent.foundation_title}</p>
-          </div>
-
           <div className="about-stat">
             <h3>{currentContent.experience_number}</h3>
             <p>{currentContent.experience_title}</p>
