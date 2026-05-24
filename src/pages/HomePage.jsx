@@ -46,18 +46,12 @@ function HomePage({ lang = "en", siteContent = {} }) {
         />
       </section>
 
-
       <section id="industrial">
         <IndustrialBrands
           lang={lang}
           content={siteContent.industrial}
         />
       </section>
-
-      <BusinessShowcaseSection
-        lang={lang}
-        content={siteContent.businessShowcase}
-      />
 
       <section id="biography">
         <AboutMe
@@ -73,13 +67,6 @@ function HomePage({ lang = "en", siteContent = {} }) {
         />
       </section>
 
-      <section id="stories">
-        <SuccessStories
-          lang={lang}
-          content={siteContent.stories}
-        />
-      </section>
-
       <section id="story-section">
         <StorySection
           lang={lang}
@@ -87,6 +74,12 @@ function HomePage({ lang = "en", siteContent = {} }) {
         />
       </section>
 
+      <BusinessShowcaseSection
+        lang={lang}
+        content={siteContent.businessShowcase}
+      />
+
+      
       <section id="articles">
         <LatestWritings
           lang={lang}
