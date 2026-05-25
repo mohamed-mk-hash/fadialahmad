@@ -53,6 +53,11 @@ function HomePage({ lang = "en", siteContent = {} }) {
         />
       </section>
 
+       <BusinessShowcaseSection
+        lang={lang}
+        content={siteContent.businessShowcase}
+      />
+
       <section id="biography">
         <AboutMe
           lang={lang}
@@ -74,12 +79,7 @@ function HomePage({ lang = "en", siteContent = {} }) {
         />
       </section>
 
-      <BusinessShowcaseSection
-        lang={lang}
-        content={siteContent.businessShowcase}
-      />
-
-      
+     
       <section id="articles">
         <LatestWritings
           lang={lang}

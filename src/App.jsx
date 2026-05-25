@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SinglePostPage from "./pages/SinglePostPage/SinglePostPage";
 import StrategicMomentsSection from "./pages/StrategicMomentsSection/StrategicMomentsSection";
+import BiographyPage from "./pages/About/BiographyPage";
 
 const fallbackSiteContent = {
   header: {},
@@ -166,6 +167,16 @@ function App() {
             path="/strategicmoments"
             element={
               <StrategicMomentsSection
+                lang={lang}
+                contactContent={siteContent.contact}
+              />
+            }
+          />
+
+        <Route
+            path="/biography"
+            element={
+              <BiographyPage
                 lang={lang}
                 contactContent={siteContent.contact}
               />

@@ -89,6 +89,19 @@
   object-fit: cover;
 }
 
+
+.moments-image--focus-about-one {
+  object-position: 58% center;
+}
+
+.moments-image--focus-about-four {
+  object-position: center center;
+}
+
+.moments-image--focus-about-five {
+  object-position: 68% center;
+}
+
 /* =========================
    Dark mode - Moments Milestones
 ========================= */

@@ -10,7 +10,11 @@ const fallbackAboutContent = {
     experience_title: "",
     foundation_number: "",
     foundation_title: "",
+    third_number: "",
+    third_title: "",
     image_description: "",
+    button_text: "",
+    button_link: "",
   },
   en: {
     title: "",
@@ -19,13 +23,22 @@ const fallbackAboutContent = {
     experience_title: "",
     foundation_number: "",
     foundation_title: "",
+    third_number: "",
+    third_title: "",
     image_description: "",
+    button_text: "",
+    button_link: "",
   },
 };
 
 const AboutMe = ({ lang = "en", content = fallbackAboutContent }) => {
   const currentContent =
     content?.[lang] || content?.en || fallbackAboutContent.en;
+
+  const aboutButtonText =
+    currentContent.button_text || (lang === "ar" ? "السيرة الذاتية" : "Biography");
+
+  const aboutButtonLink = currentContent.button_link || "#biography";
 
   return (
     <section className="about-me-section" dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -34,6 +47,15 @@ const AboutMe = ({ lang = "en", content = fallbackAboutContent }) => {
           <h2 className="about-me-title">{currentContent.title}</h2>
 
           <p className="about-me-text">{currentContent.description}</p>
+
+          <a
+  href={aboutButtonLink}
+  className="about-me-button"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  {aboutButtonText}
+</a>
         </div>
 
         <div className="about-me-center">
@@ -59,6 +81,11 @@ const AboutMe = ({ lang = "en", content = fallbackAboutContent }) => {
           <div className="about-stat">
             <h3>{currentContent.foundation_number}</h3>
             <p>{currentContent.foundation_title}</p>
+          </div>
+
+          <div className="about-stat">
+            <h3>{currentContent.third_number}</h3>
+            <p>{currentContent.third_title}</p>
           </div>
         </div>
       </div>

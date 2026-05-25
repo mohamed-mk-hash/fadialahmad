@@ -42,37 +42,6 @@ const HeroStorySection = ({
   const currentContent =
     heroContent?.[lang] || heroContent?.en || fallbackHeroContent.en;
 
-  const heroStats =
-    lang === "ar"
-      ? [
-          {
-            number: "+25",
-            label: currentContent.stat_one || "سنة من الخبرة",
-          },
-          {
-            number: "+50",
-            label: currentContent.stat_two || "دولة حول العالم",
-          },
-          {
-            number: "+28",
-            label: currentContent.stat_three || "مشروع وشركة",
-          },
-        ]
-      : [
-          {
-            number: "+25",
-            label: currentContent.stat_one || "Years of experience",
-          },
-          {
-            number: "+50",
-            label: currentContent.stat_two || "Countries worldwide",
-          },
-          {
-            number: "+28",
-            label: currentContent.stat_three || "Projects & companies",
-          },
-        ];
-
   useEffect(() => {
     setAnimateContent(true);
 
@@ -131,24 +100,6 @@ const HeroStorySection = ({
             </a>
           </div>
         </div>
-
-        <div
-  className={`hero-story-highlight ${
-    animateContent ? "content-switch" : ""
-  }`}
->
-  <div className="hero-story-highlight-card">
-    <span className="hero-story-highlight-label">
-      {lang === "ar" ? "من حلب إلى العالم" : "From Aleppo to the world"}
-    </span>
-
-    <p>
-      {lang === "ar"
-        ? "رحلة صناعية بدأت من مدينة تحمل إرث النسيج، وامتدت إلى الصين والخليج وأوروبا لبناء حضور عالمي قائم على الجودة والثقة."
-        : "An industrial journey that began in a city shaped by textile heritage, then expanded to China, the Gulf, and Europe through quality and trust."}
-    </p>
-  </div>
-</div>
       </div>
     </section>
   );
