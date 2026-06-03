@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import "./BiographyPage.css";
 
 import siteContent from "../../../public/data/siteContent.json";
@@ -127,6 +127,36 @@ const splitLines = (value) => {
 };
 
 const BiographyPage = ({ lang = "en", content }) => {
+  useEffect(() => {
+    const sectionId =
+      sessionStorage.getItem("scrollToSection") ||
+      window.location.hash.replace("#", "");
+
+    if (!sectionId) return;
+
+    const timer = setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      const header = document.querySelector(".header");
+
+      if (section) {
+        const headerHeight = header ? header.offsetHeight : 0;
+        const sectionTop =
+          section.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight;
+
+        window.scrollTo({
+          top: sectionTop,
+          behavior: "smooth",
+        });
+      }
+
+      sessionStorage.removeItem("scrollToSection");
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const aboutContent = content || siteContent?.about || fallbackBiographyContent;
 
   const currentContent =
@@ -187,7 +217,7 @@ const BiographyPage = ({ lang = "en", content }) => {
       } ${lang === "zh" ? "biography-page-zh" : ""}`}
       dir={pageDirection}
     >
-      <section className="biography-hero">
+      <section id="biography" className="biography-hero">
         <div className="biography-hero-container">
           <div className="biography-hero-content">
             <span className="biography-kicker">

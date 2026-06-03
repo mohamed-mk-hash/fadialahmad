@@ -23,11 +23,18 @@ function HomePage({ lang = "en", siteContent = {} }) {
 
     const timer = setTimeout(() => {
       const section = document.getElementById(sectionId);
+      const header = document.querySelector(".header");
 
       if (section) {
-        section.scrollIntoView({
+        const headerHeight = header ? header.offsetHeight : 0;
+        const sectionTop =
+          section.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight;
+
+        window.scrollTo({
+          top: sectionTop,
           behavior: "smooth",
-          block: "start",
         });
       }
 
@@ -53,12 +60,12 @@ function HomePage({ lang = "en", siteContent = {} }) {
         />
       </section>
 
-       <BusinessShowcaseSection
+      <BusinessShowcaseSection
         lang={lang}
         content={siteContent.businessShowcase}
       />
 
-      <section id="biography">
+      <section id="about">
         <AboutMe
           lang={lang}
           content={siteContent.about}
@@ -79,7 +86,6 @@ function HomePage({ lang = "en", siteContent = {} }) {
         />
       </section>
 
-     
       <section id="articles">
         <LatestWritings
           lang={lang}

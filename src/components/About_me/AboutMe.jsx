@@ -36,9 +36,11 @@ const AboutMe = ({ lang = "en", content = fallbackAboutContent }) => {
     content?.[lang] || content?.en || fallbackAboutContent.en;
 
   const aboutButtonText =
-    currentContent.button_text || (lang === "ar" ? "السيرة الذاتية" : "Biography");
+    currentContent.button_text ||
+    (lang === "ar" ? "السيرة الذاتية" : "Biography");
 
-  const aboutButtonLink = currentContent.button_link || "#biography";
+  const aboutButtonLink =
+    currentContent.button_link || "/biography#biography";
 
   return (
     <section className="about-me-section" dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -48,14 +50,9 @@ const AboutMe = ({ lang = "en", content = fallbackAboutContent }) => {
 
           <p className="about-me-text">{currentContent.description}</p>
 
-          <a
-  href={aboutButtonLink}
-  className="about-me-button"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  {aboutButtonText}
-</a>
+          <a href={aboutButtonLink} className="about-me-button">
+            {aboutButtonText}
+          </a>
         </div>
 
         <div className="about-me-center">

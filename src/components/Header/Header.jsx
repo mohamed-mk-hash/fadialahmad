@@ -89,16 +89,19 @@ const Header = ({
     }
   };
 
-  const scrollToSection = (event, sectionId) => {
+  const scrollToSection = (event, item) => {
     event.preventDefault();
 
     closeMenu();
 
-    const isHomePage = location.pathname === "/";
+    const targetPath = item.path || "/";
+    const sectionId = item.id;
 
-    if (!isHomePage) {
+    const isSamePage = location.pathname === targetPath;
+
+    if (!isSamePage) {
       sessionStorage.setItem("scrollToSection", sectionId);
-      navigate("/");
+      navigate(targetPath);
       return;
     }
 
@@ -116,19 +119,27 @@ const Header = ({
       behavior: "smooth",
     });
 
-    window.history.pushState(null, "", `#${sectionId}`);
+    window.history.pushState(null, "", `${targetPath}#${sectionId}`);
   };
 
   const menuItems = [
-    { label: currentContent.menu_one, id: "home" },
-    { label: currentContent.menu_two, id: "biography" },
-    { label: currentContent.menu_three, id: "areas" },
-    { label: currentContent.menu_four, id: "story-section" },
-    { label: currentContent.menu_six, id: "articles" },
-    { label: currentContent.menu_seven, id: "gallery" },
-    { label: currentContent.menu_ten, id: "news-events" },
-    { label: currentContent.menu_nine, id: "faq" },
+    { label: currentContent.menu_one, path: "/", id: "home" },
+
+    // menu_two now goes to the Biography page and the biography section
+    { label: currentContent.menu_two, path: "/biography", id: "biography" },
+
+    { label: currentContent.menu_three, path: "/", id: "areas" },
+    { label: currentContent.menu_four, path: "/", id: "story-section" },
+    { label: currentContent.menu_six, path: "/", id: "articles" },
+    { label: currentContent.menu_seven, path: "/", id: "gallery" },
+    { label: currentContent.menu_ten, path: "/", id: "news-events" },
+    { label: currentContent.menu_nine, path: "/", id: "faq" },
   ];
+
+  const contactItem = {
+    path: "/",
+    id: "contact",
+  };
 
   const languageDropdown = (
     <div className="language-dropdown">
@@ -174,7 +185,15 @@ const Header = ({
         </button>
 
         <div className="header__left">
-          <a href="/#home" onClick={(e) => scrollToSection(e, "home")}>
+          <a
+            href="/#home"
+            onClick={(e) =>
+              scrollToSection(e, {
+                path: "/",
+                id: "home",
+              })
+            }
+          >
             <img src={logo} alt="Logo" className="header__logo" />
           </a>
         </div>
@@ -182,9 +201,9 @@ const Header = ({
         <nav className="header__nav">
           {menuItems.map((item) => (
             <a
-              key={item.id}
-              href={`/#${item.id}`}
-              onClick={(e) => scrollToSection(e, item.id)}
+              key={`${item.path}-${item.id}`}
+              href={`${item.path}#${item.id}`}
+              onClick={(e) => scrollToSection(e, item)}
             >
               {item.label}
             </a>
@@ -195,7 +214,7 @@ const Header = ({
           <a
             href="/#contact"
             className="contact-btn"
-            onClick={(e) => scrollToSection(e, "contact")}
+            onClick={(e) => scrollToSection(e, contactItem)}
           >
             {currentContent.menu_eight}
           </a>
@@ -267,9 +286,9 @@ const Header = ({
         <nav className="mobile-drawer__nav">
           {menuItems.map((item) => (
             <a
-              key={item.id}
-              href={`/#${item.id}`}
-              onClick={(e) => scrollToSection(e, item.id)}
+              key={`${item.path}-${item.id}`}
+              href={`${item.path}#${item.id}`}
+              onClick={(e) => scrollToSection(e, item)}
             >
               {item.label}
             </a>
@@ -279,7 +298,7 @@ const Header = ({
         <a
           href="/#contact"
           className="contact-btn mobile-contact-btn"
-          onClick={(e) => scrollToSection(e, "contact")}
+          onClick={(e) => scrollToSection(e, contactItem)}
         >
           {currentContent.menu_eight}
         </a>
