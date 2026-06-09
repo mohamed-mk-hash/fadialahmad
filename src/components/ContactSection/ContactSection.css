@@ -528,3 +528,30 @@
     height: 240px;
   }
 }
+
+.phone-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+  font-family: "Lato", sans-serif !important;
+}
+
+.contact-section[dir="rtl"] .phone-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+  font-family: "Lato", sans-serif !important;
+}
+
+.contact-phone-input {
+  direction: ltr;
+}
+
+.contact-section[dir="rtl"] .contact-phone-input {
+  direction: ltr;
+}
+
+.contact-country-code {
+  direction: ltr;
+  unicode-bidi: isolate;
+}

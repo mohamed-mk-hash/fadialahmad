@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./SinglePost.css";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import LatestWritings from "../../components/LatestWritings/LatestWritings";
 import profileimage from "../../assets/About_me_center.png";
 
@@ -80,6 +80,7 @@ const transformBottomHtml = (html = "") => {
 
   const isConclusionHeading = (node) => {
     if (!node) return false;
+
     const tag = node.tagName?.toLowerCase();
     if (!["h2", "h3", "h4"].includes(tag)) return false;
 
@@ -129,6 +130,61 @@ const getYouTubeEmbedUrl = (url = "") => {
   } catch {
     return "";
   }
+};
+
+const normalizeText = (value = "") => {
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/[،,]/g, "")
+    .replace(/\s+/g, " ");
+};
+
+const cleanDateFromText = (text = "", dateTexts = []) => {
+  let cleanedText = String(text);
+
+  dateTexts.forEach((dateText) => {
+    if (!dateText) return;
+
+    cleanedText = cleanedText.split(dateText).join("");
+  });
+
+  cleanedText = cleanedText
+    .replace(
+      /\b(?:january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{4}\b/gi,
+      ""
+    )
+    .replace(
+      /\b\d{4}\s+(?:january|february|march|april|may|june|july|august|september|october|november|december)\b/gi,
+      ""
+    )
+    .replace(
+      /(?:يناير|جانفي|فبراير|فيفري|مارس|أبريل|ابريل|أفريل|افريل|ماي|يونيو|جوان|يوليو|جويلية|أغسطس|أوت|سبتمبر|شتنبر|أكتوبر|اكتوبر|نوفمبر|ديسمبر)\s+\d{4}/g,
+      ""
+    )
+    .replace(
+      /\d{4}\s+(?:يناير|جانفي|فبراير|فيفري|مارس|أبريل|ابريل|أفريل|افريل|ماي|يونيو|جوان|يوليو|جويلية|أغسطس|أوت|سبتمبر|شتنبر|أكتوبر|اكتوبر|نوفمبر|ديسمبر)/g,
+      ""
+    )
+    .replace(/^[\s\-–—|:]+/, "")
+    .replace(/[\s\-–—|:]+$/, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return cleanedText;
+};
+
+const getDisplayAuthorName = (post, lang) => {
+  const localizedAuthor =
+    post?.author?.[lang] ||
+    post?.authorName?.[lang] ||
+    post?.authorName ||
+    post?.writerName?.[lang] ||
+    post?.writerName;
+
+  if (localizedAuthor) return localizedAuthor;
+
+  return lang === "ar" ? "فادي الأحمد" : "Fadi Al Ahmad";
 };
 
 function SinglePostPage({ lang = "en" }) {
@@ -182,6 +238,18 @@ function SinglePostPage({ lang = "en" }) {
     }).format(date);
   };
 
+  const formatMonthYear = (dateString) => {
+    if (!dateString) return "";
+
+    const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return "";
+
+    return new Intl.DateTimeFormat(lang === "ar" ? "ar-DZ" : "en-GB", {
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  };
+
   const localized = post?.[lang] || post?.en || post?.ar || {};
   const category = post?.category || "article";
   const categoryLabel = t.categoryLabels[category] || category;
@@ -192,7 +260,38 @@ function SinglePostPage({ lang = "en" }) {
   );
 
   const youtubeEmbedUrl = getYouTubeEmbedUrl(post?.videoUrl || "");
-  const hasTags = Array.isArray(post?.tags) && post.tags.length > 0;
+
+  const publishedDateText = post?.publishedAt ? formatDate(post.publishedAt) : "";
+  const publishedMonthYearText = post?.publishedAt
+    ? formatMonthYear(post.publishedAt)
+    : "";
+
+  const dateTextsToRemove = useMemo(() => {
+    return [publishedDateText, publishedMonthYearText].filter(Boolean);
+  }, [publishedDateText, publishedMonthYearText]);
+
+  const cleanedLocationText = useMemo(() => {
+    if (!localized.locationText) return "";
+
+    return cleanDateFromText(localized.locationText, dateTextsToRemove);
+  }, [localized.locationText, dateTextsToRemove]);
+
+  const visibleTags = useMemo(() => {
+    if (!Array.isArray(post?.tags)) return [];
+
+    return post.tags
+      .map((tag) => cleanDateFromText(tag, dateTextsToRemove))
+      .filter(Boolean)
+      .filter((tag, index, array) => {
+        return (
+          array.findIndex(
+            (item) => normalizeText(item) === normalizeText(tag)
+          ) === index
+        );
+      });
+  }, [post?.tags, dateTextsToRemove]);
+
+  const hasTags = visibleTags.length > 0;
 
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
   const shareTitle = localized.title || "";
@@ -282,9 +381,11 @@ function SinglePostPage({ lang = "en" }) {
             ✦ {categoryLabel}
           </div>
 
-          <p className="post-date">
-            {post.publishedAt ? `${t.published} ${formatDate(post.publishedAt)}` : ""}
-          </p>
+          {publishedDateText ? (
+            <p className="post-date">
+              {t.published} {publishedDateText}
+            </p>
+          ) : null}
 
           <h1 className="post-title">{localized.title || ""}</h1>
 
@@ -299,12 +400,12 @@ function SinglePostPage({ lang = "en" }) {
               </span>
             )}
 
-            {localized.locationText && <span>{localized.locationText}</span>}
+            {cleanedLocationText && <span>{cleanedLocationText}</span>}
           </div>
 
           {hasTags && (
             <div className="post-tags">
-              {post.tags.map((tag) => (
+              {visibleTags.map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
             </div>
@@ -321,7 +422,9 @@ function SinglePostPage({ lang = "en" }) {
           </div>
         </section>
 
-        {(category === "event" || category === "interview" || category === "media") && (
+        {(category === "event" ||
+          category === "interview" ||
+          category === "media") && (
           <section className="post-type-info">
             {category === "event" && (
               <>
@@ -426,9 +529,9 @@ function SinglePostPage({ lang = "en" }) {
 
           <div className="post-author">
             <div className="author-info">
-              <img src={profileimage} alt="Author" />
+              <img src={profileimage} alt={getDisplayAuthorName(post, lang)} />
               <div>
-                <p className="author-name">{post.createdBy || "Fadi Al Ahmad"}</p>
+                <p className="author-name">{getDisplayAuthorName(post, lang)}</p>
                 <p className="author-role">{t.authorRole}</p>
               </div>
             </div>

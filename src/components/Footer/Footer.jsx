@@ -116,15 +116,6 @@ const Footer = ({ lang = "en", content = fallbackFooterContent }) => {
             </h3>
 
             <div className="footer-contact">
-              {phone && (
-                <div className="footer-contact-item">
-                  <span className="footer-contact-label">
-                    {lang === "ar" ? "الهاتف" : "Phone"}
-                  </span>
-
-                  <a href={`tel:${cleanPhone}`}>{phone}</a>
-                </div>
-              )}
 
               {email && (
                 <div className="footer-contact-item">

@@ -8,7 +8,6 @@ import top4 from "../../assets/moments_top_4.jpg";
 import top5 from "../../assets/moments_top_5.jpg";
 
 import bottom1 from "../../assets/about_me_7.jpg";
-import bottom3 from "../../assets/moments_bottom_3.jpg";
 import bottom5 from "../../assets/moments_bottom_5.jpg";
 
 /* New images used in the biography/about page */
@@ -32,10 +31,6 @@ const bottomImages = [
   {
     src: aboutImageOne,
     className: "moments-image--focus-about-one",
-  },
-  {
-    src: bottom3,
-    className: "",
   },
   {
     src: aboutImageFour,

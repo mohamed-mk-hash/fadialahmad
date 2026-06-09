@@ -124,17 +124,12 @@ const Header = ({
 
   const menuItems = [
     { label: currentContent.menu_one, path: "/", id: "home" },
-
-    // menu_two now goes to the Biography page and the biography section
     { label: currentContent.menu_two, path: "/biography", id: "biography" },
-
-    { label: currentContent.menu_three, path: "/", id: "areas" },
     { label: currentContent.menu_four, path: "/", id: "story-section" },
     { label: currentContent.menu_six, path: "/", id: "articles" },
     { label: currentContent.menu_seven, path: "/", id: "gallery" },
     { label: currentContent.menu_ten, path: "/", id: "news-events" },
-    { label: currentContent.menu_nine, path: "/", id: "faq" },
-  ];
+  ].filter((item) => item.label);
 
   const contactItem = {
     path: "/",
