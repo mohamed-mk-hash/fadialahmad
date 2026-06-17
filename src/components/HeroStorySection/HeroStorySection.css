@@ -107,7 +107,7 @@
   max-width: 720px;
   color: #ffffff;
   font-size: 58px;
-  line-height: 1.7 !important;
+  line-height: 1.2 !important;
   font-weight: 700;
   letter-spacing: -1.2px;
 }
@@ -578,3 +578,4 @@
 .expertise-section[dir="rtl"] {
   font-family: "Alexandria", sans-serif;
 }
+

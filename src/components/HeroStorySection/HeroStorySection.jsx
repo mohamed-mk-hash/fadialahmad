@@ -33,6 +33,15 @@ const fallbackHeroContent = {
   },
 };
 
+const renderTextWithBreaks = (text = "") => {
+  return text.split("/").map((part, index, array) => (
+    <React.Fragment key={index}>
+      {part.trim()}
+      {index < array.length - 1 && <br />}
+    </React.Fragment>
+  ));
+};
+
 const HeroStorySection = ({
   lang = "en",
   heroContent = fallbackHeroContent,
@@ -80,9 +89,13 @@ const HeroStorySection = ({
             <span>{currentContent.badge}</span>
           </div>
 
-          <h1 className="hero-story-title">{currentContent.title}</h1>
+          <h1 className="hero-story-title">
+        {renderTextWithBreaks(currentContent.title)}
+         </h1>
 
-          <p className="hero-story-text">{currentContent.description}</p>
+          <p className="hero-story-text">
+        {renderTextWithBreaks(currentContent.description)}
+         </p>
 
           <div className="hero-story-actions">
             <a
